@@ -64,7 +64,7 @@ Things you may want to cover:
 |name|string|null: false, add_index|
 |price|integer|null: false|
 |product_info|text|null: false|
-|registration_inf|string|null: false|
+|registration_info|string|null: false|
 |description|text|
 |stock|integer|null: false|
 
