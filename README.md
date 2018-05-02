@@ -28,10 +28,8 @@ Things you may want to cover:
 
 |Column|Tyoe|Options|
 |------|----|-------|
-|product|references|foreign_key:true|
-|review|references|foreign_key:true|
 |name|string|null:false,unique:true|
-|adress|text|null:false|
+|address|text|null:false|
 |age|integer|null:false|
 |gender|string|null:false|
 |tel|integer|null:false|
@@ -41,16 +39,16 @@ Things you may want to cover:
 - has_many :reviews, dependent: :destroy
 - has_many :products, dependent: :destroy
 - has_many :orders, dependent: :destroy
-- has_many :credit_cards, dependent: :destroy
+- has_many :creditCards, dependent: :destroy
 
 
 ## reviews table
 |Column|Tyoe|Options|
 |------|----|-------|
-|message|text|null:fals|
+|body|text|null:fals|
 |rate|integer|null:false|
 |avatar|image|
-|main_subject|text|null:fals|
+|mainSubject|text|null:fals|
 |product|references|foreign_key:true|
 |user|references|foreign_key:true|
 
@@ -75,13 +73,13 @@ Things you may want to cover:
 ### Association
 - has_many :productImages
 - has_many :reviews
-- has_many :cart_items
-- has_many :carts, through: :cart_items
-- has_many :order_items
-- has_many :order, through: :order_items
+- has_many :cartProducts
+- has_many :carts, through: :cartProducts
+- has_many :orderProducts
+- has_many :order, through: :orderProducts
 - belongs_to :user
-- belongs_to :parent_category
-- belongs_to :child_category
+- belongs_to :parentCategory
+- belongs_to :childCategory
 
 
 ## productImages table
@@ -95,26 +93,26 @@ Things you may want to cover:
 - belongs_to :product
 
 
-## parent_categories table
+## parentCategories table
 |Column|Type|Options|
 |------|----|-------|
 |title|string|index: true, null: false|
 
 
 ### Association
-- has_many :prodacts
-- has_many :child_categories
+- has_many :products
+- has_many :childCategories
 
 
-## child_categories table
+## childCategories table
 |Column|Type|Options|
 |------|----|-------|
 |title|string|index: true, null: false|
 
 
 ### Association
-- belongs_to :parent_category
-- has_many :prodacts
+- belongs_to :parentCategory
+- has_many :products
 
 
 ## carts table
@@ -124,11 +122,11 @@ Things you may want to cover:
 
 
 ### Association
-- has_many :cart_items
-- has_many :products, through: :cart_items
+- has_many :cartProducts
+- has_many :products, through: :cartProducts
 
 
-### cart_items table
+### cartProducts table
 |Column|Tyoe|Options|
 |------|----|-------|
 |cart|references|null: false, foreign_key: true|
@@ -146,7 +144,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|
 |price|decimal|
-|delivery_date|date|null: false|
+|deliveryDate|date|null: false|
 |user|references|null: false, foreign_key: true|
 
 
@@ -154,13 +152,13 @@ Things you may want to cover:
 - has_many :orders
 
 
-## credit_cards
+## creditCards
 |Column|Tyoe|Options|
 |------|----|-------|
 |number|string|null: false|
 |cvv|string|null: false|
 |name|string|null: false|
-|month_year|string|null: false|
+|monthYear|string|null: false|
 |user|references|null: false, foreign_key: true|
 |oreder|references|null: false, foreign_key: true|
 
@@ -174,25 +172,25 @@ Things you may want to cover:
 |Column|Tyoe|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|shipping_date|date|null: false|
+|shippingDate|date|null: false|
 
 
 ### Association
-- has_many :order_items, dependent: :destroy
-- has_many :prodacts, throgh: :order_items
+- has_many :orderProducts, dependent: :destroy
+- has_many :products, throgh: :orderProducts
 - belongs_to :delivery
 - belongs_to :user
-- belongs_to :credit_card
+- belongs_to :creditCard
 
 
-## order_items table
+## orderProducts table
 |Column|Tyoe|Options|
 |------|----|-------|
 |order|references|null: false, foreign_key: true|
-|prodact|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 |quantity|integer|null: falase|
 
 
 ### Association
 - belongs_to :order
-- belongs_to :prodact
+- belongs_to :product
