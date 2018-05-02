@@ -28,11 +28,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false,unique:true|
-|address|text|null:false|
-|age|integer|null:false|
-|gender|string|null:false|
-|tel|integer|null:false|
+|name|string|null: false, unique: true|
+|address|text|null: false|
+|age|integer|null: false|
+|gender|string|null: false|
+|tel|integer|null: false|
 
 
 ### Association
@@ -45,12 +45,12 @@ Things you may want to cover:
 ## reviews table
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null:fals|
-|rate|integer|null:false|
+|body|text|null: false|
+|rate|integer|null: false|
 |avatar|text|
-|main_subject|text|null:fals|
-|product|references|foreign_key:true|
-|user|references|foreign_key:true|
+|main_subject|text|null: false|
+|product|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 
 ### Association
@@ -61,12 +61,11 @@ Things you may want to cover:
 ## products table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, add_index|
 |price|integer|null: false|
 |product_info|text|null: false|
 |registration_inf|string|null: false|
 |description|text|
-|rating|integer|
 |stock|integer|null: false|
 
 
@@ -85,7 +84,7 @@ Things you may want to cover:
 ## product_images table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreigne_key: true|
+|name|string|null: false, foreign_key: true|
 |product|references|null: false, foreign_key: true|
 
 
