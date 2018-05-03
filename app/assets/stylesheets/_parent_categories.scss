@@ -1,0 +1,88 @@
+#siteDirectory {
+    min-width: 960px;
+    margin: 15px;
+  }
+
+  #siteDirectory h2 {
+    padding: 0;
+    margin: 17px 0 5px 5px;
+  }
+
+    #siteDirectory h2,
+    #siteDirectory h2 a {
+      font-family: Tahoma,sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      color: #E47911;
+      text-decoration: none;
+    }
+
+    #siteDirectory h2 a:hover {
+      border-bottom: 1px solid #E47911;
+    }
+
+  #shopAllLinks {
+    width: 100%;
+  }
+
+    #shopAllLinks td {
+      vertical-align: top;
+      padding: 0;
+      margin: 0;
+    }
+
+    #shopAllLinks ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 5px 10px 15px;
+    }
+
+      #shopAllLinks ul li {
+        padding: 2px 0;
+        margin: 0;
+        font-size: 13px;
+        list-style-type: none;
+      }
+
+      #shopAllLinks .nav_cat_links .nav_group {
+        color: #E47911;
+        font-size: 14px;
+        text-decoration: none;
+        border-bottom: none;
+      }
+
+      #shopAllLinks .nav_cat_links a.nav_group:hover {
+        border-bottom: 1px solid #E47911;
+      }
+
+      #shopAllLinks .nav_cat_links span,
+      #shopAllLinks .nav_cat_links a {
+        color: #004B91;
+      }
+
+      #shopAllLinks .nav_cat_links a {
+        border-bottom: 1px solid #004B91;
+        text-decoration: none;
+      }
+
+      #shopAllLinks .nav_cat_links a:hover {
+        color: #E47911;
+        border-bottom: 1px solid #E47911;
+      }
+
+  #shortcutLinks {
+    border-top: #999 dotted 1px;
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 15px 0;
+    font-size: 13px;
+  }
+
+    #shortcutLinks li {
+      margin: 0 0 5px;
+    }
+
+    #shortcutLinks strong {
+      font-weight: bold;
+      color: #E47911;
+    }

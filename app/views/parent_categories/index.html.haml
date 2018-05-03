@@ -1,0 +1,78 @@
+#siteDirectory
+  %div.nav-ie-min-width{style:'width: 960px'}
+  %table#shopAllLinks
+    %tbody
+      %tr
+        = render "parent_categories/parent_categories1"
+        = render "parent_categories/parent_categories2"
+        = render "parent_categories/parent_categories3"
+        = render "parent_categories/parent_categories4"
+  %ul#shortcutLinks
+    %li
+      %strong お買得情報:
+      = succeed "," do
+        = link_to 'タイムセール'
+      = succeed "," do
+        = link_to 'アウトレット'
+      = succeed "," do
+        = link_to 'Amazonポイント'
+      = succeed "," do
+        = link_to '在庫一掃セール'
+      = succeed "," do
+        = link_to '期間限定キャンペーン'
+      = link_to 'Amazon定期おトク便'
+    %li
+      %strong Amazon モバイルショッピングアプリ:
+      = link_to 'iPhone & iPad, Android Phone, Androidタブレット, Windows Phone'
+    %li
+      %strong Amazon の会員プログラム:
+      = succeed "," do
+        = link_to 'Amazon プライム'
+      = succeed "," do
+        = link_to 'Amazonファミリー'
+      = link_to 'Prime Student'
+    %li
+      %strong Amazonから情報を受け取る:
+      = succeed "," do
+        = link_to 'Amazon公式ソーシャルアカウント'
+      = link_to 'Amazonアシスタント'
+    %li
+      %strong ほしいものリストとギフト:
+      = succeed "," do
+        = link_to 'ほしい物リスト'
+      = link_to 'Amazonギフト券'
+    %li
+      %strong Amazonでビジネス:
+      = succeed "," do
+        = link_to 'アソシエイト（アフィリエイト）'
+      = succeed "," do
+        = link_to '広告掲載'
+      = succeed "," do
+        = link_to 'Amazonで売る'
+      = succeed "," do
+        = link_to 'Amazon出品アプリ'
+      = link_to '買取サービス'
+    %li
+      %strong Amazonでのお支払い:
+      = succeed "," do
+        = link_to 'Amazon Mastercard'
+      = succeed "," do
+        = link_to 'クレジットカード＆保険'
+      = succeed "," do
+        = link_to 'パートナーポイントプログラム'
+      = link_to 'Amazon 通貨換算'
+    %li
+      %strong Amazonの取り組み:
+      = succeed "," do
+        = link_to 'Amazon フラストレーション・フリー・パッケージ'
+      = succeed "," do
+        = link_to 'Amazonと地球'
+      = link_to 'Amazon Story'
+    %li
+      %strong Kindle:
+      = succeed "," do
+        = link_to 'Amazonで出版'
+      = link_to 'コンテンツと端末の管理'
+    %li
+      %strong Amazon Webサービス:
+      = link_to 'Amazon Webサービス'
