@@ -1,0 +1,259 @@
+#nav__footer {
+  margin: 30px 0 8px 0;
+  padding: 0 0 7px 0;
+  .nav__footer--back-to-top {
+    margin: 0 0 40px 0;
+    background-color: #37475a;
+    span {
+      display: block;
+      text-align: center;
+      color: #111;
+      padding: 15px 0;
+      line-height: 19px;
+      font-size: 13px;
+    }
+    .nav__footer--back-to-top-text {
+      color: #fff;
+    }
+  }
+  .nav__footer--vertical-column {
+    max-width: 1000px;
+  }
+  table {
+    margin-bottom: 18px;
+    border-collapse: collapse;
+  }
+  table, .nav__footer--vertical-column {
+    margin: 0 auto;
+    width: auto;
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+      border-color: inherit;
+      tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+        .nav__footer--link-col {
+          color: #333;
+          vertical-align: top;
+        }
+        td.nav__footer--link-col {
+          font-family: arial,sans-serif;
+          font-size: 13px;
+          line-height: 120%;
+          padding: 0 10px;
+          color: #333;
+          vertical-align: top;
+          .nav__footer--col-head {
+            font-weight: 700;
+            color: #fff;
+            font-size: 16px;
+            margin: 6px 0 14px 0;
+            white-space: nowrap;
+          }
+          ul {
+            display: block;
+            list-style-type: none;
+            white-space: nowrap;
+            padding: 0;
+            margin: 0;
+            li {
+              display: list-item;
+              margin: 0 0 10px;
+              a {
+                text-decoration: none;
+                color: #ddd;
+              }
+            }
+          }
+        }  
+        td.nav__footer--colspace-inner {
+          width: 10%;
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+  .nav__footer--under-line {
+    border-top: 1px solid #3a4553;
+    margin-top: 40px;
+  }
+  .nav__footer--link-line.nav__footer--paditem-line {
+    font-size: 12px;
+    margin: 10px auto;
+    text-align: center;
+    max-width: 1000px;
+    margin: 10px auto;
+    span {
+      padding: 0 .6em;
+      white-space: nowrap;
+      margin: 0;
+      display: inline-block;
+      .nav__footer--link-line.nav__footer--logo-line {
+        text-align: center;
+        max-width: 1000px;
+        margin: 30px auto 15px;
+        a {
+          text-decoration: none;
+          .nav-logo-base {
+            background-position: -10px -90px;
+            width: 76px;
+            height: 23px;
+            margin: 0 auto;
+          }
+          .nav-sprite.nav-logo-base {
+            background-image: url(https://images-fe.ssl-images-amazon.com/images/G/09/gno/sprites/nav-sprite-global_bluebeacon-V3-1x_optimized._CB516557390_.png);
+            background-repeat: repeat-x;
+          }
+        }
+      }
+    }
+    span.icp-container {
+      vertical-align: top;
+      margin: 18px auto 0;
+      margin-left: 70px;
+      .nav__footer--line {
+        font-family: arial, sans-serif;
+        color: #767675;
+        text-align: center;
+        line-height: 18px;
+        white-space: nowrap;
+        a {
+          display: inline-block!important;
+          border: 1px solid #848688;
+          border-radius: 3px;
+          padding: 6px 18px 6px 8px;
+          font-size: 13px;
+          margin-right: 4px;
+          color: #004B91;
+          text-decoration: none;
+          .icp-nav--globe-img-2, .icp-flag-3 {
+            background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/InternationalCustomerPreferencesNavAssets-icp_sprite_2x-391462dbcf09456cb0249b135186930d7e699c73._V2_.png);
+            background-size: 142px 120px;
+            position: relative;
+            display: inline-block;
+          }
+          .icp-button-globe-2 {
+            width: 15px;
+            height: 15px;
+            top: 2px;
+            left: 0;
+            background-position: -77px -24px;
+          }
+          .icp-flag-3-jp {
+            background-position: -18px -96px;
+          }
+          .icp-flag-3 {
+            height: 12px;
+            margin: 3px 0 0;
+            top: 1px;
+          }
+          span.icp-color-base {
+            color: #ccc;
+          }
+          span.nav-arrow.icp-up-down-arrow {
+            background: url(https://m.media-amazon.com/images/G/01/AUIClients/InternationalCustomerPreferencesNavAssets-icp_sprite-7d1bfde38eb13748605e178896ede63a4aa68e0c._V2_.png);
+            width: 12px;
+            height: 12px;
+            background-position: -77px -80px;
+            position: relative;
+            left: 12px;
+          }
+        }
+      }
+    }
+  }
+  .nav__footer--link-line.nav__footer--desc-line.nav__footer--line {
+    background-color: #131a22;
+    padding: 30px 0;
+    margin: 30px 0 0;
+    .nav__footer--moreamazon {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      display: table;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    table.nav__footer--moreamazon {
+      tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+        tr {
+          display: table-row;
+          vertical-align: inherit;
+          border-color: inherit;
+          td {
+            font-family: arial,sans-serif;
+            font-size: 13px;
+            line-height: 120%;
+            padding: 0 10px;
+          }
+          td.nav__footer__descitem {
+            font-size: 11px!important;
+            padding: 0 .75em;
+            vertical-align: top;
+            text-align: left;
+            line-height: 115%;
+            a.nav_a,a:link {
+              color: #ddd;
+              text-decoration: none;
+              span.nav__footer--desctext {
+                color: #999;
+                font-size: 10px;
+                line-height: 110%;
+              }
+            }
+          }
+          td.nav__footer__descsp {
+            width: 1%;
+          }
+        }
+      }
+    }
+  }
+  .nav__footer--line-diver {
+    ul {
+      display: inline-block;
+      li {
+        border-left: 1px solid rgb(153, 153, 153);
+        a {
+        color: rgb(221, 221, 221);
+        padding: 0px 0.6em;
+        text-decoration: none;
+        }
+      }
+      li.nav_first {
+        border-left: 0px;
+      }
+    }
+  }
+  .nav__footer--link-line.nav__footer--paditem-line.nav__footer--line.nav__footer--line-diver.nav__footer--copyright {
+    background-color: #131a22;
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 0 30px;
+    ul {
+      color: rgb(148, 148, 148); 
+      li {
+        display: inline;
+      }
+    }
+    span {
+      color: rgb(118, 118, 118);
+    }
+  }
+}
+#nav__footer.nav__left-footer {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background-color: #232f3e;
+  min-width: 1000px;
+  position: relative;
+}
