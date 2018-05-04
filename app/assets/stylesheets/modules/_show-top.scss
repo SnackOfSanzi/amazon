@@ -1,0 +1,244 @@
+.top {
+  height: 550px;
+  position: relative;
+  width: 100%;
+  &__left {
+    float: left;
+    width: calc(100% - 270px);
+    &__picture {
+      height: 450px;
+      width:300px;
+      float: left;
+      .main {
+        height: 346px;
+        width: 242px;
+        background-color: blue;
+        margin-left: 20px;
+      }
+    }
+    &__main {
+      height: 450px;
+      float: left;
+      width: 60%;
+      &__top {
+        height: 80px;
+        border-bottom: 1px solid #ddd;
+        h1 {
+          font-size: 20px;
+          font-weight: 800;
+        }
+        .date {
+          font-size: 12px;
+        }
+      }
+      &__middle {
+        height: 250px;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+        .top {
+          height: 50px;
+          width: 100%;
+          font-size: 12px;
+        }
+        .left {
+          float: left;
+          height: 150px;
+          width: 270px;
+          padding-left: 15px;
+          .kindle {
+            margin: 20px 20px 0px 0px;
+            height: 50px;
+            width: 240px;
+            border: 1px solid gray;
+            color: gray;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            line-height: 50px;
+            text-align: center;
+          }
+          .apuri {
+            font-size: 15px;
+            font-size: 12px;
+          }
+        }
+        .right {
+          float: left;
+          height: 150px;
+          width: 270px;
+          .comic {
+            margin: 20px 20px 0px 0px;
+            height: 50px;
+            width: 240px;
+            border: 1px solid gray;
+            color: gray;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            line-height: 50px;
+            text-align: center;
+          }
+        }
+        .bottom {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+      &__bottom {
+        font-size: 12px;
+        padding-top: 30px;
+      }
+    }
+  }
+  &__right {
+    float: right;
+    width: 270px;
+    height: 550px;
+    &__top {
+      font-size: 15px;
+      text-align: center;
+      .icon {
+        float: right;
+        color: red;
+      }
+    }
+    &__main {
+      background-color: white;
+      border: 5px solid #ddd;
+      border-radius: 10px;
+      margin-right: 10px;
+      .price {
+        margin-left: 50px;
+        .a {
+          font-size: 13px;
+        }
+        .b {
+          color: red;
+        }
+        .c {
+          font-size: 13px;
+          display: inline-block;
+        }
+        .d {
+          font-size: 13px;
+          display: inline-block;
+        }
+        .e {
+          font-size: 13px;
+        }
+      }
+      .f {
+        font-size: 13px;
+      }
+      .g {
+        font-size: 40px;
+      }
+      .rest {
+        .h {
+          color: red;
+        }
+        .i {
+          font-size: 12px;
+        }
+        .j {
+          font-size: 13px;
+        }
+      }
+      .cart {
+        p {
+          display: inline-block;
+          select {
+            display: inline-block;
+          }
+        }
+        .into-cart {
+          background-color: #ddd;
+          height: 109px;
+          width: 244px;
+          position: relative;
+          border: 1px solid #fff;
+          border-radius: 5px;
+          input {
+            font-size: 12px;
+            margin-left: 10px;
+            margin-top: 4px;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          .k {
+            clear: both;
+            font-size: 11px;
+            width: 190px;
+            position: absolute;
+            top: 0;
+            right: 20px;
+          }
+          .cart-in {
+            clear: both;
+            margin: 20px 20px 0px 0px;
+            padding: 5px 5px 5px 5px;
+            border: 1px solid blue;
+            color: blue;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            background-color: #f0c14b;
+            width: 200px;
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            .icon {
+              float: left;
+              margin-top: 3px;
+            }
+            .l {
+              float: right;
+              margin-right: 30px;
+            }
+          }
+        }
+      }
+      .sign {
+        height: 50px;
+        line-height: 20px;
+        text-align: center;
+        width: 244px;
+        padding-top: 15px;
+        .m {
+          font-size: 12px;
+        }
+      }
+      .adress {
+        height: 50px;
+        line-height: 20px;
+        text-align: center;
+        width: 244px;
+        padding-top: 15px;
+        .n {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  &__footer {
+    height: 100px;
+    width: calc(100% - 270px);
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding-left: 10px;
+    h3 {
+      font-size: 20px;
+    }
+    .info {
+      width: 800px;
+      margin-left: 40px;
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
