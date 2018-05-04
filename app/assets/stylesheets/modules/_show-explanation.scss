@@ -1,0 +1,28 @@
+.content {
+  padding: 15px 20px 15px;
+  height: 300px;
+  width: 70%;
+  h3 {
+    font-size: 20px;
+  }
+  &__introduce {
+    height: 40%;
+    &__subject {
+      margin: 10px 10px 40px 25px;
+      &__text {
+        font-size: 13px;
+        margin: 10px 0px 60px 25px;
+      }
+    }
+  }
+  &__sub {
+    height: 40%;
+    &__subject {
+      margin: 10px 10px 40px 25px;
+      &__text {
+        font-size: 13px;
+          margin: 10px 0px 60px 25px;
+      }
+    }
+  }
+}

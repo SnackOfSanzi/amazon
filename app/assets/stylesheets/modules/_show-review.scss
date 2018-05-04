@@ -1,0 +1,90 @@
+.review {
+  height: 100%;
+  &__left {
+    height:100%;
+     width: calc(100% - 500px);
+    float: left;
+    padding: 20px 60px 20px 20px;
+    &__other {
+      &__name {
+        font-size: 14px;
+      }
+      &__subject {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &__data {
+        font-size: 13px;
+        color: gray;
+      }
+      &__type {
+        color: #c45500;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      &__content {
+        font-size: 13px;
+        padding: 10px 10px 0 0;
+      }
+      &__otherwise {
+        .useful {
+          margin: 20px 20px 0px 0px;
+          height: 20px;
+          width: 100px;
+          border: 1px solid gray;
+          text-decoration: none;
+          display: inline-block;
+          border-radius: 5px;
+          font-size: 12px;
+          text-align: center;
+          background-color: #e7e9ec;
+        }
+        .useless {
+          margin: 20px 20px 0px 0px;
+          height: 20px;
+          width: 100px;
+          border: 1px solid gray;
+          text-decoration: none;
+          display: inline-block;
+          border-radius: 5px;
+          font-size: 12px;
+          text-align: center;
+          background-color: #e7e9ec;
+        }
+        .comment {
+          font-size: 13px;
+        }
+        .violation {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  &__right {
+    width: 390px;
+    float: right;
+    h3 {
+      font-weight: 600;
+      font-size: 17px;
+      padding-top: 20px;
+      padding-right: 10px;
+    }
+    &__other {
+      &__name {
+        font-size: 13px;
+        margin: 10px 0 10px 0;
+      }
+      &__subject {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &__content {
+        font-size: 13px;
+      }
+      &__data {
+        font-size: 13px;
+        color: gray;
+      }
+    }
+  }
+}
