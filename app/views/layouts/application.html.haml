@@ -8,50 +8,48 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header
-      #navbar.nav-bluebeacon
-        #nav-belt
+      .navbar.nav-bluebeacon
+        .nav-belt
           .nav-left
-            #nav-logo
+            .nav-logo
               = link_to("", class: "nav-logo-link") do
                 %span.nav-logo-base.nav-sprite
                 %span.nav-logo-ext.nav-sprite
                 %span.nav-logo-locale.nav-sprite
               = link_to "プライムを始める", "", class: "nav-logo-tagline nav-sprite nav-prime"
           .nav-right
-            #nav-prime
+            .nav-prime
               = image_tag "https://images-na.ssl-images-amazon.com/images/G/09/shazam/swm-800x78-180301-CheckNow-E7Rpa._V500723081_.png",size: "400x39"
           .nav-fill
-            #nav-search
-              #nav-bar-left
-                %form.nav-searchbar{:role => "search"}
-                  .nav-left
-                    .nav-search-scope.nav-sprite
-                      .nav-search-facade{"data-value" => "search-alias=aps"}
-                      /*  %span.nav-search-label すべて
-                      /*  %i.nav-icon
-                      /*%span#searchDropdownDescription{:style => "display:none"} Select the department you want to search in
-                  .nav-right
-                    .nav-search-submit.nav-sprite
-                      %span#nav-search-submit-text.nav-search-submit-text.nav-sprite 検索
-                      %input.nav-input{:tabindex => "7", :type => "submit", :value => ""}/
-                  .nav-fill
-                    .nav-search-field
-                      %label#nav-search-label.aok-offscreen{:for => "twotabsearchtextbox"}
-                      %input#twotabsearchtextbox.nav-input{:autocomplete => "off", :dir => "auto", :name => "field-keywords", :placeholder => "", :tabindex => "6", :type => "text", :value => ""}/
-                    #nav-iss-attach
-        #nav-main
+            .nav-search
+              %form.nav-searchbar{:role => "search"}
+                .nav-left
+                  .nav-search-scope.nav-sprite
+                    .nav-search-facade{"data-value" => "search-alias=aps"}
+                    /*  %span.nav-search-label すべて
+                    /*  %i.nav-icon
+                    /*%span#searchDropdownDescription{:style => "display:none"} Select the department you want to search in
+                .nav-right
+                  .nav-search-submit.nav-sprite
+                    %span#nav-search-submit-text.nav-search-submit-text.nav-sprite 検索
+                    %input.nav-input{:tabindex => "7", :type => "submit", :value => ""}/
+                .nav-fill
+                  .nav-search-field
+                    %label#nav-search-label
+                    %input.nav-input
+        .nav-main
           .nav-left
-            #nav-globe-locale-slot
-              = link_to("",class: "nav-a nav-a-2 a-declarative") do
+            .nav-globe-locale-slot
+              = link_to("",class: "nav-a nav-a-2") do
                 #nav-packard-glow-loc-icon.nav-sprite
                 #glow-ingress-block
-                  %span.nav-line-1#glow-ingress-line1
+                  %span.nav-line-1
                     お届け先
-                  %span.nav-line-2#glow-ingress-line2
+                  %span.nav-line-2
                     東京 102-0082&zwnj;
           .nav-right
-            #nav-tools
-              = link_to("", class: "nav-a nav-a-2 icp-link-style-2") do
+            .nav-tools
+              = link_to("", class: "nav-a nav-a-2") do
                 %span.icp-nav-link-inner
                   %span.nav-line-1
                     %span.icp-nav-globe-img-2
@@ -83,20 +81,20 @@
                   カート
                   %span.nav-icon.nav-arrow
           .nav-fill
-            #nav-shop
+            .nav-shop
               = link_to("",class: "nav-a nav-a-2") do
                 %span.nav-line-1
                 %span.nav-line-2
                   カテゴリー
                   %span.nav-icon.nav-arrow
-            #nav-shop-container
-              #nav-xshop
+            .nav-shop-container
+              .nav-xshop
                 = link_to "マイストア", "", class: "nav-b"
                 = link_to "タイムセール", "", class: "nav-b"
                 = link_to "ギフト券", "", class: "nav-b"
                 = link_to "Amazonで売る", "", class: "nav-b"
                 = link_to "ヘルプ", "", class: "nav-b"
-              #nav-supra
+              .nav-supra
                 = link_to "Amazonポイント", "", class: "nav-b"
                 %span.nav-span :
                 = link_to "残高を確認", "", class: "nav-b"
