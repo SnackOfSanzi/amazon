@@ -39,15 +39,17 @@
 |------|----|-------|
 |name|string|null: false, add_index|
 |price|integer|null: false|
+|product_info|text|null: false|
+|registration_info|string|null: false|
 |description|text|
-|book_genre|references|null: false, foreign_key: true|
+|stock|integer|null: false|
 
 
 ### Association
 - has_many :product_images
-- has_many :registration_informations
-- has_many :authors
 - has_many :reviews
+- has_many :cart_products
+- has_many :carts, through: :cart_products
 - has_many :order_products
 - has_many :order, through: :order_products
 - belongs_to :user
@@ -55,16 +57,10 @@
 - belongs_to :book_genres
 
 
-//余裕があったら追加するゾーン//
-- has_many :cart_products
-- has_many :carts, through: :cart_products
-
-
-
 ## product_images table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|title|string|null: false, foreign_key: true|
 |image_url|text|
 |product|references|null: false, foreign_key: true|
 
@@ -131,6 +127,30 @@
 - belongs_to :parent_category
 - has_many :products
 
+## carts table
+|Column|Type|Options|
+|------|----|-------|
+|total_price|integer|
+
+
+### Association
+- has_many :cart_products
+- has_many :products, through: :cart_products
+
+
+### cart_products table
+|Column|Type|Options|
+|------|----|-------|
+|cart|references|null: false, foreign_key: true|
+|product|references|null: flase, foreign_key: true|
+|quantity|integer|null: falase|
+
+
+### Association
+- belongs_to :cart
+- belongs_to :product
+
+
 ## deliveries table
 |Column|Type|Options|
 |------|----|-------|
@@ -186,30 +206,3 @@
 ### Association
 - belongs_to :order
 - belongs_to :product
-
-
-//余裕があったら追加するゾーン//
-
-## carts table
-|Column|Type|Options|
-|------|----|-------|
-|total_price|integer|
-
-
-### Association
-- has_many :cart_products
-- has_many :products, through: :cart_products
-
-
-### cart_products table
-|Column|Type|Options|
-|------|----|-------|
-|cart|references|null: false, foreign_key: true|
-|product|references|null: flase, foreign_key: true|
-|quantity|integer|null: falase|
-
-
-### Association
-- belongs_to :cart
-- belongs_to :product
-
