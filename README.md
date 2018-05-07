@@ -54,13 +54,51 @@
 - has_many :order, through: :order_products
 - belongs_to :user
 - belongs_to :parent_category
-- belongs_to :child_category
+- belongs_to :book_genres
 
 
 ## product_images table
 |Column|Type|Options|
 |------|----|-------|
+|title|string|null: false, foreign_key: true|
+|image_url|text|
+|product|references|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :product
+
+## authors table
+|Column|Type|Options|
+|------|----|-------|
 |name|string|null: false, foreign_key: true|
+|desciption|text|
+|product|references|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :product
+
+## registration_informations table
+|Column|Type|Options|
+|------|----|-------|
+|ISBN|string|null: false, foreign_key: true|
+|pubiilsher|string|
+|sale date|date|
+|language|string|
+|determine_type||string|
+|desciption|text|
+|product|references|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :product
+
+## product_images table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, foreign_key: true|
+|image_url|text|
 |product|references|null: false, foreign_key: true|
 
 
@@ -76,10 +114,10 @@
 
 ### Association
 - has_many :products
-- has_many :child_categories
+- has_many :book_genres
 
 
-## child_categories table
+## book_genres table
 |Column|Type|Options|
 |------|----|-------|
 |title|string|index: true, null: false|
@@ -88,7 +126,6 @@
 ### Association
 - belongs_to :parent_category
 - has_many :products
-
 
 ## carts table
 |Column|Type|Options|

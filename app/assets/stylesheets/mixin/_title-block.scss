@@ -1,0 +1,7 @@
+@mixin title-block() {
+  display: block;
+  width: auto;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

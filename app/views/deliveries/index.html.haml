@@ -1,0 +1,384 @@
+
+.checkout.checkout-as.checkout-as-desktop
+  #a-navbar.a-row.a-container
+    #nav-inner.a-span12
+      %img{:alt => "お届け先の選択 - Amazon.co.jp レジ", "data-testid" => "", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/checkout-spc-address-banner._CB382237590_.gif"}/
+  .a-container
+    .clearfix
+      %h1.a-spacing-base{"data-testid" => ""} お届け先住所の選択
+      .a-spacing-base
+        %p{"data-testid" => ""}
+          「この住所を使う」ボタンをクリックして、お届け先を選択してください。 新しいお届け先を入力する場合は、
+          %a{:href => ""}> こちら
+          から追加してください。 
+        %div{"data-testid" => ""}
+          .a-fixed-left-grid.aui-showgrid
+            #ppp-logo-inner.a-fixed-left-grid-inner
+              #ppp-left-grid.a-fixed-left-grid-col.a-col-left.aok-float-left
+                #ppp-left-row.a-row
+                  %a{:href => "#new-store"}
+                    %img{:border => "0", :height => "30", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-site/cvs/logo/pickup_flag_icon._CB324743657_.png", :width => "100"}/
+              #ppp-right-grid.a-fixed-left-grid-col.a-col-right.aok-float-left
+                .a-row
+                  コンビニなどの店頭で受け取ることもできます。(
+                  %a{:href => "", :onclick => "window.open(this.href,'AmazonHelp','width=340,height=340,resizable=1,scrollbars=1,toolbar=1,status=1').focus();false;", :target => "AmazonHelp"}> 詳細はこちら
+                  )
+                  %img.ppp-jp-logo1{:border => "0", :height => "22", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-site/cvs/logo/lawson._CB324545703_.jpg", :width => "75"}/
+                  %img.ppp-jp-logo1{:border => "0", :height => "18", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-site/cvs/logo/Familymart._CB530648091_.jpg", :width => "94"}/
+                  %img.ppp-jp-logo2{:border => "0", :height => "30", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-site/cvs/logo/yamato._CB322796135_.jpg", :width => "32"}/
+                  %img.ppp-jp-logo2{:border => "0", :height => "18", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-site/cvs/logo/ministop._CB322610919_.jpg", :width => "75"}/
+                .a-row
+                  %a{:href => "#new-store"}> こちら
+                  から利用可能な店舗を検索してください。
+        %hr.a-spacing-large/
+      %form.a-nostyle
+        .a-spacing-base.address-book
+          #address-book-entry-0.address-book-entry.a-spacing-double-large.address-book-new-row
+            .js-same-height.addr-display.a-nostyle.a-spacing-base{"data-testid" => "", style: "height: 98px;"}
+              .displayAddressDiv
+                %ul.displayAddressULaaaaa{style: "font-size: 16px;, line-height: 22px;, word-wrap: break-word;, list-style: none;"}
+                  %li.displayAddressLI.displayAddressFullName
+                    %b テスト
+                  %li.displayAddressLI.displayAddressPostalCode 100-0001
+                  %li.displayAddressLI.displayAddressStateOrRegionAddressLine1 東京都千代田区千代田1-1-1
+                  %li.displayAddressLI.displayAddressAddressLine2 1-1-1
+                  %li.displayAddressLI.displayAddressAddressLine3 皇居
+            .ship-to-this-address.a-button.a-button-primary.a-button-span12.a-spacing-medium
+              %span.a-button-inner
+                .a-declarative.a-button-text
+                  = link_to 'この住所を使う',{"data-action" => "page-spinner-show", "data-testid" => "", :href => ""}
+                  %span.screenreader-context-span.screenreader-address-span
+            .a-row.row-of-edit-and-delete-button
+              .a-span6.a-column
+                .a-button.a-button-small.a-button-span12
+                  %span.a-button-inner
+                    %a.a-declarative.a-button-text{"data-action" => "page-spinner-show", "data-testid" => "", :href => ""}
+                      編集
+                      %span.screenreader-context-span
+              .a-span6.a-column.a-span-last
+                .a-declarative.a-button.a-button-small.a-button-span12.deletebutton{"data-action" => "checkout-delete-address"}
+                  %span.a-button-inner
+                    %a.a-button-text{"data-testid" => "", :href => ""}
+                      削除
+                      %span.screenreader-context-span
+          .cl
+        %input{:name => "hasWorkingJavascript", :type => "hidden", :value => "1"}/
+      .a-divider.a-divider-section
+        .a-divider-inner
+      / bottom part with two form
+      .a-row
+        .a-span6.a-column
+          #newShippingAddressFormFromIdentity.a-spacing-double-large.a-row.on-imb-scroll-here
+            .a-span10.a-column
+              .enter-address-form{"data-taxid-opt" => "1"}
+                %h2{"data-testid" => ""}
+                  %a{:name => "new-address"}
+                  新しい住所を追加
+                必要事項を入力し、「この住所を使う」ボタンをクリックしてください。
+                %br/
+                %br/
+                = succeed "\u{534a}\u{89d2}\u{3001}\u{5168}\u{89d2}\u{6587}\u{5b57}\u{3092}\u{4f7f}\u{7528}\u{3067}\u{304d}\u{307e}\u{3059}\u{ff08}\u{534a}\u{89d2}2\u{6587}\u{5b57}\u{3067}\u{5168}\u{89d2}1\u{6587}\u{5b57}\u{5206}\u{ff09}" do
+                  %b 国内の住所：
+                = succeed "\u{4f4f}\u{6240}1\u{304c}\u{5168}\u{89d2}16\u{6587}\u{5b57}\u{3092}\u{8d85}\u{3048}\u{308b}\u{5834}\u{5408}\u{306f}\u{3001}\u{4f4f}\u{6240}2\u{306b}\u{7d9a}\u{304d}\u{306e}\u{4f4f}\u{6240}\u{3092}\u{3054}\u{5165}\u{529b}\u{304f}\u{3060}\u{3055}\u{3044}\u{3002}" do
+                  %br/
+                %br/
+                %br/
+                = succeed "\u{534a}\u{89d2}\u{6587}\u{5b57}\u{306e}\u{82f1}\u{6570}\u{5b57}\u{306e}\u{307f}\u{4f7f}\u{7528}\u{3067}\u{304d}\u{307e}\u{3059}\u{3002}" do
+                  %b 国外の住所：
+                %br/
+                = succeed "\u{203b}\u{7279}\u{6b8a}\u{6587}\u{5b57}\u{306f}\u{4f7f}\u{7528}\u{3067}\u{304d}\u{307e}\u{305b}\u{3093}\u{3002}" do
+                  %br/
+                = succeed "\u{203b}\u{78ba}\u{5b9f}\u{306b}\u{304a}\u{5c4a}\u{3051}\u{3059}\u{308b}\u{305f}\u{3081}\u{3001}\u{5fc5}\u{305a}\u{30d5}\u{30eb}\u{30cd}\u{30fc}\u{30e0}\u{3092}\u{5165}\u{529b}\u{4e0b}\u{3055}\u{3044}\u{3002}" do
+                  %br/
+                = succeed "\u{203b}\u{79c1}\u{66f8}\u{7bb1}\u{3084}\u{7a7a}\u{6e2f}\u{5185}\u{306e}\u{7a93}\u{53e3}\u{3078}\u{306e}\u{304a}\u{5c4a}\u{3051}\u{306f}\u{627f}\u{3063}\u{3066}\u{304a}\u{308a}\u{307e}\u{305b}\u{3093}\u{3002}" do
+                  %br/
+                = succeed "\u{203b}\u{30b3}\u{30f3}\u{30d3}\u{30cb}\u{3001}\u{55b6}\u{696d}\u{6240}\u{3001}\u{7a7a}\u{6e2f}\u{306e}\u{5b85}\u{914d}\u{30b5}\u{30fc}\u{30d3}\u{30b9}\u{30ab}\u{30a6}\u{30f3}\u{30bf}\u{30fc}\u{306a}\u{3069}\u{306e}\u{4f4f}\u{6240}\u{3092}\u{5165}\u{529b}\u{3059}\u{308b}\u{3068}\u{5546}\u{54c1}\u{3092}\u{304a}\u{53d7}\u{3051}\u{53d6}\u{308a}\u{3044}\u{305f}\u{3060}\u{3051}\u{307e}\u{305b}\u{3093}\u{3002}\u{5e97}\u{982d}\u{53d7}\u{53d6}\u{306e}\u{6ce8}\u{6587}\u{65b9}\u{6cd5}\u{306f}" do
+                  %br/
+                = succeed "\u{3092}\u{3054}\u{78ba}\u{8a8d}\u{304f}\u{3060}\u{3055}\u{3044}\u{3002}" do
+                  %a{:href => "https://www.amazon.co.jp/gp/help/customer/display.html/?nodeId=200219430", :onclick => "window.open(this.href,'AmazonHelp','width=340,height=340,resizable=1,scrollbars=1,toolbar=1,status=1').focus();false;", :target => "AmazonHelp"} こちら
+                %br/
+                %br/
+                .a-spacing-small
+                  %a.js-switch-form{:href => "/gp/buy/addressselect/handlers/display.html?ie=UTF8&forceInternationalForm=1&hasWorkingJavascript=&isBilling=#new-address"} 新しい国外の住所を登録する
+                %form.a-nostyle.a-declarative{:action => "/gp/buy/shipaddressselect/handlers/continue.html/ref=ox_shipaddress_add_new_addr?ie=UTF8&hasWorkingJavascript=", "data-action" => "page-spinner-show-on-submit", :method => "post"}
+                  %input{:name => "__mk_ja_JP", :type => "hidden", :value => "カタカナ"}/
+                  %noscript
+                    \<input type="hidden" name="javascriptEnabled" value="0" />
+                  / new address html
+                  #identity-add-new-address
+                    #enterAddressFullNameContainer.a-row.a-spacing-base.one-new-address-form-field.identity-protect-from-errant
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressFullName"}
+                          %b 氏名： 
+                        %input#enterAddressFullName.enterAddressFormField{:maxlength => "50", :name => "enterAddressFullName", :size => "50", :type => "text"}/
+                    #enterAddressPostalCodeContainer.a-row.a-spacing-base.one-new-address-form-field
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressPostalCode"}
+                          %b 郵便番号: 
+                        .a-row.override-nofullwidth
+                          %input#enterAddressPostalCode1.enterAddressFormField{:maxlength => "4", :name => "enterAddressPostalCode", :size => "3", :type => "text"}/
+                          %span.a-text-center -
+                          %input#enterAddressPostalCode2.enterAddressFormField{:maxlength => "4", :name => "enterAddressPostalCode2", :size => "4", :type => "text"}/
+                    #enterAddressStateOrRegionContainer.a-row.a-spacing-base.one-new-address-form-field
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressStateOrRegion"}
+                          %b 都道府県: 
+                        %select#enterAddressStateOrRegion.enterAddressFormField{:name => "enterAddressStateOrRegion"}
+                          %option{:value => ""} --
+                          %option{:value => "北海道"} 北海道
+                          %option{:value => "青森県"} 青森県
+                          %option{:value => "岩手県"} 岩手県
+                          %option{:value => "宮城県"} 宮城県
+                          %option{:value => "秋田県"} 秋田県
+                          %option{:value => "山形県"} 山形県
+                          %option{:value => "福島県"} 福島県
+                          %option{:value => "茨城県"} 茨城県
+                          %option{:value => "栃木県"} 栃木県
+                          %option{:value => "群馬県"} 群馬県
+                          %option{:value => "埼玉県"} 埼玉県
+                          %option{:value => "千葉県"} 千葉県
+                          %option{:value => "東京都"} 東京都
+                          %option{:value => "神奈川県"} 神奈川県
+                          %option{:value => "新潟県"} 新潟県
+                          %option{:value => "富山県"} 富山県
+                          %option{:value => "石川県"} 石川県
+                          %option{:value => "福井県"} 福井県
+                          %option{:value => "山梨県"} 山梨県
+                          %option{:value => "長野県"} 長野県
+                          %option{:value => "岐阜県"} 岐阜県
+                          %option{:value => "静岡県"} 静岡県
+                          %option{:value => "愛知県"} 愛知県
+                          %option{:value => "三重県"} 三重県
+                          %option{:value => "滋賀県"} 滋賀県
+                          %option{:value => "京都府"} 京都府
+                          %option{:value => "大阪府"} 大阪府
+                          %option{:value => "兵庫県"} 兵庫県
+                          %option{:value => "奈良県"} 奈良県
+                          %option{:value => "和歌山県"} 和歌山県
+                          %option{:value => "鳥取県"} 鳥取県
+                          %option{:value => "島根県"} 島根県
+                          %option{:value => "岡山県"} 岡山県
+                          %option{:value => "広島県"} 広島県
+                          %option{:value => "山口県"} 山口県
+                          %option{:value => "徳島県"} 徳島県
+                          %option{:value => "香川県"} 香川県
+                          %option{:value => "愛媛県"} 愛媛県
+                          %option{:value => "高知県"} 高知県
+                          %option{:value => "福岡県"} 福岡県
+                          %option{:value => "佐賀県"} 佐賀県
+                          %option{:value => "長崎県"} 長崎県
+                          %option{:value => "熊本県"} 熊本県
+                          %option{:value => "大分県"} 大分県
+                          %option{:value => "宮崎県"} 宮崎県
+                          %option{:value => "鹿児島県"} 鹿児島県
+                          %option{:value => "沖縄県"} 沖縄県
+                    #enterAddressAddressLine1Container.a-row.a-spacing-base.one-new-address-form-field.identity-protect-from-errant
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressAddressLine1"}
+                          %b 住所1： 
+                        %input#enterAddressAddressLine1.enterAddressFormField{:maxlength => "60", :name => "enterAddressAddressLine1", :size => "50", :type => "text"}/
+                    #enterAddressAddressLine2Container.a-row.a-spacing-base.one-new-address-form-field.identity-protect-from-errant
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressAddressLine2"}
+                          %b 住所2： 
+                        %input#enterAddressAddressLine2.enterAddressFormField{:maxlength => "60", :name => "enterAddressAddressLine2", :size => "50", :type => "text"}/
+                    #enterAddressAddressLine3Container.a-row.a-spacing-base.one-new-address-form-field
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressAddressLine3"}
+                          %b 会社名：
+                          %br/
+                          %font{:size => "-2"} （オプション）
+                        %input#enterAddressAddressLine3.enterAddressFormField{:maxlength => "60", :name => "enterAddressAddressLine3", :type => "text"}/
+                    #enterAddressPhoneNumberContainer.a-row.a-spacing-base.one-new-address-form-field
+                      .a-span12{"data-testid" => ""}
+                        %label{:for => "enterAddressPhoneNumber"}
+                          %b 電話番号： 
+                          %span.learn-more
+                            (
+                            %a.a-declarative{"data-a-popover" => "{\"type\":\"html\", \"header\": \"<b>電話番号： </b>\", \"content\": \"配送の際に配送ラベルに印刷されることがあります。\", \"position\": \"triggerRight\", \"alone\": false, \"name\":\"\"}", "data-action" => "a-popover", "data-testid" => ""}> 詳細はこちら
+                            )
+                        %input#enterAddressPhoneNumber.enterAddressFormField{:maxlength => "20", :name => "enterAddressPhoneNumber", :size => "15", :type => "text"}/
+                    %input#enterAddressCountryCode{:name => "enterAddressCountryCode", :type => "hidden", :value => "JP"}/
+                    %input#enterAddressIsDomestic{:name => "enterAddressIsDomestic", :type => "hidden", :value => "1"}/
+                  / end new address html
+                  .a-form-actions
+                    %span.a-button.a-button-primary.a-padding-none
+                      %span.a-button-inner
+                        %input.a-button-text.submit-button-with-name{"data-testid" => "", :name => "shipToThisAddress", :type => "submit", :value => "この住所を使う"}/
+                  %input{:name => "requestToken", :type => "hidden", :value => ""}/
+                  %input{:name => "purchaseId", :type => "hidden", :value => "251-2289162-0700667"}/
+                  %input{:name => "addressCount", :type => "hidden", :value => "1"}/
+                  %input{:name => "isBilling", :type => "hidden", :value => ""}/
+                  %input{:name => "numberOfDistinctItems", :type => "hidden", :value => "1"}/
+                  %input{:name => "hasWorkingJavascript", :type => "hidden", :value => "1"}/
+
+            .a-span2.a-column.a-span-last
+        .a-span6.a-column.a-span-last
+          #legacy-non-converged-locker-find.on-imb-scroll-here
+            #new-store.newaddressheading
+              %div
+                %h1 店頭受取先を新しく検索する
+              全国のコンビニなどの店舗で商品をお受け取りいただけます。
+              %br/
+              住所、郵便番号、または目印となる建物などを入力してください。
+              %br/
+            / newaddressheading
+            %form{:action => "/gp/buy/storeaddress/handlers/search.html", :method => "post"}
+              %input{:name => "__mk_ja_JP", :type => "hidden", :value => "カタカナ"}/
+              %input{:name => "usecase", :type => "hidden", :value => "checkout"}/
+              %input{:name => "addAndShipToMultiple", :type => "hidden", :value => ""}/
+              %input{:name => "addressBookId", :type => "hidden", :value => ""}/
+              %input{:name => "hasWorkingJavascript", :type => "hidden", :value => "1"}/
+              %table.storesearchtable
+                %tbody
+                  %tr
+                    %td.storesearchlabel
+                      %input{:checked => "checked", :id => "searchCriterion.addressAndState", :name => "searchCriterion", :type => "radio", :value => "addressAndState"}>/
+                       
+                      %label{:for => "searchCriterion.addressAndState"} 住所で検索:
+                    %td.storesearchinput
+                      都道府県名：
+                      %select#state{:name => "state"}
+                        %option{:value => ""} --
+                        %option{:value => "北海道"} 北海道
+                        %option{:value => "青森県"} 青森県
+                        %option{:value => "岩手県"} 岩手県
+                        %option{:value => "宮城県"} 宮城県
+                        %option{:value => "秋田県"} 秋田県
+                        %option{:value => "山形県"} 山形県
+                        %option{:value => "福島県"} 福島県
+                        %option{:value => "茨城県"} 茨城県
+                        %option{:value => "栃木県"} 栃木県
+                        %option{:value => "群馬県"} 群馬県
+                        %option{:value => "埼玉県"} 埼玉県
+                        %option{:value => "千葉県"} 千葉県
+                        %option{:value => "東京都"} 東京都
+                        %option{:value => "神奈川県"} 神奈川県
+                        %option{:value => "新潟県"} 新潟県
+                        %option{:value => "富山県"} 富山県
+                        %option{:value => "石川県"} 石川県
+                        %option{:value => "福井県"} 福井県
+                        %option{:value => "山梨県"} 山梨県
+                        %option{:value => "長野県"} 長野県
+                        %option{:value => "岐阜県"} 岐阜県
+                        %option{:value => "静岡県"} 静岡県
+                        %option{:value => "愛知県"} 愛知県
+                        %option{:value => "三重県"} 三重県
+                        %option{:value => "滋賀県"} 滋賀県
+                        %option{:value => "京都府"} 京都府
+                        %option{:value => "大阪府"} 大阪府
+                        %option{:value => "兵庫県"} 兵庫県
+                        %option{:value => "奈良県"} 奈良県
+                        %option{:value => "和歌山県"} 和歌山県
+                        %option{:value => "鳥取県"} 鳥取県
+                        %option{:value => "島根県"} 島根県
+                        %option{:value => "岡山県"} 岡山県
+                        %option{:value => "広島県"} 広島県
+                        %option{:value => "山口県"} 山口県
+                        %option{:value => "徳島県"} 徳島県
+                        %option{:value => "香川県"} 香川県
+                        %option{:value => "愛媛県"} 愛媛県
+                        %option{:value => "高知県"} 高知県
+                        %option{:value => "福岡県"} 福岡県
+                        %option{:value => "佐賀県"} 佐賀県
+                        %option{:value => "長崎県"} 長崎県
+                        %option{:value => "熊本県"} 熊本県
+                        %option{:value => "大分県"} 大分県
+                        %option{:value => "宮崎県"} 宮崎県
+                        %option{:value => "鹿児島県"} 鹿児島県
+                        %option{:value => "沖縄県"} 沖縄県
+                      %div
+                        %input#address.storesearchprimaryinput{:maxlength => "50", :name => "address", :size => "30", :type => "text", :value => ""}/
+                        %br/
+                        %span.inputexample (例: 渋谷区道玄坂)
+                    %td
+                  %tr.separatorrow
+                  %tr
+                    %input#pickupType{:name => "pickupType", :type => "hidden", :value => "Stores"}/
+                    %td.storesearchlabel
+                      %input{:id => "searchCriterion.storeTwoZips", :name => "searchCriterion", :type => "radio", :value => "storeTwoZips"}>/
+                       
+                      %label{:for => "searchCriterion.storeTwoZips"} 郵便番号で検索:
+                    %td.storesearchinput
+                      %input#storeZip.storesearchprimaryinput{:maxlength => "3", :name => "storeZip", :size => "3", :type => "text", :value => ""}/
+                      \-
+                      %input#storeZip2{:maxlength => "4", :name => "storeZip2", :size => "4", :type => "text", :value => ""}/
+                      %span.inputexample  (例: 152-0034)
+                  %tr.separatorrow
+                  %tr
+                    %td.storesearchlabel
+                      %input{:id => "searchCriterion.landmarkAndState", :name => "searchCriterion", :type => "radio", :value => "landmarkAndState"}>/
+                       
+                      %label{:for => "searchCriterion.landmarkAndState"} 目印の建物などで検索:
+                    %td.storesearchinput
+                      都道府県名：
+                      %select#landmarkState{:name => "landmarkState"}
+                        %option{:value => ""} --
+                        %option{:value => "北海道"} 北海道
+                        %option{:value => "青森県"} 青森県
+                        %option{:value => "岩手県"} 岩手県
+                        %option{:value => "宮城県"} 宮城県
+                        %option{:value => "秋田県"} 秋田県
+                        %option{:value => "山形県"} 山形県
+                        %option{:value => "福島県"} 福島県
+                        %option{:value => "茨城県"} 茨城県
+                        %option{:value => "栃木県"} 栃木県
+                        %option{:value => "群馬県"} 群馬県
+                        %option{:value => "埼玉県"} 埼玉県
+                        %option{:value => "千葉県"} 千葉県
+                        %option{:value => "東京都"} 東京都
+                        %option{:value => "神奈川県"} 神奈川県
+                        %option{:value => "新潟県"} 新潟県
+                        %option{:value => "富山県"} 富山県
+                        %option{:value => "石川県"} 石川県
+                        %option{:value => "福井県"} 福井県
+                        %option{:value => "山梨県"} 山梨県
+                        %option{:value => "長野県"} 長野県
+                        %option{:value => "岐阜県"} 岐阜県
+                        %option{:value => "静岡県"} 静岡県
+                        %option{:value => "愛知県"} 愛知県
+                        %option{:value => "三重県"} 三重県
+                        %option{:value => "滋賀県"} 滋賀県
+                        %option{:value => "京都府"} 京都府
+                        %option{:value => "大阪府"} 大阪府
+                        %option{:value => "兵庫県"} 兵庫県
+                        %option{:value => "奈良県"} 奈良県
+                        %option{:value => "和歌山県"} 和歌山県
+                        %option{:value => "鳥取県"} 鳥取県
+                        %option{:value => "島根県"} 島根県
+                        %option{:value => "岡山県"} 岡山県
+                        %option{:value => "広島県"} 広島県
+                        %option{:value => "山口県"} 山口県
+                        %option{:value => "徳島県"} 徳島県
+                        %option{:value => "香川県"} 香川県
+                        %option{:value => "愛媛県"} 愛媛県
+                        %option{:value => "高知県"} 高知県
+                        %option{:value => "福岡県"} 福岡県
+                        %option{:value => "佐賀県"} 佐賀県
+                        %option{:value => "長崎県"} 長崎県
+                        %option{:value => "熊本県"} 熊本県
+                        %option{:value => "大分県"} 大分県
+                        %option{:value => "宮崎県"} 宮崎県
+                        %option{:value => "鹿児島県"} 鹿児島県
+                        %option{:value => "沖縄県"} 沖縄県
+                      %div
+                        %input#landmark.storesearchprimaryinput{:maxlength => "50", :name => "landmark", :size => "30", :type => "text", :value => ""}/
+                        %br/
+                        %span.inputexample
+                          (例: 東京タワー)
+                          %a{:href => "", :onclick => "window.open(this.href,'AmazonHelp','width=340,height=340,resizable=1,scrollbars=1,toolbar=1,status=1').focus();false;", :target => "AmazonHelp"} 目印の建物は？
+                  %tr
+                    %td
+                      .storesearchaction
+                        %input{:alt => "検索", :name => "Search", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/common/buttons/cvs/search-pm._CB192262033_.gif", :type => "image"}/
+                    %td{:colspan => "2"}  
+      / end of bottom part with two forms
+      .a-divider.a-divider-section
+        .a-divider-inner
+      %p.a-hidden-phone.a-size-small.a-text-center.a-color-secondary Amazonギフト券またはAmazonショッピングカードを利用する場合は、注文確定のページの右側中央部分でコード（または番号）を入力してください。
+      %p.a-size-small.a-text-center.a-color-secondary{"data-testid" => ""}
+        %a{:href => "", :target => "AmazonHelp"}> 利用規約
+        |
+        %a{:href => "", :onclick => "window.open(this.href,'AmazonHelp','width=340,height=340,resizable=1,scrollbars=1,toolbar=1,status=1').focus();false;", :target => "AmazonHelp"}> プライバシー規約
+        ©1996-2018, Amazon.com, Inc.
+
