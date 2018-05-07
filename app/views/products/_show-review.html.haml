@@ -12,7 +12,7 @@
       .review__left__other__content
         %p 半分読み物ですね。しかし、そこがいいです。SQL文のポリシーや集合論、DBMSの高速化がわかって、納得して、スマートなSQL文を書けます。CASE式、Having句、自己結合、相関問い合わせが軽く使いこなせたらいいなあ。なにか、すっとする内容でした。
       .review__left__other__otherwise
-        = link_to "役に立った", "" , class: "useful"
+        = link_to "役に立った", "/products/update",method: "patch" , class: "useful"
         = link_to "役に立たなかった" , "" , class: "useless"
         = link_to "コメント", "" ,class: "comment"
         = link_to "違反を報告", "", class: "violation"
@@ -21,9 +21,11 @@
     .review__right__other
       .review__right__other__name
         %p ふじじ
+      = render partial: "reviews/rate"
       .review__right__other__subject
         %p 素晴らしい
       .review__right__other__content
         %p SQL初心者でしたが、例題を踏まえながら書き方のテクニックをわかりやすく学ぶことができます。内容は少し古いですが、初心者にオススメの一冊です。
       .review__right__other__data
         %p 投稿日: 6ヶ月前
+

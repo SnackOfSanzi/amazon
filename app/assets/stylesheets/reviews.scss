@@ -1,0 +1,63 @@
+.review-write {
+  height: 400px;
+  width: 900px;
+  margin: auto;
+  &__please {
+    height: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-top: 15px;
+  }
+  &__picture {
+    float: left;
+    height: 360px;
+    width: 200px;
+    margin-top: 30px;
+    &__main {
+      height: 200px;
+      width: 160px;
+      background-color: blue;
+    }
+  }
+  &__content {
+    height: 360px;
+    width: 700px;
+    float: right;
+    margin-top: 30px;
+    &__item {
+      font-size: 13px;
+    }
+    &__maker {
+      font-size: 13px;
+    }
+    form {
+      .review_title {
+        width: 670px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        padding: 5px;
+      }
+      .review_content {
+        height: 200px;
+        width: 680px;
+        margin-top: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      .review_submit {
+        float: right;
+        margin-right: 15px;
+        margin-top: 5px;
+        font-size: 13px;
+        border-radius: 5px;
+        height: 30px;
+        width: 50px;
+        background-color: #f0c14b;
+        border: 1px solid gray;
+      }
+    }
+  }
+}

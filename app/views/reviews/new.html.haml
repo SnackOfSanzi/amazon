@@ -1,0 +1,26 @@
+.review-write
+  .review-write__please
+    %h3 お客様のレビュー
+  .review-write__picture
+    .review-write__picture__main
+  .review-write__content
+    .review-write__content__item
+      %p ジョージア エメラルドマウンテン
+    .review-write__content__maker
+      %p コカ・コーラ
+    #star
+      :javascript
+        $('#star').raty({
+          size     : 50,
+          starOff: '/assets/star-off.png',
+          starOn : '/assets/star-on.png',
+          scoreName: 'review[point]'
+        });
+    %form
+      %input{:placeholder => "レビューの見出し(必須)", :type => "text", :class => "review_title"}/
+      %br/
+      %textarea{:cols => "74", :rows => "10", :placeholder => "ここに商品のレビューを記入(必須)", :class => "review_content"}
+      %br/
+      %input{:value => "送信", :type => "submit", :class => "review_submit"}
+
+
