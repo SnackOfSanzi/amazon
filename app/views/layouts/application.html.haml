@@ -7,4 +7,286 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header
+      .navbar.nav-bluebeacon
+        .nav-belt
+          .nav-left
+            .nav-logo
+              = link_to("", class: "nav-logo-link") do
+                %span.nav-logo-base.nav-sprite
+                %span.nav-logo-ext.nav-sprite
+                %span.nav-logo-locale.nav-sprite
+              = link_to "プライムを始める", "", class: "nav-logo-tagline nav-sprite nav-prime"
+          .nav-right
+            .nav-prime
+              = image_tag "https://images-na.ssl-images-amazon.com/images/G/09/shazam/swm-800x78-180301-CheckNow-E7Rpa._V500723081_.png",size: "400x39"
+          .nav-fill
+            .nav-search
+              %form.nav-searchbar{:role => "search"}
+                .nav-left
+                  .nav-search-scope.nav-sprite
+                    .nav-search-facade{"data-value" => "search-alias=aps"}
+                    /*  %span.nav-search-label すべて
+                    /*  %i.nav-icon
+                    /*%span#searchDropdownDescription{:style => "display:none"} Select the department you want to search in
+                .nav-right
+                  .nav-search-submit.nav-sprite
+                    %span#nav-search-submit-text.nav-search-submit-text.nav-sprite 検索
+                    %input.nav-input{:tabindex => "7", :type => "submit", :value => ""}/
+                .nav-fill
+                  .nav-search-field
+                    %label#nav-search-label
+                    %input.nav-input
+        .nav-main
+          .nav-left
+            .nav-globe-locale-slot
+              = link_to("",class: "nav-a nav-a-2") do
+                #nav-packard-glow-loc-icon.nav-sprite
+                #glow-ingress-block
+                  %span.nav-line-1
+                    お届け先
+                  %span.nav-line-2
+                    東京 102-0082&zwnj;
+          .nav-right
+            .nav-tools
+              = link_to("", class: "nav-a nav-a-2") do
+                %span.icp-nav-link-inner
+                  %span.nav-line-1
+                    %span.icp-nav-globe-img-2
+                    %span.icp-nav-language
+                      JP
+                  %span.nav-line-2
+                    &nbsp;
+                    %span.nav-icon.nav-arrow
+                %span.icon-nav-link-border
+              = link_to("", class: "nav-a nav-a-2") do
+                %span.nav-line-1
+                  こんにちは。 サインイン
+                %span.nav-line-2
+                  アカウント＆リスト
+                  %span.nav-icon.nav-arrow
+              = link_to("", class: "nav-a nav-a-2") do
+                %span.nav-line-1
+                %span.nav-line-2
+                  注文履歴
+              = link_to("", class: "nav-a nav-a-2") do
+                %span.nav-line-1
+                  今すぐ登録
+                %span.nav-line-2
+                  プライム
+                  %span.nav-icon.nav-arrow
+              = link_to("", class: "nav-a nav-a-2") do
+                %span.nav-line-1
+                %span.nav-line-2
+                  カート
+                  %span.nav-icon.nav-arrow
+          .nav-fill
+            .nav-shop
+              = link_to("",class: "nav-a nav-a-2") do
+                %span.nav-line-1
+                %span.nav-line-2
+                  カテゴリー
+                  %span.nav-icon.nav-arrow
+            .nav-shop-container
+              .nav-xshop
+                = link_to "マイストア", "", class: "nav-b"
+                = link_to "タイムセール", "", class: "nav-b"
+                = link_to "ギフト券", "", class: "nav-b"
+                = link_to "Amazonで売る", "", class: "nav-b"
+                = link_to "ヘルプ", "", class: "nav-b"
+              .nav-supra
+                = link_to "Amazonポイント", "", class: "nav-b"
+                %span.nav-span :
+                = link_to "残高を確認", "", class: "nav-b"
+
     = yield
+
+    #nav__footer.nav__left-footer
+      .nav__footer--back-to-top
+        %span.nav__footer--back-to-top-text
+          トップへ戻る
+      %table.nav__footer--vertical-column
+        %tbody
+          %tr
+            %td.nav__footer--link-col
+              .nav__footer--col-head
+                Amazonについて
+              %ul
+                %li.nav-first
+                  = link_to '採用情報',"",  class: "nav_a" 
+                %li
+                  = link_to 'Amazonについて', "", class: "nav_a"
+                %li
+                  = link_to 'プレスリリース', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonと地球', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonのコミュニティ活動', "", class: "nav_a"
+                %li
+                  = link_to 'Amazon Story', "", class: "nav_a"
+                %li.nav-last
+                  = link_to 'AmazonGlobal', "", class: "nav_a"
+            %td.nav__footer--colspace-inner
+            %td.nav__footer--link-col
+              .nav__footer--col-head
+                Amazonでビジネス
+              %ul
+                %li.nav-first
+                  = link_to 'Amazonで売る',"",  class: "nav_a" 
+                %li
+                  = link_to 'フルフィルメント by Amazon', "", class: "nav_a"
+                %li
+                  = link_to 'Amazon Buisinessで法人販売', "", class: "nav_a"
+                %li
+                  = link_to 'amazon Pay(決済サービス)', "", class: "nav_a"
+                %li
+                  = link_to 'アソシエイト(アフィリエイト)', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonで広告掲載をする', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonで出版', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonの仕入れ先になる', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonの仕入れ先になる', "", class: "nav_a"
+                %li.nav-last
+                  %span.nav_a_carat
+                    ›
+                  = link_to '全てのサービスを見る', "", class: "nav_a"
+            %td.nav__footer--colspace-inner
+            %td.nav__footer--link-col
+              .nav__footer--col-head
+                Amazonでのお支払い
+              %ul
+                %li.nav-first
+                  = link_to 'Amazonポイント',"",  class: "nav_a" 
+                %li
+                  = link_to 'Amazonギフト券 ', "", class: "nav_a"
+                %li
+                  = link_to 'Amazon Mastercard', "", class: "nav_a"
+                %li
+                  = link_to 'クレジットカード&保険', "", class: "nav_a"
+                %li
+                  = link_to 'パートナーポイントプログラム', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonギフト券チャージタイプ', "", class: "nav_a"
+                %li.nav-last
+                  %span.nav_a_carat
+                    ›
+                  = link_to 'すべての支払方法を見る', "", class: "nav_a"
+            %td.nav__footer--colspace-inner
+            %td.nav__footer--link-col
+              .nav__footer--col-head
+                ヘルプ＆ガイド
+              %ul
+                %li.nav-first
+                  = link_to '配送料と配送情報',"",  class: "nav_a" 
+                %li
+                  = link_to 'Amazonプライム', "", class: "nav_a"
+                %li
+                  = link_to '商品の返品・交換', "", class: "nav_a"
+                %li
+                  = link_to 'コンテンツと端末の管理', "", class: "nav_a"
+                %li
+                  = link_to 'ストア・特集一覧', "", class: "nav_a"
+                %li
+                  = link_to 'Amazonアシスタント', "", class: "nav_a"
+                %li.nav-last
+                  = link_to 'ヘルプ', "", class: "nav_a"
+      .nav__footer--under-line
+      .nav__footer--link-line.nav__footer--paditem-line
+        %span
+          .nav__footer--link-line.nav__footer--logo-line
+            = link_to do
+              .nav-sprite.nav-logo-base
+        %span.icp-container
+          .nav__footer--line
+            = link_to do
+              .icp-nav--globe-img-2.icp-button-globe-2
+              %span.icp-color-base
+                日本語
+              %span.nav-arrow.icp-up-down-arrow
+            = link_to do
+              %span.icp-flag-3.icp-flag-3-jp
+              %span.icp-color-base
+                日本
+      .nav__footer--link-line.nav__footer--desc-line.nav__footer--line
+        %table.nav__footer--moreamazon
+          %tbody
+            %tr
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  Audible(オーディブル)
+                  %br
+                  %span.nav__footer--desctext
+                    本は朗読で聞こう
+                    %br
+                    一ヶ月無料体験も
+              %td.nav__footer__descsp
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  アマゾンウェブサービス (AWS)
+                  %br
+                  %span.nav__footer--desctext
+                    クラウドコンピューティング
+                    %br
+                    サービス
+              %td.nav__footer__descsp
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  Audible(オーディブル)
+                  %br
+                  %span.nav__footer--desctext
+                    本は朗読で聞こう
+                    %br
+                    一ヶ月無料体験も
+              %td.nav__footer__descsp
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  Audible(オーディブル)
+                  %br
+                  %span.nav__footer--desctext
+                    本は朗読で聞こう
+                    %br
+                    一ヶ月無料体験も
+            %tr
+              %td
+                &nbsp;
+            %tr
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  Audible(オーディブル)
+                  %br
+                  %span.nav__footer--desctext
+                    本は朗読で聞こう
+                    %br
+                    一ヶ月無料体験も
+              %td.nav__footer__descsp
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  アマゾンウェブサービス (AWS)
+                  %br
+                  %span.nav__footer--desctext
+                    クラウドコンピューティング
+                    %br
+                    サービス
+              %td.nav__footer__descsp
+              %td.nav__footer__descitem
+                = link_to("", class: "nav_a") do
+                  Audible(オーディブル)
+                  %br
+                  %span.nav__footer--desctext
+                    本は朗読で聞こう
+                    %br
+                    一ヶ月無料体験も
+              %td.nav__footer__descsp
+      .nav__footer--link-line.nav__footer--paditem-line.nav__footer--line.nav__footer--line-diver.nav__footer--copyright
+        %ul
+          %li.nav_first
+            = link_to '利用規約',"",class: "nav_a"
+          %li
+            = link_to 'プライバシー規約', "", class: "nav_a"
+          %li.nav_last
+            = link_to 'パーソナライズド広告規約', "", class: "nav_a"
+        %span
+          © 1996-2018, Amazon.com, Inc. or its affiliates

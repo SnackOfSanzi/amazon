@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
     resources :orders, only: [:index]
     resources :deliveries , only: [:index]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   resources :parent_categories, only: [:index, :show]
+   resources :products, only: [:index, :show]
 end
