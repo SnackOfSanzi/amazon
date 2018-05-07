@@ -1,0 +1,55 @@
+.purchase-completion {
+  height: 200px;
+  width: 100%;
+  background-color: #FFFFCC;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 15px;
+  &__thanks {
+    font-size: 25px;
+    color: #FF6600;
+    font-weight: 540;
+  }
+  &__confirmation {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  __number {
+
+  }
+  &__data {
+    margin-left: 50px;
+    font-size: 12px;
+    &__item {
+      display: inline-block;
+    }
+    &__consignor {
+      display: inline-block;
+    }
+    &__date {
+      display: inline-block;
+    }
+    &__number {
+      display: inline-block;
+      font-weight: 550;
+    }
+  }
+  &__link {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    &__expression {
+      display: inline-block;
+    }
+    &__question {
+      display: inline-block;
+    }
+    &__point {
+      display: inline-block;
+    }
+  }
+  &__share {
+    font-size: 13px;
+  }
+}

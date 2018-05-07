@@ -44,7 +44,7 @@
         %p.j この商品は、Amazon.co.jpが販売、発送します。ギフトラッピングを利用できます。
       .cart
         %p 数量:
-        %select
+        %select#select
           %option{:value => "zero"} 0
           %option{:value => "one"} 1
           %option{:value => "two"} 2
@@ -57,7 +57,7 @@
             %input{:name => "Checkbox", :type => "checkbox", :value => "チェックボックス"}/
             %p.k この注文でお急ぎ便、お届け日時指定便を無料体験  Amazonプライム無料体験について
           .cart-in
-            = link_to root_path do
+            = link_to "" do
               = fa_icon 'shopping-cart', class: "icon"
               %p.l カートに入れる
       .sign
