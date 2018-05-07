@@ -67,7 +67,7 @@
   }
   .feed-carousel {
     width: 100%;
-    margin: 0 0 5px;
+    margin-bottom: 5px;
     position: relative;
     overflow: hidden;
     &-viewport {
@@ -82,7 +82,7 @@
       display: inline-block;
       position: relative;
       left: 0;
-      margin: 0 0 14px;
+      margin-bottom: 14px;
       padding: 0;
     } 
     &-card {
@@ -91,7 +91,7 @@
       max-width: 270px;
       max-height: 200px;
       overflow: hidden;
-      margin: 0 10px 0 0;
+      margin-right: 10px;
       position: relative;
       .a-list-item {
         text-align: center;
@@ -106,8 +106,7 @@
     .topic-title-block {
       white-space: nowrap;
       overflow: hidden;
-      margin-bottom: 25px;
-      margin: 10px 0 0;
+      margin: 10px 0 25px;
       .a-color-base {
         color: #444!important;
       }
@@ -259,7 +258,7 @@
     width:310px;
     margin-right: -310px;
     float: right;
-    padding: 10px 23px 10px 23px;
+    padding: 10px 23px;
     background: #fff;
     .adv-wrapper {
       padding-top: 5px;
@@ -279,7 +278,7 @@
     }
     hr {
     width: 100%;
-    margin: 0 0 15px 0;
+    margin-bottom: 15px;
     line-height: 19px;
     }
   }
