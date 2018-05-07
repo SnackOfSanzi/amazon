@@ -1,0 +1,6 @@
+@mixin empty-table() {
+    display: table;
+    content: "";
+    line-height: 0;
+    font-size: 0;
+}
