@@ -1,0 +1,141 @@
+.huc-v2-order-row {
+  border-color: #ccc;
+  margin: 26px 0 16px;
+  min-height: 64px
+}
+
+#huc-v2-order-row-items {
+  padding: 7px 14px 7px 0
+}
+
+.huc-v2-order-row .width-fit-content {
+  width: 1px!important;
+  white-space: nowrap!important
+}
+
+.huc-v2-order-row .full-width {
+  width: 100%!important
+}
+
+.huc-v2-order-row .order-row-base-height {
+  height: 64px!important
+}
+
+.huc-v2-order-row .a-box-inner {
+  display: table;
+  padding: 0 12px;
+  width: 100%
+}
+
+.huc-v2-order-row .huc-v2-table-row {
+  display: table;
+  width: auto
+}
+
+.huc-v2-order-row .huc-v2-table-col {
+  display: table-cell;
+  width: auto;
+  vertical-align: middle
+}
+
+.huc-v2-order-row .huc-v2-color-success {
+  color: #099700!important
+}
+
+.huc-v2-order-row-image-box {
+  cursor: pointer;
+  height: 50px;
+  width: 65px
+}
+
+.huc-v2-order-row-image {
+  height: 48px;
+  width: 48px
+}
+
+#huc-v2-bottom-order-row {
+  border-color: #ccc;
+  margin: 44px 0;
+  min-width: 600px;
+  display: inline-block
+}
+
+#huc-v2-bottom-order-row .a-box-inner {
+  padding: 16px;
+  display: table;
+  width: 100%
+}
+
+#huc-v2-bottom-order-row .huc-v2-row-col {
+  display: table-cell;
+  width: auto;
+  vertical-align: middle
+}
+
+#huc-v2-bottom-order-row .huc-v2-row-col:first-child {
+  white-space: nowrap
+}
+
+#hlb-bottom-subcart {
+  padding-right: 16px
+}
+
+.huc-v2-upsell-title {
+  padding: 4px 18px 0 18px
+}
+
+.huc-v2-upsell-column {
+  float: left;
+  width: 25%
+}
+
+.huc-v2-upsell-box {
+  margin-left: 0;
+  min-height: 250px;
+  max-height: 300px;
+  width: 250px
+}
+
+.huc-upsell-big-face-box {
+  padding: 10px;
+  display: table
+}
+
+.huc-upsell-big-face-box-inner {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative
+}
+
+.huc-v2-page-container {
+  margin: 0 auto;
+  padding: 0 12px;
+  max-width: 1174px;
+  min-width: 1024px
+}
+
+#huc-v2-cobrand-stripe {
+  width: 1000px;
+  margin: auto
+}
+
+#huc-v2-order-row-messages {
+  background-color: #fafafa;
+  border-right: 1px solid #ccc;
+  padding-right: 14px
+}
+
+#huc-v2-order-row-center {
+  padding-left: 14px
+}
+
+.a-box {
+  display: block;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  background-color: #fff;
+}
+
+.a-text-center {
+  text-align: center!important;
+}
