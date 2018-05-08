@@ -1,5 +1,6 @@
 .review {
   height: 100%;
+  overflow: scroll;
   &__left {
     height:100%;
      width: calc(100% - 500px);
