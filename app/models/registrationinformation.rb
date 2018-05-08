@@ -1,0 +1,2 @@
+class Registrationinformation < ApplicationRecord
+end
