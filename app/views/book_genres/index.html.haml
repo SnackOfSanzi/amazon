@@ -4,7 +4,7 @@
     .a-fixed-left-grid-col.a-col-right{:style => "padding-left:30px; width:100%; float:right; padding-top:10px;"}
       #container.lp.s-padding-left-small.twoColumn{"data-app" => "lp", "data-page" => "hybrid", "data-page-construction" => "sx", :documentrole => "main"}
         #merchandised-content.a-section
-          %link{:href => "https://images-fe.ssl-images-amazon.com/images/G/01/acs/ux/widget/pageHeader/prod/2.0.1/bxw-page-header.css", :rel => "stylesheet", :type => "text/css"}/
+
           .celwidget.bxw-pageheader.is-desktop{:cel_widget_id => "acsux-pageheader"}
             .bxw-pageheader__title
               .bxw-pageheader__title__text
@@ -34,12 +34,6 @@
                 %h1.a-size-large{:role => "heading"} 本の種類から探す
               #widgetFilters.a-row.a-spacing-small{"data-widgetid" => "100"}
                 .a-row.padCenter.aok-relative
-                  #previousShovlButton.a-section.buttonContainer.multiPageButtonContainer.previousButtonContainer.aok-float-left
-                    %i.a-icon.a-icon-previous.leftArrow{"aria-label" => "前へ"}
-                      %span.a-icon-alt 前へ
-                  #nextShovlButton.a-section.buttonContainer.multiPageButtonContainer.nextButtonContainer.aok-float-right
-                    %i.a-icon.a-icon-next.rightArrow{"aria-label" => "次へ"}
-                      %span.a-icon-alt 次へ
                   .a-section.tiles
                     .tile.aok-inline-block{:style => "width:12.5%;"}
                       %a.a-link-normal{:href => "/b/ref=gbpp_itr_m-2_0e59_53642380?node=5364238051&ie=UTF8"}
@@ -97,24 +91,6 @@
                             .a-section.tileOverlay
                           .a-section
                             %span.a-size-small.a-color-base.faceoutText.aok-block 写真集
-                    .tile.aok-inline-block{:style => "width:12.5%;"}
-                      %a.a-link-normal{:href => "/b/ref=gbpp_itr_m-2_0e59_52033011?node=52033011&ie=UTF8"}
-                        .a-row.filterLink{"data-value" => "52033011"}
-                          .a-section.a-spacing-mini.imageContainer.aok-relative
-                            %img.filterImage.aok-inline-block{:alt => "", :height => "75px",  :src => "https://images-eu.ssl-images-amazon.com/images/P/0552565970.01._SS100_.jpg"}/
-                            .a-section.tileOverlay
-                          .a-section
-                            %span.a-size-small.a-color-base.faceoutText.aok-block 洋書
-                    .tile.aok-inline-block{:style => "width:12.5%;"}
-                      %a.a-link-normal{:href => "/b/ref=gbpp_itr_m-2_0e59_53018790?node=5301879051&ie=UTF8"}
-                        .a-row.filterLink{"data-value" => "5301879051"}
-                          .a-section.a-spacing-mini.imageContainer.aok-relative
-                            %img.filterImage.aok-inline-block{:alt => "", :height => "75px", :src => "https://images-eu.ssl-images-amazon.com/images/G/09/2017/books/icon/productbundle3.png"}/
-                            .a-section.tileOverlay
-                          .a-section
-                            %span.a-size-small.a-color-base.faceoutText.aok-block セット本
-            %link{:href => "https://images-fe.ssl-images-amazon.com/images/I/51YydgWLKPL.css?AUIClients/GoldboxMobileAssets#111594-T2", :rel => "stylesheet"}/
-            %link{:href => "https://images-na.ssl-images-amazon.com/images/G/01/acs/hfd/widgets/plankton-hero/prod/hfd-plankton-hero.min._CB1517417211_.css", :rel => "stylesheet"}/
             %section.hfd-plankton-hero.hfd-plankton-hero--jp
               %a{:href => "", :target => "_top"}
                 %figure
@@ -125,7 +101,6 @@
                       .hfd-plankton-hero-headline 家の中のすごい生きもの図鑑
                       .hfd-plankton-hero-subtext 一番身近な生き物たちの知られざる生き様とスゴ技
                       .hfd-plankton-hero-cta 今すぐチェック
-            %link{:href => "https://images-fe.ssl-images-amazon.com/images/G/01/acs/ux/widget/bxw-content-grid/dist/css/bxw-content-grid-1.1.3.min.css", :rel => "stylesheet", :type => "text/css"}/
             .acsUxWidget
               #contentGrid_990114.acswidget.acswidget-content-grid.celwidget.JP.bxw-content-grid.bxw-content-grid--ember.a-spacing-large.bxc-grid--light{:cel_widget_id => "acsux-widgets-content-grid", "data-is-mobile" => "false"}
                 .bxc-grid__container.bxc-grid__container--width-1500
@@ -313,7 +288,6 @@
               .a-spacing-mini
                 %h2 おすすめ商品
                 %hr
-              %link{:href => "https://images-fe.ssl-images-amazon.com/images/G/01/acs/ux/widget/bxw-content-grid/dist/css/bxw-content-grid-1.1.3.min.css", :rel => "stylesheet", :type => "text/css"}/
               .acsUxWidget
                 .a-spacing-large.bxc-grid--light{:cel_widget_id => "acsux-widgets-content-grid", "data-is-mobile" => "false"}
                   .bxc-grid__container.bxc-grid__container--width-1500
@@ -366,6 +340,19 @@
                           .a-row.a-color-secondary.a-size-small.acs_product-metadata__binding 文庫
                           .a-box-group.a-size-small.a-spacing-none.acs_product-price
                             %span.a-size-base.a-color-price.acs_product-price__buying ￥ 702  
+                            %i.a-icon.a-icon-jp.a-icon-prime-jp{"aria-label" => "Prime JP"}
+                              %span.a-icon-alt Prime JP
+                      - @books.each do |book|
+                        %li.a-carousel-card.acswidget-carousel__card{"aria-setsize" => "20", :style => "max-width:230px;"}
+                          %a.aok-block.aok-nowrap.aok-hide-text.acs_product-image{:href => "/products/show", :style => "vertical-align: middle; max-height: 230px;", :target => "_blank", :title => "book.name"}
+                          %img.aok-align-center{:src => "https://images-fe.ssl-images-amazon.com/images/I/81fqiANghoL._SL150_.jpg"}/
+                          .a-box-group.a-spacing-top-micro.acs_product-title
+                            %a.a-link-normal{:href => "/products/show", :target => "_blank", :title => "book.name"}
+                              %span.a-size-small
+                              = book.name
+                          .a-row.a-color-secondary.a-size-small.acs_product-metadata__binding 文庫
+                          .a-box-group.a-size-small.a-spacing-none.acs_product-price
+                            %span.a-size-base.a-color-price.acs_product-price__buying 
                             %i.a-icon.a-icon-jp.a-icon-prime-jp{"aria-label" => "Prime JP"}
                               %span.a-icon-alt Prime JP
     = render "shared/book_side_body"
