@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
-  has_many :registrationinformations
-   has_many :bookimages
+  has_many :bookimages
+  has_one :registrationinformation
 end
