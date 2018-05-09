@@ -1,11 +1,13 @@
 .top
   .top__left
     .top__left__picture
-      %img{:src => "https://images-na.ssl-images-amazon.com/images/I/51CGypjLrvL._SX348_BO1,204,203,200_.jpg",:class => "main" }
+      .main
+        - @image.each do |image|
+          = image_tag(image.image_url)
       .sub
     .top__left__main
       .top__left__main__top
-        %h1 達人に学ぶ SQL徹底指南書 (CodeZine BOOKS)
+        = @product.name
         .date
           %p 2008/2/7
           %p 著者
@@ -32,7 +34,8 @@
     .top__right__main
       .price
         %p.a 新品
-        %p.b ¥ 2,592
+        .b
+          %p ¥ #{@product.price}
         %p.c ポイント:
         %p.d 78pt(3%)
         = link_to "詳細はこちら", class: "e"
@@ -68,4 +71,4 @@
     %h3 キャンペーンおよび追加情報
     .info
       %p ・ 【コンピュータ・IT】 プログラミング、アプリケーション関連書から各種試験対策まで コンピュータ・IT のページへ。
-      %p ・  入会特典をこの商品に利用した場合、2,592円が592 円に ！ Amazonクラシックカード 新規ご入会で、2,000円分 の Amazonポイントプレゼント。 今すぐチェック
+      %p ・  入会特典をこの商品に利用した場合、2,592円が592 円に ！ Amazonクラシックカード 新規ご入会で、2,000円分 の Amazonポイントプレゼント。 今すぐチェックs
