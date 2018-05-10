@@ -1,0 +1,26 @@
+.search-page {
+  height: 100%;
+  width: 100%;
+  &__box {
+    height: 100%;
+    width: 100%;
+    &__other {
+      height: 300px;
+      width: 23%;
+      display: inline-block;
+      vertical-align : middle;
+      text-align: center;
+      &__picture {
+        height: 232px;
+      }
+      &__data {
+        &__name {
+          font-size: 18px;
+        }
+        &__price {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

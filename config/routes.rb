@@ -8,5 +8,10 @@ Rails.application.routes.draw do
    resources :parent_categories, only: [:index]
    resources :book_genres, only: [:index, :show]
    resources :reviews, only: [:new]
-   resources :products, only: [:index, :show, :update]
+   resources :products, only: [:index, :show, :update] do
+    collection do
+      get 'search'
+    end
+   end
+
 end

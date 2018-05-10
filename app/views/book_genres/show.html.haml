@@ -118,16 +118,12 @@
                       %ol.a-carousel
                       - @books.each do |book|
                         %li.a-carousel-card.acswidget-carousel__card{"aria-setsize" => "20", :style => "max-width:230px;"}
-                          %a.aok-block.aok-nowrap.aok-hide-text.acs_product-image{:href => "/products/show", :style => "vertical-align: middle;", :target => "_blank", :title => "book.name"}
                           - book.bookimages.each do |image|
-                            = image_tag(image.image_url, style: " height: 244px; width: 160px;")
+                            = link_to image_tag(image.image_url, style: " height: 244px; width: 160px;"),"/products/#{book.id}",:target => "_blank"
                           .a-box-group.a-spacing-top-micro.acs_product-title
-                            %a.a-link-normal{:href => "/products/show", :target => "_blank", :title => "book.name"}
-                              %span.a-size-small
-                              = book.name
-                          - book.registrationinformations.each do |reg|
+                            = link_to "#{book.name}","/products/#{book.id}",:target => "_blank"
                             .a-row.a-color-secondary
-                            = reg.determinetype
+                            = book.registrationinformation.determinetype
                             .a-box-group.a-size-small.a-spacing-none.acs_product-price
                               %span.a-size-base.a-color-price ¥
                               %span.a-size-base.a-color-price
