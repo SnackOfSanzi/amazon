@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(6)
+    @product = Product.find(params[:id])
     @image = @product.bookimages
     @registration = @product.registrationinformation
   end
