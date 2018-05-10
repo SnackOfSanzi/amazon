@@ -22,13 +22,13 @@
               = image_tag "https://images-na.ssl-images-amazon.com/images/G/09/shazam/swm-800x78-180301-CheckNow-E7Rpa._V500723081_.png",size: "400x39"
           .nav-fill
             .nav-search
-              %form.nav-searchbar{:role => "search"}
+              = form_tag("/products/search", method: :get ,class: "link-to-search",name: "keyword") do
                 .nav-left
                   .nav-search-scope.nav-sprite
                     .nav-search-facade{"data-value" => "search-alias=aps"}
                     /*  %span.nav-search-label すべて
                     /*  %i.nav-icon
-                    /*%span#searchDropdownDescription{:style => "display:none"} Select the department you want to search in
+                    /*%span#searchDropdownDescription{:style => "display:none"} Select the department you want to search i
                 .nav-right
                   .nav-search-submit.nav-sprite
                     %span#nav-search-submit-text.nav-search-submit-text.nav-sprite 検索
@@ -36,7 +36,7 @@
                 .nav-fill
                   .nav-search-field
                     %label#nav-search-label
-                    %input.nav-input
+                    %input.search__query{:name => "keyword", :placeholder => "作品名で検索", :type => "text", :value => ""}/
         .nav-main
           .nav-left
             .nav-globe-locale-slot
@@ -113,7 +113,7 @@
                 Amazonについて
               %ul
                 %li.nav-first
-                  = link_to '採用情報',"",  class: "nav_a" 
+                  = link_to '採用情報',"",  class: "nav_a"
                 %li
                   = link_to 'Amazonについて', "", class: "nav_a"
                 %li
@@ -132,7 +132,7 @@
                 Amazonでビジネス
               %ul
                 %li.nav-first
-                  = link_to 'Amazonで売る',"",  class: "nav_a" 
+                  = link_to 'Amazonで売る',"",  class: "nav_a"
                 %li
                   = link_to 'フルフィルメント by Amazon', "", class: "nav_a"
                 %li
@@ -159,7 +159,7 @@
                 Amazonでのお支払い
               %ul
                 %li.nav-first
-                  = link_to 'Amazonポイント',"",  class: "nav_a" 
+                  = link_to 'Amazonポイント',"",  class: "nav_a"
                 %li
                   = link_to 'Amazonギフト券 ', "", class: "nav_a"
                 %li
@@ -180,7 +180,7 @@
                 ヘルプ＆ガイド
               %ul
                 %li.nav-first
-                  = link_to '配送料と配送情報',"",  class: "nav_a" 
+                  = link_to '配送料と配送情報',"",  class: "nav_a"
                 %li
                   = link_to 'Amazonプライム', "", class: "nav_a"
                 %li

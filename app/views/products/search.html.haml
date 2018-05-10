@@ -1,0 +1,16 @@
+.search-page
+  .search-page__box
+    - @products.each do |product|
+      - product.bookimages.each do |image|
+        .search-page__box__other
+          %a.search-page__box__other__picture{href: "/products/show"}
+            / - @products.each do |product|
+            /   - product.bookimages.each do |image|
+            = image_tag(image.image_url, :size => "150x232")
+          .search-page__box__other__data
+            %a.search-page__box__other__data__name{href: "/products.show"}
+              / - @products.each do |product|
+              = product.name
+            .search-page__box__other__data__price
+              / - @products.each do |product|
+              %p ¥ #{product.price}
