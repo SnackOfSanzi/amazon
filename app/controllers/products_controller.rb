@@ -13,4 +13,8 @@ class ProductsController < ApplicationController
   def update
   end
 
+  def search
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").includes([:bookimages]).limit(20)
+  end
+
 end
