@@ -22,7 +22,8 @@
               = image_tag "https://images-na.ssl-images-amazon.com/images/G/09/shazam/swm-800x78-180301-CheckNow-E7Rpa._V500723081_.png",size: "400x39"
           .nav-fill
             .nav-search
-              %form.nav-searchbar{:role => "search"}
+              = form_tag("/products/search", method: :get ,class: "link-to-search",name: "keyword") do
+                / -binding.pry
                 .nav-left
                   .nav-search-scope.nav-sprite
                     .nav-search-facade{"data-value" => "search-alias=aps"}
@@ -36,7 +37,7 @@
                 .nav-fill
                   .nav-search-field
                     %label#nav-search-label
-                    %input.nav-input
+                    %input.search__query{:name => "keyword", :placeholder => "作品名で検索", :type => "text", :value => ""}/
         .nav-main
           .nav-left
             .nav-globe-locale-slot
