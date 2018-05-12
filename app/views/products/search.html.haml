@@ -1,3 +1,4 @@
+/= render "shared/book_side_body"
 .search-page
   .search-page__box
     - @products.each do |product|
@@ -8,9 +9,10 @@
             /   - product.bookimages.each do |image|
             = image_tag(image.image_url, :size => "150x232")
           .search-page__box__other__data
-            %a.search-page__box__other__data__name{href: "/products.show"}
+            %a.search-page__box__other__data__name{href: "/products/#{product.id}"}
               / - @products.each do |product|
               = product.name
             .search-page__box__other__data__price
               / - @products.each do |product|
               %p ¥ #{product.price}
+  = paginate(@products)
