@@ -3,7 +3,7 @@
     - @products.each do |product|
       - product.bookimages.each do |image|
         .search-page__box__other
-          %a.search-page__box__other__picture{href: "/products/show"}
+          %a.search-page__box__other__picture{href: "/products/#{product.id}"}
             / - @products.each do |product|
             /   - product.bookimages.each do |image|
             = image_tag(image.image_url, :size => "150x232")
