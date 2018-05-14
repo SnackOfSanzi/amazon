@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").includes([:bookimages]).limit(20)
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").includes([:bookimages]).page(params[:page]).per(20)
   end
 
 end
