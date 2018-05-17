@@ -18,7 +18,7 @@
           = link_to "kindle版 ¥ 2,400", "",class: "kindle"
           = link_to "今すぐお読みいただけます: 無料アプリ","",class: "apuri"
         .right
-          = link_to "単行本(ソフトカバー¥ 2,592)","",class: "comic"
+          = link_to "単行本(ソフトカバー¥ #{@product.price})","",class: "comic"
         .bottom
           = link_to "新しいお届け予定日を見るにはこちらをクリック"
       .top__left__main__bottom
@@ -46,21 +46,17 @@
         %p.i 在庫状況について
         %p.j この商品は、Amazon.co.jpが販売、発送します。ギフトラッピングを利用できます。
       .cart
-        %p 数量:
-        %select#select
-          %option{:value => "zero"} 0
-          %option{:value => "one"} 1
-          %option{:value => "two"} 2
-          %option{:value => "three"} 3
-          %option{:value => "four"} 4
-          %option{:value => "five"} 5
+      = form_for(@order, url: product_add_product_path(@product.id)) do |f|
+        = f.fields_for :order_products do |o|
+          = o.label :quantity, "数量"
+          = o.select :quantity, [[1,1],[2,2],[3,3],[4,4],[5,5]]
         .into-cart
           %label
             %br/
             %input{:name => "Checkbox", :type => "checkbox", :value => "チェックボックス"}/
             %p.k この注文でお急ぎ便、お届け日時指定便を無料体験  Amazonプライム無料体験について
           .cart-in
-            = link_to "/orders" do
+            = f.submit  do
               = fa_icon 'shopping-cart', class: "icon"
               %p.l カートに入れる
       .sign

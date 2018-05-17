@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508021040) do
+ActiveRecord::Schema.define(version: 20180511092343) do
 
   create_table "bookimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 20180508021040) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["product_id"], name: "index_bookimages_on_product_id", using: :btree
+  end
+
+  create_table "order_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id", null: false
+    t.integer  "quantity",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_order_products_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_order_products_on_product_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,5 +59,7 @@ ActiveRecord::Schema.define(version: 20180508021040) do
   end
 
   add_foreign_key "bookimages", "products"
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "order_products", "products"
   add_foreign_key "registrationinformations", "products"
 end

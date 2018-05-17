@@ -1,96 +1,291 @@
-#a-page
-  .huc-v2-page-container
+%link{:href => "https://images-fe.ssl-images-amazon.com/images/I/61MV7WFx1JL._RC|01evdoiemkL.css,01K+Ps1DeEL.css,31yErFkQitL.css,11PuQQlCaSL.css,11pdJ7gGeEL.css,21LK7jaicML.css,11L58Qpo0GL.css,21EuGTxgpoL.css,01Xl9KigtzL.css,21IJTTf5-5L.css,019SHZnt8RL.css,01qy9K8SDEL.css,11vZhCgAHbL.css,21Mne54CsmL.css,11WgRxUdJRL.css,01dU8+SPlFL.css,11DGn6WmpTL.css,01SHjPML6tL.css,111-D2qRjiL.css,01QrWuRrZ-L.css,31CuFJrWvQL.css,114KWZGKCVL.css,01cbS3UK11L.css,21zId9c5Z5L.css,01cNnXK5MbL.css_.css?AUIClients/AmazonUI#jp.not-trident", :rel => "stylesheet"}/
+.sc-cart-spinner{:style => "display:none;"}
+  %img{:alt => "読み込んでいます...", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/ui/loadIndicators/loading-large._CB192261613_.gif"}/
+.sc-cart-overwrap{:style => "display:none;"}
+.a-container
+  #content.a-section{:role => "main"}
     .a-row
-      .a-box.a-onlychild.a-color-alternate-background.huc-v2-order-row.huc-v23-order-row
-        .a-box-inner
-          .a-row.huc-v2-table-row.full-width
-            #huc-v2-order-row-items.a-row.huc-v2-table-col.width-fit-content
-              #huc-v2-order-row-icon.huc-v2-table-col.a-alert.a-alert-success
-                %i.a-icon.a-icon-alert
-              .huc-v2-table-col
-                .a-box.a-box-thumbnail.huc-middle-vertical.huc-no-radius.huc-v2-order-row-image-box.huc-green-border
+    .a-fixed-right-flipped-grid
+      .a-fixed-right-grid-inner
+        .a-fixed-right-grid-col.a-col-right{:style => "width:300px;float:right;"}
+          #sc-buy-box.a-section
+            %form#gutterCartViewForm{:action => "/gp/cart/desktop/go-to-checkout.html/ref=pd_luc_mri", :method => "get"}
+              %noscript
+                %input{:name => "hasWorkingJavascript", :type => "hidden", :value => "0"}/
+              .sc-spinner{:style => "display:none;"}
+                %img{:alt => "読み込んでいます...", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/shopping-cart/loading-flc._CB401821910_.gif"}/
+              .sc-overwrap{:style => "display:none;"}
+              .a-box-group.sc-buy-box-group
+                .a-box.sc-sss-box
                   .a-box-inner
-                    %img.huc-no-radius.huc-v2-order-row-image.huc-v2-table-col{alt: "", src: "https://images-na.ssl-images-amazon.com/images/I/51CGypjLrvL._SX348_BO1,204,203,200_.jpg"}
-                    .huc-v2-table-col
-                      %i.a-icon.a-icon-popover.huc-v2-order-row-down-arrow
-            #huc-v2-order-row-messages.a-row.huc-v2-table-col.width-fit-content
-              .huc-v2-color-success
-                %h1.a-size-medium.a-text-bold 追加されました
-            #huc-v2-order-row-center.a-row.huc-v2-table-col
-              #huc-v2-order-row-center-inner.a-row.full-width
-                .a-row.huc-v2-table-row.full-width.order-row-base-height
-                  .a-row.huc-v2-table-col
-                    #hlb-subcart.a-row.huc-v2-subcart.a-size-small
-                      .a-row.a-spacing-micro
-                        %span.a-size-medium.a-align-center.huc-subtotal
-                          %span
-                            %b> カートの小計
-                            （商品1点）:
-                          %span.a-color-price.hlb-price.a-inline-block.a-text-bold ￥ 2,592
-                      /
-                        \##ポイント獲得を表示する記述##  <div class="a-row"> <span>この注文での獲得ポイント:</span> <span class="hlb-price">0pt</span> <span id="hlb-ship-message" class="a-size-small a-inline-block">
-                        <span>
-                        <b>通常配送無料</b> <a href="http://www.amazon.co.jp/gp/help/customer/display.html?nodeId=642982" target="SuperSaverShipping" onclick="return amz_js_PopWin('http://www.amazon.co.jp/gp/help/customer/display.html?nodeId=642982','SuperSaverShipping','width=550,height=550,resizable=1,scrollbars=1,toolbar=0,status=0');">詳細</a></span>
-                        </span>
-                        </div> ##ポイント獲得を表示する記述##
-            #huc-v2-order-row-buttons.a-row.huc-v2-table-col
-              #huc-v2-subcart-buttons-wrapper.a-row.a-text-right
-                .huc-width-fit-content
-                  .a-row
-                    %span.a-declarative{"data-action" => "huc-view-cart", "data-huc-view-cart" => "{\"formID\":\"hlb-message-form\"}"}
-                      %span#hlb-view-cart.a-button.huc-v2-view-cart.huc-spacing-right-mini.huc-button-large
+                    .a-row.sc-sss
+                      .a-box.a-alert-inline.a-alert-inline-success
+                        .a-box-inner.a-alert-container
+                          %i.a-icon.a-icon-alert
+                          .a-alert-content
+                            %span
+                              通常配送無料
+                              %a{:href => ""} 詳細
+                            %p
+                              %span.a-color-secondary
+                    / EndOfMS3Content
+                / for box
+                .a-box.a-color-alternate-background
+                  .a-box-inner
+                    .sc-subtotal.a-spacing-mini
+                      %p.a-spacing-none.a-spacing-top-none
+                        %span.a-size-medium.a-text-bold
+                          %span{id: "total_count"}
+                            小計 (#{@total_count}点):
+                          %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-price-sign{id: "total_price"} ￥ #{@total_price}
+                      / for paragraph
+                      %p.a-spacing-none.a-spacing-top-small
+                        %span.a-size-base
+                          この注文での獲得ポイント:
+                          %span.a-color-price
+                            29pt
+                      / for paragraph
+                    .sc-gift.a-spacing-base
+                      .a-checkbox{"data-a-input-name" => "isToBeGiftWrapped"}
+                        %label{:for => "sc-buy-box-gift-checkbox"}
+                          %input#sc-buy-box-gift-checkbox{:name => "isToBeGiftWrapped", :type => "checkbox", :value => "1"}/
+                          %i.a-icon.a-icon-checkbox
+                          %span.a-label.a-checkbox-label
+                            %b ギフトの設定（贈り主名の表示に必要です）
+                      %input{:name => "isToBeGiftWrappedBefore", :type => "hidden"}/
+                    .sc-proceed-to-checkout
+                      %span#sc-buy-box-ptc-button.a-button.a-button-span12.a-button-primary
                         %span.a-button-inner
-                          #hlb-view-cart-announce.a-button-text
-                            = link_to "カートの編集"
-                    %span#hlb-ptc-btn.a-button.a-button-primary.hlb-checkout-button.huc-v2-primary-button.huc-button-large
-                      %span.a-button-inner
-                        #hlb-ptc-btn-native.a-button-text.a-text-center
-                          = link_to "レジに進む"
-    #huc-v2-message-group.a-box-group.huc-v2-message-box-group
-      #huc-v2-box-vas.a-box.a-spacing-base.a-spacing-top-micro.a-color-base-background.huc-v2-message-box.huc-v2-box-vas.huc-no-radius.a-hidden
-        .a-box-inner.a-padding-base
-          .huc-v2-arrow-up-border
-          .huc-v2-arrow-up-inner
-          #vas.a-row.a-hidden.hlb-vas
-    #huc-v2-cobrand-stripe.a-row
-      #huc-first-upsell-row.a-row.a-spacing-top-small{role: "complementary"}
-        .a-row.a-spacing-small.a-size-large.huc-v2-upsell-title
-          %h2.a-size-large
-            %i{title: "本一覧"} 商品一覧
-        .a-row.huc-position-rel
-          .a-row.huc-v2-upsell-row
-            .a-row.huc-v2-upsell-column.huc-position-rel.a-spacing-medium
-              #upsell_0_0.huc-v2-upsell-box.huc-upsell-big-face-box
-                .huc-upsell-big-face-box-inner
-                  .a-link-normal.huc-v2-upsell-item-image.huc-to-dp-url
-                  = link_to image_tag('https://images-fe.ssl-images-amazon.com/images/I/91Q1vEscp1L._SL150_.jpg',{alt: "", border: "0",})
-            .a-row.huc-v2-upsell-column.huc-position-rel.a-spacing-medium
-              #upsell_0_0.huc-v2-upsell-box.huc-upsell-big-face-box
-                .huc-upsell-big-face-box-inner
-                  .a-link-normal.huc-v2-upsell-item-image.huc-to-dp-url
-                  = link_to image_tag('https://images-fe.ssl-images-amazon.com/images/I/51ic8vDPfvL._SL150_.jpg',{alt: "", border: "0",})
-        #huc-v2-bottom-order-row-with-divider.a-row.a-text-center
-          #huc-v2-bottom-order-row.a-box
-            .a-box-inner
-              / subtotal begins
-              #hlb-bottom-subcart.a-row.huc-v2-row-col
-                %span.a-size-medium.a-align-center.huc-subtotal
-                  %span
-                    %b> カートの小計
-                    （商品1点）:
-                  %span.a-color-price.hlb-price.a-inline-block.a-text-bold ￥ 2,592
-              / subtotal ends
-              / buttons begin
-              .a-row.huc-v2-row-col
-                .a-row.a-text-right
-                  .huc-width-fit-content
+                          %input.a-button-input{"aria-labelledby" => "sc-buy-box-ptc-button-announce", :name => "proceedToCheckout", :type => "submit", :value => "Proceed to checkout"}/
+                          %span#sc-buy-box-ptc-button-announce.a-button-text{"aria-hidden" => "true"}
+                            レジに進む
+                    / for sc-proceed-to-checkout
+                    .a-row.a-spacing-top-base.sc-one-click.a-text-center{"data-cart-is-1clickable" => "1", "data-cart-is-partially-1clickable" => "0"}
+                      .a-divider.a-divider-break.sc-one-click-divider
+                        %h5 または
+                      %span
+                        %a.a-link-normal{:href => "https://www.amazon.co.jp/gp/sign-in.html/ref=ox_sc_1_click_signin?ie=UTF8&path=%2Fgp%2Fcart%2Fenable-one-click.html&rememberMe=1&useRedirectOnSuccess=1"}
+                          サインイン
+                        して1-ClickをONにする
+                / for box
+              / for box group
+              %input{:name => "cartInitiateId", :type => "hidden", :value => "1526225265866"}/
+            / for form
+          #sc-buy-box.a-section
+          #sc-rec-right.a-section.a-spacing-large
+            #cart-item-recs
+              #cart-item-recs
+                .a-box
+                  .a-box-inner
+                    %h5.a-spacing-base 最近の履歴に含まれている商品を買った人は、こんな商品も買っています:
+                    .a-section.a-spacing-micro.p13n-sc-logged-list
+                      .a-section.p13n-sc-list-cells-container
+                        %ul.a-unordered-list.a-nostyle.a-vertical.p13n-sc-list-cells
+                          %li.a-spacing-medium.p13n-sc-list-item{"data-fling-container" => "true"}
+                            %span.a-list-item
+                              .a-fixed-left-grid.p13n-asin{"data-p13n-asin-metadata" => "{\"ref\":\"pd_cart_cp_1_1\",\"asin\":\"B07C782LFH\"}"}
+                                .a-fixed-left-grid-inner{:style => "padding-left:112px"}
+                                  .a-fixed-left-grid-col.a-col-left{:style => "width:112px;margin-left:-112px;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %img.a-thumbnail-left{:alt => "夢で見たあの子のために(2) (角川コミックス・エース)", :height => "100", :src => "https://images-na.ssl-images-amazon.com/images/I/910vjhnzpvL._SL500__BG0,0,0,0_FMpng_SR100,100_.jpg", :width => "100"}/
+                                  .a-fixed-left-grid-col.a-col-right{:style => "padding-left:0%;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %span{"aria-hidden" => "true", :title => "夢で見たあの子のために(2) (角川コミックス・エース)"} 夢で見たあの子のた …
+                                    .a-row.a-size-small
+                                      %a.a-size-small.a-link-child{:href => ""} 三部 けい
+                                    .a-icon-row.a-spacing-none
+                                      %a.a-link-normal{:href => "", :title => "5つ星のうち 4.3"}
+                                        %i.a-icon.a-icon-star.a-star-4-5
+                                          %span.a-icon-alt 5つ星のうち 4.3
+                                      %a.a-size-small.a-link-normal{:href => ""} 5
+                                    .a-row.a-size-small
+                                      %span.a-size-small.a-color-secondary Kindle版
+                                    .a-row
+                                      %a.a-link-normal.a-text-normal{:href => "", :target => "_blank"}
+                                        %span.a-size-base.a-color-price
+                                          %span.p13n-sc-price ￥ 563
+                                    .a-section.a-spacing-top-micro
+                                      %span.a-button.a-spacing-top-none.a-button-small
+                                        %span.a-button-inner
+                                          %a.a-button-text{:href => "", :role => "button"} すべての出品を見る
+                          %li.a-spacing-medium.p13n-sc-list-item{"data-fling-container" => "true"}
+                            %span.a-list-item
+                              .a-fixed-left-grid.p13n-asin{"data-p13n-asin-metadata" => "{\"ref\":\"pd_cart_cp_1_2\",\"asin\":\"B07CJG4RKX\"}"}
+                                .a-fixed-left-grid-inner{:style => "padding-left:112px"}
+                                  .a-fixed-left-grid-col.a-col-left{:style => "width:112px;margin-left:-112px;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %img.a-thumbnail-left{:alt => "亜人（１２） (アフタヌーンコミックス)", :height => "100", :src => "https://images-na.ssl-images-amazon.com/images/I/91CrRc6NOCL._SL500__BG0,0,0,0_FMpng_SR100,100_.jpg", :width => "100"}/
+                                  .a-fixed-left-grid-col.a-col-right{:style => "padding-left:0%;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %span{"aria-hidden" => "true", :title => "亜人（１２） (アフタヌーンコミックス)"} 亜人（１２） (ア …
+                                    .a-row.a-size-small
+                                      %a.a-size-small.a-link-child{:href => ""} 桜井画門
+                                    .a-icon-row.a-spacing-none
+                                      %a.a-link-normal{:href => "", :title => "5つ星のうち 4.5"}
+                                        %i.a-icon.a-icon-star.a-star-4-5
+                                          %span.a-icon-alt 5つ星のうち 4.5
+                                      %a.a-size-small.a-link-normal{:href => ""} 8
+                                    .a-row.a-size-small
+                                      %span.a-size-small.a-color-secondary Kindle版
+                                    .a-row
+                                      %a.a-link-normal.a-text-normal{:href => "", :target => "_blank"}
+                                        %span.a-size-base.a-color-price
+                                          %span.p13n-sc-price ￥ 540
+                                    .a-section.a-spacing-top-micro
+                                      %span.a-button.a-spacing-top-none.a-button-small
+                                        %span.a-button-inner
+                                          %a.a-button-text{:href => "", :role => "button"} すべての出品を見る
+                          %li.a-spacing-medium.p13n-sc-list-item{"data-fling-container" => "true"}
+                            %span.a-list-item
+                              .a-fixed-left-grid.p13n-asin{"data-p13n-asin-metadata" => "{\"ref\":\"pd_cart_cp_1_3\",\"asin\":\"4065113490\"}"}
+                                .a-fixed-left-grid-inner{:style => "padding-left:112px"}
+                                  .a-fixed-left-grid-col.a-col-left{:style => "width:112px;margin-left:-112px;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %img.a-thumbnail-left{:alt => "宇宙兄弟(33) (モーニング KC)", :height => "100", :src => "https://images-na.ssl-images-amazon.com/images/I/515Pf8KPLyL._SL500_SR100,100_.jpg", :width => "100"}/
+                                  .a-fixed-left-grid-col.a-col-right{:style => "padding-left:0%;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %span{"aria-hidden" => "true", :title => "宇宙兄弟(33) (モーニング KC)"} 宇宙兄弟(33)  …
+                                    .a-row.a-size-small
+                                      %a.a-size-small.a-link-child{:href => ""} 小山 宙哉
+                                    .a-icon-row.a-spacing-none
+                                      %a.a-link-normal{:href => "", :title => "5つ星のうち 4.5"}
+                                        %i.a-icon.a-icon-star.a-star-4-5
+                                          %span.a-icon-alt 5つ星のうち 4.5
+                                      %a.a-size-small.a-link-normal{:href => ""} 16
+                                    .a-row.a-size-small
+                                      %span.a-size-small.a-color-secondary コミック
+                                    .a-row
+                                      %a.a-link-normal.a-text-normal{:href => "", :target => "_blank"}
+                                        %span.a-size-base.a-color-price
+                                          %span.p13n-sc-price ￥ 637
+                                      %span{:style => "position: relative; top: 2px;"}
+                                        %i.a-icon.a-icon-jp.a-icon-prime-jp.a-icon-small{"aria-label" => "プライム"}
+                                          %span.a-icon-alt プライム
+                                    .a-section.a-spacing-top-micro
+                                      %form.a-spacing-none{:action => "", :method => "post"}
+                                        %input{:name => "session-id", :type => "hidden", :value => "358-4173252-8157812"}/
+                                        %input{:name => "quantity.4065113490", :type => "hidden", :value => "1"}/
+                                        %input{:name => "asin.4065113490", :type => "hidden", :value => "4065113490"}/
+                                        %input{:name => "offeringID.4065113490", :type => "hidden", :value => "R7VIfMwxHcgk0eXG2WywPSgc37R9WP0eXzFiYuct1ZuxkZY2gHpo1gK8rxlqwsGoPe2y3149RyUCVZyQLiWIgnMB%2BPU8hyD64dCI2QrwOms%3D"}/
+                                        %input{:name => "discoveredAsins.1", :type => "hidden", :value => "4065113490"}/
+                                        %span.a-button.a-spacing-top-none.a-button-primary.a-button-small
+                                          %span.a-button-inner
+                                            %input.a-button-input{:name => "submit.addToCart", :type => "submit", :value => "カートに入れる"}/
+                                            %span.a-button-text{"aria-hidden" => "true"} カートに入れる
+                          %li.a-spacing-medium.p13n-sc-list-item{"data-fling-container" => "true"}
+                            %span.a-list-item
+                              .a-fixed-left-grid.p13n-asin{"data-p13n-asin-metadata" => "{\"ref\":\"pd_cart_cp_1_4\",\"asin\":\"B07C5GLBRT\"}"}
+                                .a-fixed-left-grid-inner{:style => "padding-left:112px"}
+                                  .a-fixed-left-grid-col.a-col-left{:style => "width:112px;margin-left:-112px;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %img.a-thumbnail-left{:alt => "幼女戦記(9) (角川コミックス・エース)", :height => "100", :src => "https://images-na.ssl-images-amazon.com/images/I/91So9VVJ-kL._SL500__BG0,0,0,0_FMpng_SR100,100_.jpg", :width => "100"}/
+                                  .a-fixed-left-grid-col.a-col-right{:style => "padding-left:0%;float:left;"}
+                                    %a.a-link-normal{:href => "", :target => "_blank"}
+                                      %span{"aria-hidden" => "true", :title => "幼女戦記(9) (角川コミックス・エース)"} 幼女戦記(9) ( …
+                                    .a-row.a-size-small
+                                      %span.a-size-small.a-color-base 東條 チカ
+                                    .a-icon-row.a-spacing-none
+                                      %a.a-link-normal{:href => "", :title => "5つ星のうち 4.4"}
+                                        %i.a-icon.a-icon-star.a-star-4-5
+                                          %span.a-icon-alt 5つ星のうち 4.4
+                                      %a.a-size-small.a-link-normal{:href => ""} 24
+                                    .a-row.a-size-small
+                                      %span.a-size-small.a-color-secondary Kindle版
+                                    .a-row
+                                      %a.a-link-normal.a-text-normal{:href => "", :target => "_blank"}
+                                        %span.a-size-base.a-color-price
+                                          %span.p13n-sc-price ￥ 563
+                                    .a-section.a-spacing-top-micro
+                                      %span.a-button.a-spacing-top-none.a-button-small
+                                        %span.a-button-inner
+                                          %a.a-button-text{:href => "", :role => "button"} すべての出品を見る
+        .a-fixed-right-grid-col.a-col-left{:style => "padding-right:3.5%;float:none;"}
+          #cart-switch-language
+          #cart-important-message-box
+          #sc-new-upsell.a-row.sc-hidden{:style => "display: block;"}
+            
+            #cbcc_banner.cbcc_box{:width => "100%"}
+              %span.cbcc_cboxTL
+                /  
+              %span.cbcc_cboxTR
+                /  
+              %span.cbcc_cboxR
+                /  
+              %span.cbcc_cboxBL
+                /  
+              %span.cbcc_cboxBR
+                /  
+              %span.cbcc_cboxB
+                /  
+              #cbcc_content_container
+                %table.cbcc_inner{:border => "0", :cellpadding => "0", :cellspacing => "0", :role => "presentation", :width => "100%"}
+                  %tbody
+                    %tr
+                      %td.cbcc_column
+                        .cbcc_align_center
+                          %img{:alt => "Amex Gold Card", :src => "https://images-na.ssl-images-amazon.com/images/G/09/marketing/visa/2006/AMZ_JP_CONS_GOLD_133_84_b._CB492479596_.jpg"}/
+                      %td.cbcc_column
+                        .cbcc_align_left.cbcc_customer_name_text
+                          %strong
+                            %span{:style => "color: #044E93"} 館山徹さん、アメリカン・エキスプレス®・ゴールド・カード新規ご入会者様限定キャンペーン
+                          %br/
+                          %strong
+                            %span.toplinered Amazonギフト券15,000円プレゼント
+                          = succeed "\u{ff08}\u{5165}\u{4f1a}\u{5f8c}3\u{30f6}\u{6708}\u{4ee5}\u{5185}\u{306b}300,000\u{5186}\u{4ee5}\u{4e0a}\u{306e}\u{30ab}\u{30fc}\u{30c9}\u{3054}\u{5229}\u{7528}\u{304c}\u{3042}\u{3063}\u{305f}\u{65b9}\u{9650}\u{5b9a})" do
+                            %br/
+                      %td.cbcc_column
+                        .cbcc_align_left
+                          %img{:alt => "今すぐチェック", :src => "https://images-na.ssl-images-amazon.com/images/G/09/credit/img14/x-site/checkNow_sec_btn._CB348997091_.png"}/
+              %a.click_region{:href => "/gp/product/B007TYQ1CQ/ref=cc_mp_amex_con_gld_fyf_v2_nm?pr=congold&inc=5kamexgl&ts=asvseuyj3gv35kq372qflvrs67aej1&plattr=nomath&ad=CGLDFYF2&place=vc&imp=8b2f5ff9-acc6-48d3-a379-43044075ab0b"}
+          #sc-active-cart.a-section.a-spacing-top-base.sc-list.sc-java-remote-feature{"data-name" => "Active Cart"}
+            %a{:href => "#", :name => "sc-anchor-active-cart"}
+            .a-row.sc-cart-header
+              %h1 お客様のショッピングカート一覧
+              %p
+                ショッピングカートでは商品を自由に出し入れできます。また、カートに入れた商品を「あとで買う」に移動したり、ほしい物リストに登録したりすることも可能です。
+                %br/
+                ショッピングを続けるには
+                %a.a-link-normal{:href => "/gp/homepage.html/ref=ord_cart_empty"}> Amazon.co.jp トップ
+                へどうぞ。そのほか
+                %a.a-link-normal{:href => "/gp/goldbox/ref=ord_cart_empty"}> 本日のタイムセール
+                や
+                %a.a-link-normal{:href => "/gp/registry/wishlist/ref=ord_cart_empty"}> ほしい物リスト
+                もご確認いただけます。
+          #sc-checkout-prefetch.a-row.a-hidden{"data-assetsprefetchurl" => "/gp/buy/prefetch/pipeline-assets.html", "data-prefetchurl" => "/gp/cart/checkout-prefetch.html?ie=UTF8&checkAuthentication=1&checkDefaults=1", "data-prefetchurlforauthcheck" => "/gp/remotepagelet/signin/checkout-perf-initiate-and-store.html"}
+          #sc-saved-cart.a-section.sc-list{"data-has-more-items" => "", "data-listfeature" => "desktop/saved-cart", "data-listid" => "saved-for-later", "data-listtype" => "saved-for-later", "data-page" => "1"}
+            %a{:href => "#", :name => "sc-anchor-saved-cart"}
+              .a-divider.a-divider-section
+                .a-divider-inner
+              .a-row.sc-list-body
+                .sc-list-item-spinner{:style => "display: none;"}
+                  %img{:border => "0", :height => "52", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/ui/loadIndicators/loading-large._CB192261613_.gif", :width => "52"}/
+                .sc-list-item-overwrap{:style => "opacity: 0.5; width: 1055px; height: 129px; display: none;"}
+                .sc-list-item-removed-msg.a-padding-medium{:style => ""}
+                  %div{"data-action" => "delete", :style => ""}
+                    %span.a-size-base
+                      %a.a-link-normal.sc-product-link{:href => "/gp/product/4344984838/ref=ox_sc_saved_title_1?ie=UTF8&psc=1&smid=AN1VRQENFRJN5"}
+                      %input#pageDirty{:name => "", :type => "hidden", :value => "true"}/
                     .a-row
-                      %span.a-declarative{"data-action" => "huc-view-cart", "data-huc-view-cart" => "{\"formID\":\"hlb-message-form\"}"}
-                        %span#huc-v2-button-view-cart.a-button.huc-v2-view-cart.huc-spacing-right-mini.huc-button-large
-                          %span.a-button-inner
-                            #huc-v2-button-view-cart-announce.a-button-text
-                              = link_to "カートの編集"
-                      %span#hlb-ptc-btn-bottom.a-button.a-button-primary.hlb-checkout-button.huc-v2-primary-button.huc-button-large
-                        %span.a-button-inner
-                          #hlb-ptc-btn-native-bottom.a-button-text.a-text-center
-                            = link_to "レジに進む"
+                      .a-column.a-span8
+                      .a-column.a-span2.a-text-left.a-spacing-top-micro
+                        %span.a-color-secondary 小計
+                      .a-column.a-span2.a-text-right.a-spacing-top-micro.a-span-last
+                        %span.a-color-secondary 数量
+                    %hr
+                      = render 'order', order: @order, quantity: @quantity 
+                .sc-subtotal.a-text-right.a-float-right.sc-java-remote-feature{"data-name" => "Active Items Subtotals"}
+                  %p.a-spacing-none.a-spacing-top-mini
+                    %span#sc-subtotal-label-activecart.a-size-medium.a-text-bold
+                      合計 (#{@total_count}点):
+                    %span#sc-subtotal-amount-activecart.a-size-medium.a-text-bold.a-color-price.sc-price.sc-white-space-nowrap.sc-price-sign￥ #{@total_price}
+                  %p.a-spacing-none.a-spacing-top-medium.a-text-right
+                    %span#sc-subtotal-points-activecart.a-size-base
+                      この注文での獲得ポイント:
+                      %span.a-color-price
+                        22pt
+        #sc-about.a-row.a-size-small
+          #cart-about-cart-warning.a-row
+            %p Amazon.co.jp での商品価格や在庫状況は変更される場合があります。カートに追加した時と在庫状況や価格が異なることがあります。カート内で表示されている価格は最新の価格となります。
+          %p 未登録のAmazonギフト券やクーポンは、お支払い方法選択画面や注文確定画面で入力できます。
+        .sc-list-head.sc-java-remote-feature{"data-name" => "Active Items Header"}
+          %noscript

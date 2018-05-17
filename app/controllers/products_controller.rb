@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @image = @product.bookimages
     @registration = @product.registrationinformation
+    @order = Order.new
   end
 
   def update
