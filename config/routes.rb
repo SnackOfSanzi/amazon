@@ -13,5 +13,11 @@ Rails.application.routes.draw do
       get 'search'
     end
    end
+      resources :tokens, only: [:new ] do
+        collection do
+          post 'token'
+          get 'pay'
+        end
+      end
 
 end

@@ -71,5 +71,10 @@ gem 'font-awesome-rails'
 gem 'mechanize'
 gem 'devise'
 gem 'kaminari'
+<<<<<<< HEAD
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+=======
+gem 'payjp'
+
+>>>>>>> master

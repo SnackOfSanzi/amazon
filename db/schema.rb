@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180514104801) do
+=======
+ActiveRecord::Schema.define(version: 20180513044027) do
+>>>>>>> master
 
   create_table "bookimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -43,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180514104801) do
     t.index ["product_id"], name: "index_registrationinformations_on_product_id", using: :btree
   end
 
+<<<<<<< HEAD
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                null: false
     t.string   "email",                  default: "", null: false
@@ -59,8 +64,26 @@ ActiveRecord::Schema.define(version: 20180514104801) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+=======
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",        limit: 65535, null: false
+    t.integer  "rate"
+    t.text     "avatar",      limit: 65535
+    t.text     "mainsubject", limit: 65535, null: false
+    t.integer  "product_id",                null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree
+  end
+
+  create_table "tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "token",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+>>>>>>> master
   end
 
   add_foreign_key "bookimages", "products"
   add_foreign_key "registrationinformations", "products"
+  add_foreign_key "reviews", "products"
 end
