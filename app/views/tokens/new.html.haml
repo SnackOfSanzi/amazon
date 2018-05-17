@@ -1,0 +1,31 @@
+.credit-card-top
+  .credit-card-top__top
+    = link_to "アカウントサービス","",class: "service-link"
+    %p.service > お支払いオプションを管理
+  %p.credit-introduction こちらがお客様のAmazonアカウントに保存されているお支払い方法です。
+
+.credit-card-left
+  .li= link_to "1-Click設定の管理","", class: "setting-manage"
+  .li= link_to "Kindle の支払い設定を管理", "", class: "pay-manage"
+  .li= link_to "現在のご注文のお支払い方法を編集", "", class: "pay-edit"
+.credit-card-right
+  .credit-card-right__top
+    %p.rest-money 残高
+    .credit-card-right__top__gift
+      .credit-card-right__top__gift__money
+        %p.gift-ticket Amazon ギフト券
+        %p.gift-money ￥0
+      = link_to "ギフト券を購入" , "" , class: "gift-buy"
+  .credit-card-right__registration
+    %h4 クレジットカードの登録
+    - if flash[:notice]
+      = flash[:notice]
+    = form_tag("token",method:"post",datakey:"pk_test_ec9c64f2f699515034a1831b") do
+      %input{:maxlength => "16", :name => "number", :placeholder => "カード番号", :type => "text", class: "card-number"}/
+      %br/
+      %input{:maxlength => "3", :name => "cvc", :placeholder => "CVC", :type => "text", class: "cvc"}/
+      %br/
+      %input{:maxlength => "2", :name => "exp_month", :placeholder => "月", :type => "text"}/
+      %input{:maxlength => "4", :name => "exp_year", :placeholder => "西暦（４桁）", :type => "text"}/
+      %br/
+      %input{:type => "submit",:value => "登録", class: "card-submit"}/

@@ -71,3 +71,5 @@ gem 'font-awesome-rails'
 gem 'mechanize'
 gem 'devise'
 gem 'kaminari'
+gem 'payjp'
+
