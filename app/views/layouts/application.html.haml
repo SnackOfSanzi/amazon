@@ -60,12 +60,22 @@
                     &nbsp;
                     %span.nav-icon.nav-arrow
                 %span.icon-nav-link-border
-              = link_to( new_user_session_path, class: "nav-a nav-a-2") do
-                %span.nav-line-1
-                  こんにちは。 サインイン
-                %span.nav-line-2
-                  アカウント＆リスト
-                  %span.nav-icon.nav-arrow
+              -if user_signed_in?
+                = link_to( destroy_user_session_path, method: :delete, class: "nav-a nav-a-2") do
+                  %span.nav-line-1
+                    =current_user.name
+                    さん
+                    サインアウト
+                  %span.nav-line-2
+                    アカウント＆リスト
+                    %span.nav-icon.nav-arrow
+              -else 
+                = link_to( new_user_session_path, class: "nav-a nav-a-2" ) do
+                  %span.nav-line-1
+                    こんにちは。 サインイン
+                  %span.nav-line-2
+                    アカウント＆リスト
+                    %span.nav-icon.nav-arrow
               = link_to("", class: "nav-a nav-a-2") do
                 %span.nav-line-1
                 %span.nav-line-2
