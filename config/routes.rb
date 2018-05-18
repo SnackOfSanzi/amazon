@@ -8,6 +8,11 @@ Rails.application.routes.draw do
    resources :book_genres, only: [:index, :show]
    resources :reviews, only: [:new]
    resources :products, only: [:index, :show, :update] do
+     resources :orders, only: [:show]
+
+      post '/add_product' => 'orders#add_product'
+      patch '/update_product' => 'orders#update_product'
+      delete '/delete_product' => 'orders#delete_product'
     collection do
       get 'search'
     end
@@ -19,9 +24,5 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :orders, only: [:show]
-
-      post '/add_product' => 'orders#add_product'
-      patch '/update_product' => 'orders#update_product'
-      delete '/delete_product' => 'orders#delete_product'
+   
 end
