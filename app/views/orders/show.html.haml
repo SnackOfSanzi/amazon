@@ -1,0 +1,96 @@
+#a-page
+  .huc-v2-page-container
+    .a-row
+      .a-box.a-onlychild.a-color-alternate-background.huc-v2-order-row.huc-v23-order-row
+        .a-box-inner
+          .a-row.huc-v2-table-row.full-width
+            #huc-v2-order-row-items.a-row.huc-v2-table-col.width-fit-content
+              #huc-v2-order-row-icon.huc-v2-table-col.a-alert.a-alert-success
+                %i.a-icon.a-icon-alert
+              .huc-v2-table-col
+                .a-box.a-box-thumbnail.huc-middle-vertical.huc-no-radius.huc-v2-order-row-image-box.huc-green-border
+                  .a-box-inner
+                    %img.huc-no-radius.huc-v2-order-row-image.huc-v2-table-col{alt: "", src: "https://images-na.ssl-images-amazon.com/images/I/51CGypjLrvL._SX348_BO1,204,203,200_.jpg"}
+                    .huc-v2-table-col
+                      %i.a-icon.a-icon-popover.huc-v2-order-row-down-arrow
+            #huc-v2-order-row-messages.a-row.huc-v2-table-col.width-fit-content
+              .huc-v2-color-success
+                %h1.a-size-medium.a-text-bold 追加されました
+            #huc-v2-order-row-center.a-row.huc-v2-table-col
+              #huc-v2-order-row-center-inner.a-row.full-width
+                .a-row.huc-v2-table-row.full-width.order-row-base-height
+                  .a-row.huc-v2-table-col
+                    #hlb-subcart.a-row.huc-v2-subcart.a-size-small
+                      .a-row.a-spacing-micro
+                        %span.a-size-medium.a-align-center.huc-subtotal
+                          %span
+                            %b> カートの小計
+                            （商品1点）:
+                          %span.a-color-price.hlb-price.a-inline-block.a-text-bold ￥ 2,592
+                      /
+                        \##ポイント獲得を表示する記述##  <div class="a-row"> <span>この注文での獲得ポイント:</span> <span class="hlb-price">0pt</span> <span id="hlb-ship-message" class="a-size-small a-inline-block">
+                        <span>
+                        <b>通常配送無料</b> <a href="http://www.amazon.co.jp/gp/help/customer/display.html?nodeId=642982" target="SuperSaverShipping" onclick="return amz_js_PopWin('http://www.amazon.co.jp/gp/help/customer/display.html?nodeId=642982','SuperSaverShipping','width=550,height=550,resizable=1,scrollbars=1,toolbar=0,status=0');">詳細</a></span>
+                        </span>
+                        </div> ##ポイント獲得を表示する記述##
+            #huc-v2-order-row-buttons.a-row.huc-v2-table-col
+              #huc-v2-subcart-buttons-wrapper.a-row.a-text-right
+                .huc-width-fit-content
+                  .a-row
+                    %span.a-declarative{"data-action" => "huc-view-cart", "data-huc-view-cart" => "{\"formID\":\"hlb-message-form\"}"}
+                      %span#hlb-view-cart.a-button.huc-v2-view-cart.huc-spacing-right-mini.huc-button-large
+                        %span.a-button-inner
+                          #hlb-view-cart-announce.a-button-text
+                            = link_to "カートの編集"
+                    %span#hlb-ptc-btn.a-button.a-button-primary.hlb-checkout-button.huc-v2-primary-button.huc-button-large
+                      %span.a-button-inner
+                        #hlb-ptc-btn-native.a-button-text.a-text-center
+                          = link_to "レジに進む"
+    #huc-v2-message-group.a-box-group.huc-v2-message-box-group
+      #huc-v2-box-vas.a-box.a-spacing-base.a-spacing-top-micro.a-color-base-background.huc-v2-message-box.huc-v2-box-vas.huc-no-radius.a-hidden
+        .a-box-inner.a-padding-base
+          .huc-v2-arrow-up-border
+          .huc-v2-arrow-up-inner
+          #vas.a-row.a-hidden.hlb-vas
+    #huc-v2-cobrand-stripe.a-row
+      #huc-first-upsell-row.a-row.a-spacing-top-small{role: "complementary"}
+        .a-row.a-spacing-small.a-size-large.huc-v2-upsell-title
+          %h2.a-size-large
+            %i{title: "本一覧"} 商品一覧
+        .a-row.huc-position-rel
+          .a-row.huc-v2-upsell-row
+            .a-row.huc-v2-upsell-column.huc-position-rel.a-spacing-medium
+              #upsell_0_0.huc-v2-upsell-box.huc-upsell-big-face-box
+                .huc-upsell-big-face-box-inner
+                  .a-link-normal.huc-v2-upsell-item-image.huc-to-dp-url
+                  = link_to image_tag('https://images-fe.ssl-images-amazon.com/images/I/91Q1vEscp1L._SL150_.jpg',{alt: "", border: "0",})
+            .a-row.huc-v2-upsell-column.huc-position-rel.a-spacing-medium
+              #upsell_0_0.huc-v2-upsell-box.huc-upsell-big-face-box
+                .huc-upsell-big-face-box-inner
+                  .a-link-normal.huc-v2-upsell-item-image.huc-to-dp-url
+                  = link_to image_tag('https://images-fe.ssl-images-amazon.com/images/I/51ic8vDPfvL._SL150_.jpg',{alt: "", border: "0",})
+        #huc-v2-bottom-order-row-with-divider.a-row.a-text-center
+          #huc-v2-bottom-order-row.a-box
+            .a-box-inner
+              / subtotal begins
+              #hlb-bottom-subcart.a-row.huc-v2-row-col
+                %span.a-size-medium.a-align-center.huc-subtotal
+                  %span
+                    %b> カートの小計
+                    （商品1点）:
+                  %span.a-color-price.hlb-price.a-inline-block.a-text-bold ￥ 2,592
+              / subtotal ends
+              / buttons begin
+              .a-row.huc-v2-row-col
+                .a-row.a-text-right
+                  .huc-width-fit-content
+                    .a-row
+                      %span.a-declarative{"data-action" => "huc-view-cart", "data-huc-view-cart" => "{\"formID\":\"hlb-message-form\"}"}
+                        %span#huc-v2-button-view-cart.a-button.huc-v2-view-cart.huc-spacing-right-mini.huc-button-large
+                          %span.a-button-inner
+                            #huc-v2-button-view-cart-announce.a-button-text
+                              = link_to "カートの編集"
+                      %span#hlb-ptc-btn-bottom.a-button.a-button-primary.hlb-checkout-button.huc-v2-primary-button.huc-button-large
+                        %span.a-button-inner
+                          #hlb-ptc-btn-native-bottom.a-button-text.a-text-center
+                            = link_to "レジに進む"

@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout_by_resource
 
+    helper_method :current_order
+
+  def current_order
+    if session[:order_id]
+      @order = Order.find(session[:order_id])
+    else
+      @order = Order.create
+      session[:order_id] = @order.id
+      
+    end
+  end
+ 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end

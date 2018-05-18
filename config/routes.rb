@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
    devise_for :users
    root 'products#index'
-
    resources :orders, only: [:index]
    resources :deliveries , only: [:index]
    resources :parent_categories, only: [:index]
@@ -20,4 +19,9 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :orders, only: [:show]
+
+      post '/add_product' => 'orders#add_product'
+      patch '/update_product' => 'orders#update_product'
+      delete '/delete_product' => 'orders#delete_product'
 end
