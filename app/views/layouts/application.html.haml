@@ -13,11 +13,11 @@
         .nav-belt
           .nav-left
             .nav-logo
-              = link_to("", class: "nav-logo-link") do
+              = link_to("/", class: "nav-logo-link") do
                 %span.nav-logo-base.nav-sprite
                 %span.nav-logo-ext.nav-sprite
                 %span.nav-logo-locale.nav-sprite
-              = link_to "プライムを始める", "", class: "nav-logo-tagline nav-sprite nav-prime"
+              = link_to "プライムを始める", {controller: "products", action: "index"}, class: "nav-logo-tagline nav-sprite nav-prime"
           .nav-right
             .nav-prime
               = image_tag "https://images-na.ssl-images-amazon.com/images/G/09/shazam/swm-800x78-180301-CheckNow-E7Rpa._V500723081_.png",size: "400x39"
@@ -38,7 +38,7 @@
                 .nav-fill
                   .nav-search-field
                     %label#nav-search-label
-                    %input.search__query{:name => "keyword", :placeholder => "作品名で検索", :type => "text", :value => ""}/
+                    %input.search__query{:name => "keyword", :type => "text", :value => "",style: " height:36px;""width:611px;"}/
         .nav-main
           .nav-left
             .nav-globe-locale-slot
@@ -61,12 +61,22 @@
                     &nbsp;
                     %span.nav-icon.nav-arrow
                 %span.icon-nav-link-border
-              = link_to("", class: "nav-a nav-a-2") do
-                %span.nav-line-1
-                  こんにちは。 サインイン
-                %span.nav-line-2
-                  アカウント＆リスト
-                  %span.nav-icon.nav-arrow
+              -if user_signed_in?
+                = link_to( destroy_user_session_path, method: :delete, class: "nav-a nav-a-2") do
+                  %span.nav-line-1
+                    =current_user.name
+                    さん
+                    サインアウト
+                  %span.nav-line-2
+                    アカウント＆リスト
+                    %span.nav-icon.nav-arrow
+              -else
+                = link_to( new_user_session_path, class: "nav-a nav-a-2" ) do
+                  %span.nav-line-1
+                    こんにちは。 サインイン
+                  %span.nav-line-2
+                    アカウント＆リスト
+                    %span.nav-icon.nav-arrow
               = link_to("", class: "nav-a nav-a-2") do
                 %span.nav-line-1
                 %span.nav-line-2
@@ -84,7 +94,7 @@
                   %span.nav-icon.nav-arrow
           .nav-fill
             .nav-shop
-              = link_to("",class: "nav-a nav-a-2") do
+              = link_to("/parent_categories",class: "nav-a nav-a-2") do
                 %span.nav-line-1
                 %span.nav-line-2
                   カテゴリー
@@ -199,7 +209,7 @@
       .nav__footer--link-line.nav__footer--paditem-line
         %span
           .nav__footer--link-line.nav__footer--logo-line
-            = link_to do
+            = link_to "/" do
               .nav-sprite.nav-logo-base
         %span.icp-container
           .nav__footer--line

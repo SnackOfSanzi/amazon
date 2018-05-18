@@ -1,0 +1,173 @@
+.order-confirm {
+  height: 700px;
+  width: 100%;
+  padding: 20px;
+  padding-right: 200px;
+  &__top {
+    height: 200px;
+    width: 100%;
+    padding: 20px;
+    &__subject {
+      font-size: 24px;
+    }
+    &__description {
+      &__top {
+
+      }
+      &__center {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      &__bottom {
+
+      }
+    }
+  }
+  &__left {
+    height: 400px;
+    width: 800px;
+    float: left;
+    &__top {
+      height: 160px;
+      &__left {
+        float: left;
+        height: 160px;
+        width: 200px;
+        &__subject {
+          font-size: 20px;
+          display: inline-block;
+          font-weight: 550;
+        }
+        &__change {
+          display: inline-block;
+        }
+        &__address {
+          line-height: 20px;
+        }
+      }
+      &__center {
+        float: left;
+        height: 160px;
+        width: 260px;
+        &__subject {
+          font-size: 20px;
+          display: inline-block;
+          font-weight: 550;
+        }
+        &__change {
+          display: inline-block;
+        }
+      }
+      &__right {
+        float: left;
+        height: 160px;
+        width: 260px;
+        margin-left: 20px;
+        &__description {
+          font-weight: 550;
+        }
+        &__form {
+          width: 200px;
+          border-radius: 5px;
+        }
+        &__submit {
+          height: 28px;
+          width: 50px;
+          background-color: #ddd;
+          border-radius: 4px;
+        }
+      }
+    }
+    &__center {
+      height: 100px;
+      width: 750px;
+      padding: 10px;
+      border: 1px solid #7c6200;
+      border-radius: 4px;
+      &__description {
+        font-size: 18px;
+        color: #7c6200;
+      }
+      &__name {
+        display: inline-block;
+      }
+      &__change {
+        display: inline-block;
+      }
+    }
+    &__bottom {
+      height: 200px;
+      padding: 10px;
+      &__date {
+        color: orange;
+        font-size: 20px;
+        font-weight: 550;
+      }
+      &__item {
+        height: 200px;
+        &__picture {
+          height: 150px;
+          width: 110px;
+          background-color: red;
+          float: left;
+        }
+        &__data {
+          height: 150px;
+          width: 300px;
+          float: left;
+          padding: 10px;
+          &__name {
+            font-size: 16px;
+            font-weight: 550;
+          }
+          &__price {
+            color: red;
+            font-weight: 550;
+          }
+          &__count {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+  &__right {
+    height: 400px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    float: right;
+    &__top {
+      height: 80px;
+      &__order {
+        .order-submit {
+          height: 30px;
+          width: 230px;
+          background-color: #f0c14b;
+          border-radius: 5px;
+          margin-top: 20px;
+          margin-left: 9px;
+        }
+      }
+    }
+      &__center {
+        &__subject {
+          padding-left: 10px;
+          padding-top: 10px;
+          font-weight: 550;
+        }
+      }
+      &__bottom {
+        font-size: 18px;
+        padding-left: 10px;
+        &__money {
+           display: inline-block;
+           color: red;
+        }
+        &__price {
+          display: inline-block;
+          color: red;
+        }
+      }
+  }
+}

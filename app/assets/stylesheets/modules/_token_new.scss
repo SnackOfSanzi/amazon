@@ -1,0 +1,92 @@
+.credit-card-top {
+  height: 100px;
+  width: 100%;
+  padding: 30px;
+  border-bottom: 1px solid #ddd;
+  &__top {
+    .service-link {
+      display: inline-block;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .service {
+      display: inline-block;
+      font-size: 20px;
+      color: orange;
+    }
+  }
+}
+
+.credit-card-left {
+  float: left;
+  height: 250px;
+  width: 300px;
+  padding-top: 30px;
+  border-bottom: 1px solid white;
+  .setting-manage {
+    margin-bottom: 20px;
+    padding: 20px;
+    line-height: 40px;
+  }
+  .pay-manage {
+    margin: 20px;
+    line-height: 40px;
+  }
+  .pay-edit {
+    margin: 20px;
+    line-height: 40px;
+  }
+}
+
+.credit-card-right {
+  height: 450px;
+  padding-top: 40px;
+  padding-left: 360px;
+  width: calc(100% - 300px);
+  &__top {
+    height: 180px;
+    width: 600px;
+    border-bottom: 1px solid #ddd;
+    .rest-money {
+      font-size: 20px;
+      font-weight: 520;
+    }
+    &__gift {
+      background-color: #ddd;
+      width: 600px;
+      height: 80px;
+      padding: 10px;
+      border-radius: 5px;
+      &__money {
+        .gift-ticket {
+          display: inline-block;
+          font-size: 15px;
+        }
+        .gift-money {
+          display: inline-block;
+          margin-left: 50px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  &__registration {
+    padding-top: 30px;
+    height: 300px;
+    .card-number {
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+    .cvc {
+      margin-bottom: 5px;
+    }
+    .card-submit {
+      background-color: #f0c14b;
+      height: 25px;
+      width: 43px;
+      border-radius: 3px;
+      margin-left: 295px;
+      margin-top: 3px;
+    }
+  }
+}

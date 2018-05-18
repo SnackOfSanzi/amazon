@@ -1,0 +1,48 @@
+.order-confirm
+  .order-confirm__top
+    %p.order-confirm__top__subject 注文内容を確認する・変更する
+    .order-confirm__top__description
+      %p.order-confirm__top__description__top 下の『注文を確定する』ボタンを押してご注文いただくことで、お客様は当サイトのプライバシー規約および利用規約の同意の上、消費をご注文されたことになります。
+      %p.order-confirm__top__description__center Amazonマーケットプレイスの商品をご注文された場合、お客様は当サイトのAmazonマーケットプレイス参加規約、出店型出品者の返品ポリシー及びプライバシーポリシー、その他の販売条件、および一部の出店型出品者から商品やサービスのご案内が届くことについても同意されたことになります。
+      %p.order-confirm__top__description__bottom Amazonマーケットプレイスの商品を購入する場合は、所定の配送料がかかります。『注文を確定する』ボタンをクリックする前に、配送料と注文合計をご確認ください。
+  .order-confirm__left
+    .order-confirm__left__top
+      .order-confirm__left__top__left
+        %p.order-confirm__left__top__left__subject お届け先住所
+        = link_to "変更", "", class: "order-confirm__left__top__left__change"
+        %p.order-confirm__left__top__left__address
+          ローソン道玄坂二丁目
+          %br 150-0043
+          %br 東京都渋谷区道玄坂2-20-26
+      .order-confirm__left__top__center
+        %p.order-confirm__left__top__center__subject 支払い方法
+        = link_to "変更" ,"tokens/new", class: "order-confirm__left__top__center__change"
+        %p.order-confirm__left__top__center__pay コンビニ・ATM・ネットバンキング・電子マネー払い
+        %p.order-confirm__left__top__center__description ＊お支払い番号は出荷準備に入り次第発行されます。
+      .order-confirm__left__top__right
+        %p.order-confirm__left__top__right__description Amazonギフト券・Amazonショッピングカードまたはクーポン：
+        %input{type: "text", placeholder: "コードを入力",class: "order-confirm__left__top__right__form"}
+        %input{type: "submit", value: "適用",class: "order-confirm__left__top__right__submit"}
+    .order-confirm__left__center
+      %p.order-confirm__left__center__description 注文確認前に受取人名を必ずご確認ください。受取人名には身分証明書に記載されている名前を使用してください。
+      %p.order-confirm__left__center__name 受取人:サルカワくん
+      = link_to "変更","", class: "order-confirm__left__center__change"
+    .order-confirm__left__bottom
+      %p.order-confirm__left__bottom__date お届け予定日: 2017年4月10日-2017年4月18日
+      .order-confirm__left__bottom__item
+        .order-confirm__left__bottom__item__picture
+        .order-confirm__left__bottom__item__data
+          %p.order-confirm__left__bottom__item__data__name ゼルダの伝説
+          %p.order-confirm__left__bottom__item__data__price ¥6473
+          %p.order-confirm__left__bottom__item__data__count 数量: 1
+          %p.order-confirm__left__bottom__item__data__company Amazon.japan
+  .order-confirm__right
+    .order-confirm__right__top
+      .order-confirm__right__top__order
+        = form_tag("pay",method:"get",datakey:"pk_test_ec9c64f2f699515034a1831b ") do
+          %input{:type => "submit", class: "order-submit", value: "注文を確定する"}/
+    .order-confirm__right__center
+      %p.order-confirm__right__center__subject 注文内容
+    .order-confirm__right__bottom
+      %p.order-confirm__right__bottom__money ご請求金額:
+      %p.order-confirm__right__bottom__price ¥6473

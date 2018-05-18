@@ -1,0 +1,28 @@
+.purchase-completion
+  .purchase-completion__thanks
+    %p ありがとうございます。注文が確定されました。
+  .purchase-completion__confirmation
+    %p 確認のEメールを送信しました。
+  .purchase-completion__number
+    %p 注文番号: 11111111111
+  .purchase-completion__data
+    .purchase-completion__data__item
+      %p ・ 1つの商品を次のお届け先へ発送します。
+    .purchase-completion__data__consignor
+      %p Amazon.com Int'l Sales, inc.
+    .purchase-completion__data__date
+      %p お届け予定日:
+    .purchase-completion__data__number
+      %p 2015年5月22日 -2015年5月24日
+  .purchase-completion__link
+    .purchase-completion__link__expression
+      = link_to "注文を表示する"
+    .purchase-completion__link__question
+      = link_to "・購入についてのよくある質問"
+    .purchase-completion__link__point
+      = link_to "・Amazonポイントを確認する"
+  .purchase-completion__share
+    =link_to "シェアする"
+    %i.fa.fa-envelope-o.fa-lg
+    %i.fa.fa-facebook-official.fa-lg
+    %i.fa.fa-twitter.fa-lg
