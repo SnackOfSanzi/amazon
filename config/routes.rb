@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+   devise_for :users
    root 'products#index'
 
-    resources :orders, only: [:index]
-    resources :deliveries , only: [:index]
+   resources :orders, only: [:index]
+   resources :deliveries , only: [:index]
    resources :parent_categories, only: [:index]
    resources :book_genres, only: [:index, :show]
    resources :reviews, only: [:new]
@@ -13,11 +13,11 @@ Rails.application.routes.draw do
       get 'search'
     end
    end
-      resources :tokens, only: [:new ] do
-        collection do
-          post 'token'
-          get 'pay'
-        end
+    resources :tokens, only: [:new ,:index] do
+      collection do
+        get 'token'
+        get 'pay'
       end
+    end
 
 end
