@@ -16,7 +16,7 @@
                   %ul.a-unordered-list.a-nostyle.a-vertical.a-spacing-mini
                     %li
                       %span.a-list-item
-                        %a.a-link-normal.sc-product-link{:href => "/gp/product/4796687122/ref=ox_sc_act_title_1?smid=AN1VRQENFRJN5&psc=1"}
+                        %a.a-link-normal.sc-product-link{:href => "/products/#{order.id}"}
                           %span.a-size-medium.sc-product-title.a-text-bold
                             = order.name
                         %span.a-size-base.sc-product-creator
@@ -31,9 +31,10 @@
                         %span.a-size-base.sc-product-creator{id: "price"}
                           = order.price
                     %li
-                      %span.a-list-item{id: "count"}
+                      %span.a-list-item
                         %span.a-size-small.a-color-secondary.sc-product-binding 注文個数　
-                        = order_quantity.quantity
+                        %span.a-size-small.a-color-secondary.sc-product-binding{id: "count"}
+                          = order_quantity.quantity
                   .a-row.sc-action-links
                     %span.a-size-small.sc-action-delete
                       %span.a-declarative
@@ -41,14 +42,14 @@
           .a-column.a-span2.a-text-left
             %p.a-spacing-small
               %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-product-price.sc-price-sign.a-text-bold ¥
-              %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-product-price.sc-price-sign.a-text-bold
+              %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-product-price.sc-price-sign.a-text-bold{id: "prices"}
                 = quantity 
           .a-column.a-span2.a-text-right.sc-action-links.a-span-last
             .a-row.a-spacing-base.sc-action-quantity.sc-action-quantity-right{"data-old-value" => "1"}
               .sc-invisible-when-no-js
-                = form_for(order, url: product_update_product_path(order.id)) do |f|
+                = form_for(order, url: product_update_product_path(order.id),remote: true) do |f|
                   = f.fields_for :order_products do |o|
                     = o.label :quantity, "数量" 
                     = o.select :quantity, [[1,1],[2,2],[3,3],[4,4],[5,5]]
                     = o.submit "変更"
-    %hr
+      %hr

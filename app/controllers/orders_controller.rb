@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 
   def update_product
     @order_product.update(quantity: params[:product][:order_products][:quantity].to_i)
-    redirect_to orders_path
+    render json: { status: 'success'}
      
   end
 
@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
   private
 
   def setup_order_product
+    current_order
     @order_product = current_order.order_products.find_by(product_id: params[:product_id])
 
      @order_products = current_order.order_products
