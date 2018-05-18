@@ -20,7 +20,7 @@
     %h4 クレジットカードの登録
     - if flash[:notice]
       = flash[:notice]
-    = form_tag("token",method:"post",datakey:"pk_test_ec9c64f2f699515034a1831b") do
+    = form_tag("token",method:"get",datakey:"pk_test_ec9c64f2f699515034a1831b") do
       %input{:maxlength => "16", :name => "number", :placeholder => "カード番号", :type => "text", class: "card-number"}/
       %br/
       %input{:maxlength => "3", :name => "cvc", :placeholder => "CVC", :type => "text", class: "cvc"}/

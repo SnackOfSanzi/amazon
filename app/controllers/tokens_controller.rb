@@ -13,16 +13,18 @@ class TokensController < ApplicationController
         :exp_year => params[:exp_year]
        }
      )
-    Token.create(token: token.id, user_id: 1)
-
+    Token.create(token: token.id, user_id: current_user.id)
 
     #Token.create(token: token.id)
   end
 
+  def index
+  end
+
 
   def pay
-    @user = User.find(params[:user_id]).id
-    @token = Token.find_by(user_id: @user).token
+     @tokens = Token.where(user_id: current_user.id)
+     @token = @tokens.last.token
     Payjp.api_key = 'sk_test_a70e02e9371f1e6ce85a0bb7'
     charge = Payjp::Charge.create(
         :amount => 3000,
@@ -32,7 +34,6 @@ class TokensController < ApplicationController
 
 
       flash[:notice] = "支払い完了"
-
   end
 
 
