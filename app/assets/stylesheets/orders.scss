@@ -143,21 +143,26 @@
 }
 
 .edit_product ,button {
-      border-top: 1px solid #ddd;
-    background-color: #f7f7f7;
-    background: #fbfbfb;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.05) inset;
-    padding: 14px;
     text-align: right;
-    margin-top: 10px;
-    button, input[type=button], input[type=reset], input[type=submit]{
-      border-color: #cba957 #bf942a #aa8326; 
-      background: #f0c14b; 
-      border-radius: 10px; 
-      width: 60px; 
-      background: #f4d078; 
-      background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b); 
-      background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
-      margin-top: 20px;
-    }
+      select{
+      position: relative;
+      left: 76px;
+      background: #e7e9ec;
+      border-radius: 3px;
+      border-color: #ADB1B8 #A2A6AC #8D9096;
+      width: 50px;
+      }
+        button, input[type=button], input[type=reset], input[type=submit]{
+          border-color: #cba957 #bf942a #aa8326; 
+          background: #f0c14b; 
+          border-radius: 10px; 
+          width: 60px; 
+          background: #f4d078; 
+          background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b); 
+          background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+          margin-top: 20px;
+          position: relative;
+            top: 20px;
+            left: 16px;
+        }
 }

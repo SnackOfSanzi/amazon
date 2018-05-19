@@ -35,7 +35,6 @@ class OrdersController < ApplicationController
   private
 
   def setup_order_product
-    current_order
     @order_product = current_order.order_products.find_by(product_id: params[:product_id])
 
      @order_products = current_order.order_products

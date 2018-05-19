@@ -55,15 +55,12 @@
                     .sc-proceed-to-checkout
                       %span#sc-buy-box-ptc-button.a-button.a-button-span12.a-button-primary
                         %span.a-button-inner
-                          %input.a-button-input{"aria-labelledby" => "sc-buy-box-ptc-button-announce", :name => "proceedToCheckout", :type => "submit", :value => "Proceed to checkout"}/
-                          %span#sc-buy-box-ptc-button-announce.a-button-text{"aria-hidden" => "true"}
-                            レジに進む
-                    / for sc-proceed-to-checkout
-                    .a-row.a-spacing-top-base.sc-one-click.a-text-center{"data-cart-is-1clickable" => "1", "data-cart-is-partially-1clickable" => "0"}
+                          %span#sc-buy-box-ptc-button-announce.a-button-text
+                            = link_to "レジに進む", tokens_path
                       .a-divider.a-divider-break.sc-one-click-divider
                         %h5 または
                       %span
-                        %a.a-link-normal{:href => "https://www.amazon.co.jp/gp/sign-in.html/ref=ox_sc_1_click_signin?ie=UTF8&path=%2Fgp%2Fcart%2Fenable-one-click.html&rememberMe=1&useRedirectOnSuccess=1"}
+                        %a.a-link-normal{:href => ""}
                           サインイン
                         して1-ClickをONにする
                 / for box

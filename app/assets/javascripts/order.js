@@ -1,5 +1,4 @@
 $(function(){
-  
   $('.button_to').on('click', function(e){
     $(this).closest('.sc-list-item-content').addClass('delete'); 
     
@@ -11,16 +10,20 @@ $(function(){
       var deleteTotalPrice = totalPrice - deletePrice;
       
 
-
         $('#total_price').text("¥ " + deleteTotalPrice);
         $('#sc-subtotal-amount-activecart').text("¥ " + deleteTotalPrice);
         $('#total_count').text("小計　(" + deleteTotalCount + "点)");
         $('#sc-subtotal-label-activecart').text("小計　(" + deleteTotalCount + "点)");
-    $('.delete').fadeOut();
-    $('.delete').remove();
-  });
 
-    $('.edit_product').submit('click', function(e){console.log(this)
+    $('.delete').fadeOut('fast').queue(function() {
+  $('.delete').remove();
+    });
+  });
+});
+
+
+$(function(){
+    $('.edit_product').submit('click', function(e){
       $(this).closest('.sc-list-item-content').addClass('change');
 
       var changeCount = $('#product_order_products_quantity','.change' ).val();
