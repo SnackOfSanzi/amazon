@@ -19,10 +19,10 @@ Rails.application.routes.draw do
    end
     resources :tokens, only: [:new ,:index] do
       collection do
-        get 'token'
+        post 'token'
         get 'pay'
       end
     end
 
-   
+
 end

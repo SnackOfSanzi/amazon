@@ -9,12 +9,11 @@ class ApplicationController < ActionController::Base
     if session[:order_id]
       @order = Order.find(session[:order_id])
     else
-      @order = Order.create
+      @order = Order.create(user_id: current_user.id)
       session[:order_id] = @order.id
-      
     end
   end
- 
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
@@ -29,3 +28,4 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+

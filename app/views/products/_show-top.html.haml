@@ -55,10 +55,8 @@
             %br/
             %input{:name => "Checkbox", :type => "checkbox", :value => "チェックボックス"}/
             %p.k この注文でお急ぎ便、お届け日時指定便を無料体験  Amazonプライム無料体験について
-          .cart-in
-            = f.submit  do
-              = fa_icon 'shopping-cart', class: "icon"
-              %p.l カートに入れる
+          = f.submit "カートに入れる" ,class: "cart-in" do
+            = fa_icon 'shopping-cart', class: "icon"
       .sign
         = link_to "1-Clickで注文する場合は、サインインをしてください。", "" ,class: "m"
       .adress
