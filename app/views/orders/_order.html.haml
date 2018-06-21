@@ -3,53 +3,51 @@
   - @order.zip(@quantity) do |order, quantity|
     .sc-list-item-content{id: "order_#{order.id}"}
       .a-row.a-spacing-base.a-spacing-top-base
-        - order.bookimages.each do |image|
-
+        - order.product.bookimages.each do |image|
           .a-column.a-span8
             .a-fixed-left-grid
               .a-fixed-left-grid-inner{:style => "padding-left:115px"}
                 .a-fixed-left-grid-col.a-float-lefts.a-col-left{:style => "width:115px;margin-left:-115px;float:left;"}
                   %a.a-link-normal.sc-product-link{:href => "/gp/product/4796687122/ref=ox_sc_act_image_1?smid=AN1VRQENFRJN5&psc=1"}
-                    %img.sc-product-image{:alt => "#{order.name}", :height => "100", :src => "#{image.image_url}", :width => "100"}/
+                    %img.sc-product-image{:alt => "#{order.product.name}", :height => "100", :src => "#{image.image_url}", :width => "100"}/
                 .a-fixed-left-grid-col.a-col-right{:style => "padding-left:0%;float:left;"}
-                - order.order_products.each do |order_quantity|
                   %ul.a-unordered-list.a-nostyle.a-vertical.a-spacing-mini
                     %li
                       %span.a-list-item
-                        %a.a-link-normal.sc-product-link{:href => "/products/#{order.id}"}
+                        %a.a-link-normal.sc-product-link{:href => "/products/#{order.product.id}"}
                           %span.a-size-medium.sc-product-title.a-text-bold
-                            = order.name
+                            = order.product.name
                         %span.a-size-base.sc-product-creator
-                          = order.name
+                          = order.product.name
                     %li
                       %span.a-list-item
                         %span.a-size-small.a-color-secondary.sc-product-binding
-                          = order.registrationinformation.determinetype
+                          = order.product.registrationinformation.determinetype
                     %li
                       %span.a-list-item
                         %span.a-size-base.sc-product-creator ¥
                         %span.a-size-base.sc-product-creator{id: "price"}
-                          = order.price
+                          = order.product.price
                     %li
                       %span.a-list-item
                         %span.a-size-small.a-color-secondary.sc-product-binding 注文個数　
                         %span.a-size-small.a-color-secondary.sc-product-binding{id: "count"}
-                          = order_quantity.quantity
+                          = order.quantity
                   .a-row.sc-action-links
                     %span.a-size-small.sc-action-delete
                       %span.a-declarative
-                      = button_to "削除" , product_delete_product_path(order.id), method: :delete, style: "border-color: #cba957 #bf942a #aa8326; background: #f0c14b; border-radius: 10px; width: 60px; background: #f4d078; background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b); background: linear-gradient(to bottom,#f7dfa5,#f0c14b);",remote: true
+                      = button_to "削除" , product_delete_product_path(order.product.id), method: :delete, style: "border-color: #cba957 #bf942a #aa8326; background: #f0c14b; border-radius: 10px; width: 60px; background: #f4d078; background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b); background: linear-gradient(to bottom,#f7dfa5,#f0c14b);",remote: true
           .a-column.a-span2.a-text-left
             %p.a-spacing-small
               %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-product-price.sc-price-sign.a-text-bold ¥
               %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-product-price.sc-price-sign.a-text-bold{id: "prices"}
-                = quantity 
+                = quantity
           .a-column.a-span2.a-text-right.sc-action-links.a-span-last
             .a-row.a-spacing-base.sc-action-quantity.sc-action-quantity-right{"data-old-value" => "1"}
               .sc-invisible-when-no-js
-                = form_for(order, url: product_update_product_path(order.id),remote: true) do |f|
+                = form_for(order.product, url: product_update_product_path(order.product.id),remote: true) do |f|
                   = f.fields_for :order_products do |o|
-                    = o.label :quantity, "数量" 
+                    = o.label :quantity, "数量"
                     = o.select :quantity, [[1,1],[2,2],[3,3],[4,4],[5,5]]
                     = o.submit "変更"
       %hr

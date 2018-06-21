@@ -1,31 +1,339 @@
-.credit-card-top
-  .credit-card-top__top
-    = link_to "アカウントサービス","",class: "service-link"
-    %p.service > お支払いオプションを管理
-  %p.credit-introduction こちらがお客様のAmazonアカウントに保存されているお支払い方法です。
 
-.credit-card-left
-  .li= link_to "1-Click設定の管理","", class: "setting-manage"
-  .li= link_to "Kindle の支払い設定を管理", "", class: "pay-manage"
-  .li= link_to "現在のご注文のお支払い方法を編集", "", class: "pay-edit"
-.credit-card-right
-  .credit-card-right__top
-    %p.rest-money 残高
-    .credit-card-right__top__gift
-      .credit-card-right__top__gift__money
-        %p.gift-ticket Amazon ギフト券
-        %p.gift-money ￥0
-      = link_to "ギフト券を購入" , "" , class: "gift-buy"
-  .credit-card-right__registration
-    %h4 クレジットカードの登録
-    - if flash[:notice]
-      = flash[:notice]
-    = form_tag("token",method:"get",datakey:"pk_test_ec9c64f2f699515034a1831b") do
-      %input{:maxlength => "16", :name => "number", :placeholder => "カード番号", :type => "text", class: "card-number"}/
-      %br/
-      %input{:maxlength => "3", :name => "cvc", :placeholder => "CVC", :type => "text", class: "cvc"}/
-      %br/
-      %input{:maxlength => "2", :name => "exp_month", :placeholder => "月", :type => "text"}/
-      %input{:maxlength => "4", :name => "exp_year", :placeholder => "西暦（４桁）", :type => "text"}/
-      %br/
-      %input{:type => "submit",:value => "登録", class: "card-submit"}/
+%head
+  %script{:async => "", :crossorigin => "anonymous", :src => "https://images-na.ssl-images-amazon.com/images/G/01/AUIClients/ClientSideMetricsAUIJavascript-db44052219d51870a1d71adc30a603e701be8b26._V2_.js"}
+
+    %title 支払い方法の選択
+    %script{:src => "https://images-fe.ssl-images-amazon.com/images/G/09/orderApplication/aui/jquery-164-20131028._CB354217497_.js", :type => "text/javascript"}
+
+    %link.aui-page-asset{:href => "https://images-fe.ssl-images-amazon.com/images/G/09/orderApplication/aui/aui-css-min-20150311._CB309495533_.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://images-fe.ssl-images-amazon.com/images/I/41vAVKewRtL._RC|61V+HUHzVLL.css_.css?AUIClients/CheckoutMultiPagePipeline#jp", :rel => "stylesheet"}/
+    %link{:href => "https://images-fe.ssl-images-amazon.com/images/I/21DKiuKAnTL.css?AUIClients/AmazonPopoversAUIShim#jp", :rel => "stylesheet"}/
+    %link{:href => "https://images-fe.ssl-images-amazon.com/images/I/41KPLPxsCfL.css?AUIClients/SDCXRetailAssets", :rel => "stylesheet"}/
+
+    %script{:async => "", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/orderApplication/aui/aui-a-min-20141021._CB319031706_.js", :type => "text/javascript"}
+    %script#outputFixerScript{"data-page" => "shipoptionselect", "data-pagetype" => "CheckoutShipOption", "data-url" => "/gp/buy/shipoptionselect/handlers/display.html", :type => "text/javascript"}
+
+    %script{:async => "", :src => "https://images-fe.ssl-images-amazon.com/images/I/41CoWGTxdlL.js?AUIClients/AmazonPopoversAUIShim#jp", :type => "text/javascript"}
+    %script{:async => "", :src => "https://images-fe.ssl-images-amazon.com/images/I/61CtNdzNwML.js?AUIClients/SDCXRetailAssets#jp", :type => "text/javascript"}
+    %script{:async => "", :src => "https://images-fe.ssl-images-amazon.com/images/I/21%2BSs5XPogL.js?AUIClients/PrimeCheckoutAssets", :type => "text/javascript"}
+    %script{:async => "", :src => "https://images-fe.ssl-images-amazon.com/images/I/01-05MXY8wL.js?AUIClients/PerformanceResourceTimingAssets#127327-T1", :type => "text/javascript"}
+  %iframe{:frameborder => "0", :src => "javascript:void(false)", :style => "display:none;position:absolute;z-index:0;filter:Alpha(Opacity='0');opacity:0;", :tabindex => "-1"}
+  %iframe{:frameborder => "0", :src => "javascript:void(false)", :style => "display:none;position:absolute;z-index:0;filter:Alpha(Opacity='0');opacity:0;", :tabindex => "-1"}
+  %iframe{:frameborder => "0", :src => "javascript:void(false)", :style => "display:none;position:absolute;z-index:0;filter:Alpha(Opacity='0');opacity:0;", :tabindex => "-1"}
+  .template.loading-spinner-spp{:style => "display:none"}
+    .loading-spinner-spp-blocker
+    .loading-spinner-spp-inner
+      %img.loading-spinner-spp-img{:src => "https://images-fe.ssl-images-amazon.com/images/G/09/amazonui/loading/loading-4x._CB398267895_.gif"}/
+  .template.loading-spinner{:style => "display:none"}
+    .loading-spinner-blocker
+    .loading-spinner-inner
+      %img#loading-spinner-img.loading-spinner-img{:src => "https://images-fe.ssl-images-amazon.com/images/G/09/amazonui/loading/loading-4x._CB398267895_.gif"}/
+  #loading-spinner-blocker-doc.loading-spinner-blocker{:style => "top: 0px; left: 0px; width: 1440px; height: 803px; z-index: 2000; display: none;"}
+  #spinner-anchor.spinner-anchor{:style => "top: 0px; left: 0px; width: 1440px; height: 803px; z-index: auto; display: none;"}
+  %input#isPipelinedPage{:type => "hidden", :value => "1"}/
+  / Indicates to the JS that this page is pipelined
+  %input{:name => "RCX_CHECKOUT_SPC_CONVERGE_15458", :type => "hidden", :value => "1"}/
+  #checkoutDisplayPage{"data-delay-set-title" => "", "data-use-mash-navigate-for-transitions" => "", "data-wipe-on-pipeline-back-transition" => ""}
+    .checkout.pay.desktop.pay-desktop
+      #nav-bar.a-container.a-text-left
+        #nav-inner
+          %img{:alt => "", "data-testid" => "", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/checkout/payselect/progressbar-payments._CB382284123_.gif"}/
+      .a-container
+        #rewards-register.pay-popover.pay-zIndex-normal
+        .a-row
+          #imb-wrapper
+          %div
+            %h1.a-spacing-base{"data-testid" => ""} お支払い方法を選択
+          #marketing.a-spacing-base{"data-testid" => ""}
+
+            #cbcc_banner.cbcc_box{:width => "100%"}
+              %span.cbcc_cboxTL
+                /  
+              %span.cbcc_cboxTR
+                /  
+              %span.cbcc_cboxR
+                /  
+              %span.cbcc_cboxBL
+                /  
+              %span.cbcc_cboxBR
+                /  
+              %span.cbcc_cboxB
+                /  
+              #cbcc_content_container
+                %table.cbcc_inner{:border => "0", :cellpadding => "0", :cellspacing => "0", :role => "presentation", :width => "100%"}
+                  %tbody
+                    %tr
+                      %td.cbcc_column
+                        .cbcc_align_center
+                          %img{:alt => "今すぐチェック", :src => "https://images-na.ssl-images-amazon.com/images/G/09/credit/img14/x-site/checkNow_sec_btn._CB348997091_.png"}/
+          .a-fixed-right-grid
+            .a-fixed-right-grid-inner
+              %form.checkout-page-form.a-declarative{:action => "/gp/buy/payselect/handlers/static-continue.html/ref=ox_pay_page_continue", "data-action" => "submit-payment-form", "data-max-prefetches" => "5", "data-prefetch-timeout" => "300", "data-trial-po-number" => "0", :method => "post"}
+                #hiddenFormFields.hidden
+                  %input{:name => "__mk_ja_JP", :type => "hidden", :value => "カタカナ"}/
+                #existing-payment-methods.existing-payment-methods-wrapper
+                  .a-box.a-spacing-base
+                    .a-box-inner
+                      #existing-credit-cards-box.a-spacing-base
+                        %input#suppressionMessageFixEnabledStatus{:name => "isSuppressionMessageFixEnabled", :type => "hidden", :value => ""}/
+                        .a-row.a-spacing-small
+                          .a-column.a-span7
+                            %strong.a-size-medium ご登録のクレジットカード
+                          .a-column.a-span3.a-color-secondary
+                            クレジットカード名義人
+                          .a-column.a-span2.a-span-last.a-text-right.a-color-secondary
+                            有効期限  
+                        .clearfix
+                        %hr.a-spacing-mini/
+                        .payment-row.two-cells.payment-selected{:hasderivedcurrency => "0", :haspreferredcurrency => "0", :isaddresschallenge => "", :ischecked => "1", :iscupcardexpired => "", :iscupcardexpiringsoon => "", :isnewcard => "", :issuingbankname => "", :isverifiedfail => "", :paymentmethodid => "0h_PJ_CUS_5432568f-da15-4548-bd43-c2dcc437f845", :paymentmethodtype => "creditCard", :validcvvlength => ""}
+                          .top-cell
+                            .a-row.data-row{"data-expmonth" => "7", "data-expyear" => "2019", "data-paymentmethodid" => "0h_PJ_CUS_5432568f-da15-4548-bd43-c2dcc437f845", "data-shouldvalidate" => "1"}
+                              .a-column.a-span7
+                                .radio-col.aok-float-left.spacing-right-small
+                                  %input#pm_0{:checked => "checked", "data-testid" => "", :name => "paymentMethod", :type => "radio", :value => "creditCard.0h_PJ_CUS_5432568f-da15-4548-bd43-c2dcc437f845"}/
+                                  %input#brandByPaymentMethod{:name => "brand.0h_PJ_CUS_5432568f-da15-4548-bd43-c2dcc437f845", :type => "hidden", :value => "0"}/
+                                  %input#brand{:name => "brand0", :type => "hidden", :value => "0"}/
+                                  %input#name{:name => "name0", :type => "hidden", :value => "toru tateyama"}/
+                                  %input#issuer{:name => "issuenumber0", :type => "hidden", :value => "V"}/
+                                  %input#issuingBankName{:name => "issuingBankName0h_PJ_CUS_5432568f-da15-4548-bd43-c2dcc437f845", :type => "hidden", :value => "Sumitomo Mitsui Card Company Limited"}/
+                                / end of radio col
+                                .aok-float-left.spacing-right-small
+                                  %img#credit-card-image{"data-testid" => "", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/checkout/payselect/card-logos-small/visa._CB196101479_.gif", :width => "34"}/
+                                .spacing-left-radio-logo
+                                  .card-info
+                                    %strong#credit-card-name{"data-testid" => ""}> Visa
+                                     
+                                    %span.a-color-secondary{"data-testid" => ""} 下4桁  6120
+                              / end of spanLeft
+                              .a-column.a-span3.name-col{"data-testid" => ""}
+                                toru tateyama
+                              .a-column.a-span2.a-span-last.a-text-right
+                                .expire-date
+                                  %div{"data-testid" => ""}
+                                    07/2019
+
+                          .bottom-cell
+                            .a-row
+                              .inner-grid-left.a-column.ie-span6.spacing-left-radio-logo.a-span12
+                              .inner-grid-right.a-column.a-span-last.hidden
+                            .flag-ac
+                          #globalCODData
+                            %input#isGlobalCODEligible{:type => "hidden", :value => "0"}/
+                      .a-spacing-large
+                #order-summary.a-fixed-right-grid-col.a-col-right.pay-right.order-summary-box-wrapper
+                  .order-summary-box
+                    #continue-error-popover.a-popover.a-width-medium.left.hidden.continue-button-errors
+                      .a-popover-wrapper
+                        .a-popover-inner
+                          %span#continue_BadVpaForUpi.error-message.hidden{:priority => "3"}
+                          %span#continue_BlankSlate.error-message.hidden{:priority => "5"} 次へ進むには、支払い情報の入力が必要です。
+                          %span#continue_EBTBalanceExceedsEligibleAmount.error-message.hidden{:priority => "6"}
+                          %span#continue_FlexiblePaymentsNeedsCreditCard.error-message.hidden{:priority => "1"} Amazonペイメントに加えて、クレジットカードを選択して使用してください。
+                          %span#continue_BankTemporarilyNotAvailable.error-message.hidden{:priority => "1"}
+                          %span#continue_BadRewardsMin.error-message.hidden{:priority => "7"} 適用可能なポイントは4円分以上です。4以上の数字を入力してください。
+                          %span#continue_BadRewardsValue.error-message.hidden{:priority => "6"} 金額を入力してください。
+                          %span#continue_EmptyPincode.error-message.hidden{:priority => "3"}
+                          %span#continue_jpPointsExceedsRedeemableAmount.error-message.hidden{:priority => "1"} ポイントが不足しています。適用可能な範囲内のポイント数を入力してください。
+                          %span#continue_BadEbtAmount.error-message.hidden{:priority => "6"}
+                          %span#continue_EBTBalanceNonNumeric.error-message.hidden{:priority => "6"}
+                          %span#continue_GilContinueError.error-message.hidden{:priority => "1"}
+                          %span#continue_BadCombinationCheckExistingBalance.error-message.hidden{:priority => "1"} You can not use a check in combination with a gift certificate. Please use a credit card or uncheck the gift certificate option below.
+                          %span#continue_AvailableBalanceDontCoverFullCost.error-message.hidden{:priority => "4"} お客様のギフトカードまたはプロモーションコードは、購入額の全額をカバーしません。別の支払いフォームに記入して継続してください。
+                          %span#continue_OTPforCOD.error-message.hidden{:priority => "5"}
+                          %span#continue_BadCombinationEbt.error-message.hidden{:priority => "1"}
+                          %span#continue_GilContinueErrorPromotions.error-message.hidden{:priority => "1"}
+                          %span#continue_GilCCContinueError.error-message.hidden{:priority => "1"}
+                          %span#continue_BadGCorPromoBalance.error-message.hidden{:priority => "3"}
+                            お客様のAmazonギフト券およびクーポンの残高は、現在
+                            %span{:datafield => "gcpromototal", :style => "position:static"}>
+                            です。ご注文の合計金額は、
+                            %span{:datafield => "purchasetotal", :style => "position:static"}>
+                            ですので、差額分のお支払い方法を選択してください。
+                          %span#continue_BadSecurityCode.error-message.hidden{:priority => "3"} 正しい CVV コードを入力してください。
+                          %span#continue_BadRewardsMax.error-message.hidden{:priority => "7"} ご注文の合計金額以上または利用可能なポイント残高以上の金額が入力されています。利用可能な範囲内の金額を入力してください。
+                          %span#continue_VerifiedFail.error-message.hidden{:priority => "1"}
+                          %span#continue_BadExpiration.error-message.hidden{:priority => "2"} 選択された支払い方法は有効期限切れです。有効期限日を更新するか、異なる支払い方法を選択してください。
+                          %span#continue_jpPointsExceedsTotalPurchase.error-message.hidden{:priority => "1"} 今回のご注文に適用可能なポイントを超えました。適用可能な範囲内のポイント数を入力してください。
+                          %span#continue_GilCCContinueErrorIneligibleItems.error-message.hidden{:priority => "2"}
+                          %span#continue_SelectCardCurrency.error-message.hidden{:priority => "8"} クレジットカードの通貨を選択してください。
+                          %span#continue_notEnoughJPPoints.error-message.hidden{:priority => "1"} お支払い額が不足しています。追加の支払い方法を選択してください。
+                          %span#continue_AddressChallenge.error-message.hidden{:priority => "1"} お客様のお支払い情報を再度入力してください。
+                          %span#continue_GilCCContinueErrorPromotions.error-message.hidden{:priority => "1"}
+                          %span#continue_EBTBalanceNonPositive.error-message.hidden{:priority => "6"}
+                          %span#continue_CUPExpired.error-message.hidden{:priority => "1"}
+                        .a-arrow-border
+                          .a-arrow
+                    #order-summary-container.visible-wide
+                      .a-box
+                        .a-box-inner.a-color-alternate-background.a-text-center
+                          .a-text-right.continue-buttons
+                            %div
+                              %span.a-button.a-button-primary.a-padding-none.a-button-span12
+                                %span.a-button-inner
+                                  %input#continue-top.a-button-text{"data-testid" => "", :tabindex => "0", :type => "submit", :value => "次に進む"}
+                                    次に進む
+                            %div
+                              %span.a-button.a-button-disabled.a-padding-none.aok-hidden.a-button-span12
+                                %span.a-button-inner
+                                  %input#continue-top-disabled.a-button-text{"data-testid" => "", :tabindex => "0", :type => "button", :value => "次に進む"}
+                                    次に進む
+                          %span.a-spacing-top-base (注文の最終確認ができます)
+                  #aan-ads-box.aan-ads-box{"data-adsclient" => "amazonexternal.jp", "data-adsendpoint" => "aan.amazon.co.jp", "data-useaannojq" => "1"}
+                %input{:name => "hasWorkingJavascript", :type => "hidden", :value => "1"}/
+              #new-payment-methods.a-fixed-right-grid.new-payment-methods-wrapper.a-padding-medium
+                %h2.a-spacing-base.new-payment-methods-header その他のお支払いオプション
+                .a-fixed-right-grid-inner
+                  .a-fixed-right-grid-col.a-col-left
+                    %a#new-cc-expander-anchor
+                    %hr.a-spacing-base/
+                    #wrapper-new-cc.a-row.new-payment-line.a-spacing-base{"data-hasstatus" => "0"}
+                      .a-row
+                        .a-column.a-span9
+                          %h3 クレジットカード
+                          .a-row.a-spacing-base
+                            以下のクレジットカードをご利用いただけます
+                        / end of a-span8
+                        .a-column.a-span3.a-span-last.a-text-right
+                          %img{"data-testid" => "", :src => "https://images-fe.ssl-images-amazon.com/images/G/09/checkout/payselect/pay-method-logos/credit-cards-beacon._CB533177435_.gif"}/
+                      .a-row
+                        %a.a-link-expander.a-declarative{"data-action" => "a-inline-expander", "data-expander-anchor" => "new-cc-expander-anchor", "data-expander-content" => "new-cc", "data-is-shown" => "false", "data-testid" => "", :href => "javascript:void(false)"}
+                          %i.a-icon.a-icon-expand.no-js-hide
+                          カードを追加
+                        .credit-card-right__registration
+                          %h4 クレジットカードの登録
+                          = form_tag("token",method:"POST", "data-key" => "pk_test_1bd65f74de4d0be46949ad88", :src => "https://checkout.pay.jp", :type => "text/javascript") do
+
+                            %input{:maxlength => "16", :name => "number", :placeholder => "カード番号", :type => "text", class: "card-number"}/
+                            %br/
+                            %input{:maxlength => "3", :name => "cvc", :placeholder => "CVC", :type => "text", class: "cvc"}/
+                            %br/
+                            %input{:maxlength => "2", :name => "exp_month", :placeholder => "月", :type => "text"}/
+                            %input{:maxlength => "4", :name => "exp_year", :placeholder => "西暦（４桁）", :type => "text"}/
+                            %br/
+                            %input{:type => "submit",:value => "登録", class: "card-submit"}/
+                            :javascript
+                              (function() {
+                                var form = $("charge-form"),
+                                    number = form.find('input[name="number"]'),
+                                    cvc = form.find('input[name="cvc"]'),
+                                    exp_month = form.find('select[name="exp_month"]'),
+                                    exp_year = form.find('input[name="exp_year"]');
+
+                                $("#charge-form").submit(function() {
+                                  form.find("input[type=submit]").prop("disabled", true);
+
+                                  var card = {
+                                      number: number.value,
+                                      cvc: cvc.value,
+                                      exp_month: exp_month.value,
+                                      exp_year: exp_year.value
+                                  };
+                                  Payjp.createToken(card, function(s, response) {
+                                    if (response.error) {
+                                      form.find('.payment-errors').text(response.error.message);
+                                      form.find('button').prop('disabled', false);
+                                    }
+                                    else {
+                                      $(".number").removeAttr("name");
+                                      $(".cvc").removeAttr("name");
+                                      $(".exp_month").removeAttr("name");
+                                      $(".exp_year").removeAttr("name");
+
+                                      var token = response.id;
+
+                                      form.append($('<input type="hidden" name="payjpToken" />').val(token));
+                                      form.get(0).submit();
+                                    }
+                                  });
+                                });
+                              })();
+                            .a-row
+                              .a-column.a-span10
+                                #newCCErrors.a-box.a-alert.a-alert-error.a-spacing-top-small.a-spacing-base.hidden
+                                  .a-box-inner
+                                    %i.a-icon.a-icon-alert
+                                    %h4 問題が発生しました
+                                    %ul
+                                      %li#addCreditCard_BadType.error-message.hidden
+                                        クレジットカード番号とカードの種類が一致しませんでした。クレジットカードの番号を確認し、ドロップダウンメニューから正しいカードの種類を選択してください。
+                                      %li#addCreditCard_NoType.error-message.hidden
+                                        クレジットカードの種類を選択してください
+                                      %li#addCreditCard_NoName.error-message.hidden
+                                        クレジットカードの名義人が入力されていないか、正しく入力されていません。名義人は、半角英数字でカードに記載されているとおりに入力してください
+                                      %li#addCreditCard_BadIssueNumber.error-message.hidden
+                                      %li#addCreditCard_RegisterFailed.error-message.hidden
+                                      %li#addCreditCard_SBIMaestro_BadNumberLength.error-message.hidden
+                                      %li#addCreditCard_BadNumber.error-message.hidden
+                                        カード番号が正しくありません
+                                      %li#addCreditCard_BadPincode.error-message.hidden
+                                      %li#addCreditCard_BadNumberLength.error-message.hidden
+                                        クレジットカード番号を全桁入力してください
+                                      %li#addCreditCard_CupDebitEntered.error-message.hidden
+                                      %li#addCreditCard_BadExpiration.error-message.hidden
+                                        クレジットカードの有効期限をご確認のうえ、入力し直してください
+                                      %li#addCreditCard_BadSecurityCode.error-message.hidden
+                                        有効なカード確認番号を入力してください。
+                                      %li#addCreditCard_IssuerUnsupported.error-message.hidden
+                                        申し訳ありませんが、入力されたクレジットカードの発行元はサポートされていません。
+                                      %li#addCreditCard_NoNumber.error-message.hidden
+                                        クレジットカード番号が入力されていません。以下の欄にカード番号全けたを入力してください
+                                      %li#addCreditCard_CheckStatusTimeout.error-message.hidden
+                                      %li#addCreditCard_Unknown.error-message.hidden
+                                        申し訳ありませんが、お客様のクレジットカード情報を保存できませんでした。もう一度入力いただくか、別の支払い方法を選択してください
+                                      %li#addCreditCard_MarketPlaceFilter.error-message.hidden
+                                        現在の国で、カードを使用することができませんでした。
+                                      %li#addCreditCard_BadMobileNumber.error-message.hidden
+                                      %li#addCreditCard_BadStartDate.error-message.hidden
+                                        あなたの  Switch、Solo または Maestro カードの開始日は、現在の日付以前で、過去３年以内にある必要があります。
+                      .a-row
+                        .field-span.card-type-field.hidden
+                          %label{:for => "ccType"} クレジットカードの種類を選択
+                          %span.a-dropdown-container.card-type-dropdown
+                            %select#ccType.a-native-dropdown.native-dropdown{:name => "cctype"}
+                              %option{:value => ""} クレジットカードの種類を選択
+                              %option{:value => "M0"} MasterCard
+                              %option{:value => "I0"} ダイナースクラブ
+                              %option{:value => "A0"} American Express
+                              %option{:value => "V0"} Visa
+                              %option{:value => "J0"} JCB
+                            %span.a-button.a-button-dropdown{:tabindex => "-1"}
+                              %span.a-button-inner
+                                %button.a-button-text.a-declarative{"aria-haspopup" => "true", "aria-owns" => "9_dropdown_combobox", "aria-pressed" => "false", "data-action" => "a-dropdown-button", "data-testid" => "", :role => "button", :type => "button"}
+                                  %span.a-dropdown-prompt クレジットカードの種類を選択
+                                %i.a-icon.a-icon-dropdown
+                    .a-section.pmts-widget-section.pmts-portal-root-TkZVKaYFUPKi.pmts-portal-component.pmts-portal-components-pp-n4-1{"data-pmts-component-id" => "pp-n4-1"}
+                      #pp-n4-4.a-section.a-spacing-none.pmts-loading-async-widget-spinner-overlay.a-hidden.aok-hidden.pmts-portal-component.pmts-portal-components-pp-n4-3{"data-pmts-component-id" => "pp-n4-3"}
+                        %img.pmts-loading-async-widget-spinner-centered{:alt => "", :src => "https://images-fe.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4x._CB338200758_.gif"}/
+                      .a-section.a-spacing-base
+                        %hr.a-divider-normal/
+                        .a-row.a-expander-container.a-spacing-base.a-expander-inline-container.add-instrument-form-expander.pmts-portal-component.pmts-portal-components-pp-n4-2{"aria-live" => "polite", "data-pmts-component-id" => "pp-n4-2"}
+                          .a-fixed-right-grid
+                            .a-fixed-right-grid-inner{:style => "padding-right:45px"}
+                              .a-fixed-right-grid-col.a-col-left{:style => "padding-right:2%;float:left;"}
+              #order-summary-bottom.order-summary-box-wrapper.order-summary-box-wrapper-bottom.hidden{:style => "display: block;"}
+                #order-summary-container-bottom.visible-wide
+                  .a-box
+                    .a-box-inner.a-color-alternate-background.a-text-center
+                      .a-spacing-base.continue-buttons
+                        %div
+                          %span.a-button.a-button-primary.a-padding-none.a-button-span12
+                            %span.a-button-inner
+                              %input#continue-bottom.a-button-text{"data-testid" => "", :tabindex => "0", :type => "submit", :value => "次に進む"}
+                                次に進む
+                        %div
+                          %span.a-button.a-button-disabled.a-padding-none.aok-hidden.a-button-span12
+                            %span.a-button-inner
+                              %input#continue-bottom-disabled.a-button-text{"data-testid" => "", :tabindex => "0", :type => "button", :value => "次に進む"}/
+                      %p (注文の最終確認ができます)
+        #a-footer.a-divider.a-divider-section
+          .a-divider.a-divider-section
+            .a-divider-inner
+          %p.a-size-small.a-text-center{"data-testid" => ""}
+            ご不明な点は
+            %a{:href => "/gp/help/contact-us/general-questions.html/ref=ox_pay_page_contact_us?ie=UTF8&nodeId=", :target => "AmazonHelp"}> カスタマーサービス
+            までお問い合わせください。
+          %p.a-size-small.a-text-center{"data-testid" => ""}
+            %a{:href => "/gp/help/customer/display.html/ref=ox_pay_page_condition_of_use?ie=UTF8&nodeId=643006", :target => "AmazonHelp"}> 利用規約
+            |
+            %a{:href => "/gp/help/customer/display.html/ref=ox_pay_page_privacy?ie=UTF8&nodeId=643000", :target => "AmazonHelp"}> プライバシー規約
+            ©1996-2018, Amazon.com, Inc.

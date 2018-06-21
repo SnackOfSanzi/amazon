@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @image = @product.bookimages
     @registration = @product.registrationinformation
     @order = Order.new
+    @user = current_user.id
   end
 
   def update

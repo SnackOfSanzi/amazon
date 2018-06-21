@@ -87,11 +87,18 @@
                 %span.nav-line-2
                   プライム
                   %span.nav-icon.nav-arrow
-              = link_to(orders_path, class: "nav-a nav-a-2") do
-                %span.nav-line-1
-                %span.nav-line-2
-                  カート
-                  %span.nav-icon.nav-arrow
+              - if user_signed_in?
+                = link_to(orders_path, class: "nav-a nav-a-2") do
+                  %span.nav-line-1
+                  %span.nav-line-2
+                    カート
+                    %span.nav-icon.nav-arrow
+              - else
+                = link_to(new_user_session_path, class: "nav-a nav-a-2") do
+                  %span.nav-line-1
+                  %span.nav-line-2
+                    カート
+                    %span.nav-icon.nav-arrow
           .nav-fill
             .nav-shop
               = link_to("/parent_categories",class: "nav-a nav-a-2") do

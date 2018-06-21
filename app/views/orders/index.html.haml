@@ -35,7 +35,7 @@
                       %p.a-spacing-none.a-spacing-top-none
                         %span.a-size-medium.a-text-bold
                           %span{id: "total_count"}
-                            小計 (#{@total_count}点):
+                            合計 (#{@total_count}点):
                           %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-price-sign{id: "total_price"} ￥ #{@total_price}
                       / for paragraph
                       %p.a-spacing-none.a-spacing-top-small
@@ -56,7 +56,7 @@
                       %span#sc-buy-box-ptc-button.a-button.a-button-span12.a-button-primary
                         %span.a-button-inner
                           %span#sc-buy-box-ptc-button-announce.a-button-text
-                            = link_to "レジに進む", tokens_path
+                            = link_to "レジに進む", " /tokens/new"
                       .a-divider.a-divider-break.sc-one-click-divider
                         %h5 または
                       %span
@@ -199,7 +199,7 @@
           #cart-switch-language
           #cart-important-message-box
           #sc-new-upsell.a-row.sc-hidden{:style => "display: block;"}
-            
+
             #cbcc_banner.cbcc_box{:width => "100%"}
               %span.cbcc_cboxTL
                 /  
@@ -223,7 +223,7 @@
                       %td.cbcc_column
                         .cbcc_align_left.cbcc_customer_name_text
                           %strong
-                            %span{:style => "color: #044E93"} 館山徹さん、アメリカン・エキスプレス®・ゴールド・カード新規ご入会者様限定キャンペーン
+                            %span{:style => "color: #044E93"} "#{current_user.name}"さん、アメリカン・エキスプレス®・ゴールド・カード新規ご入会者様限定キャンペーン
                           %br/
                           %strong
                             %span.toplinered Amazonギフト券15,000円プレゼント
@@ -259,7 +259,7 @@
                 .sc-list-item-removed-msg.a-padding-medium{:style => ""}
                   %div{"data-action" => "delete", :style => ""}
                     %span.a-size-base
-                      %a.a-link-normal.sc-product-link{:href => "/gp/product/4344984838/ref=ox_sc_saved_title_1?ie=UTF8&psc=1&smid=AN1VRQENFRJN5"}
+                      %a.a-link-normal.sc-product-link{:href => ""}
                       %input#pageDirty{:name => "", :type => "hidden", :value => "true"}/
                     .a-row
                       .a-column.a-span8
@@ -268,7 +268,7 @@
                       .a-column.a-span2.a-text-right.a-spacing-top-micro.a-span-last
                         %span.a-color-secondary 数量
                     %hr
-                      = render 'order', order: @order, quantity: @quantity 
+                      = render 'order', order: @order, quantity: @quantity
                 .sc-subtotal.a-text-right.a-float-right.sc-java-remote-feature{"data-name" => "Active Items Subtotals"}
                   %p.a-spacing-none.a-spacing-top-mini
                     %span#sc-subtotal-label-activecart.a-size-medium.a-text-bold

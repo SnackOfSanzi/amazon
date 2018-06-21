@@ -4,7 +4,7 @@ class TokensController < ApplicationController
   end
 
   def token
-    Payjp.api_key = 'sk_test_a70e02e9371f1e6ce85a0bb7'
+    Payjp.api_key = 'pk_test_1bd65f74de4d0be46949ad88'
     token = Payjp::Token.create(
       :card => {
         :number => params[:number],
@@ -15,7 +15,7 @@ class TokensController < ApplicationController
      )
     Token.create(token: token.id, user_id: current_user.id)
 
-    #Token.create(token: token.id)
+
   end
 
   def index
@@ -23,15 +23,27 @@ class TokensController < ApplicationController
 
 
   def pay
-     @tokens = Token.where(user_id: current_user.id)
-     @token = @tokens.last.token
-    Payjp.api_key = 'sk_test_a70e02e9371f1e6ce85a0bb7'
+      @tokens = Token.where(user_id: current_user.id)
+      @token = @tokens.last.token
+      @current = current_user.orders.last
+      @order_products = @current.order_products
+      @quantity = []
+      @order_products.each do |order|
+        @quantity << order.product.price * order.quantity
+      end
+
+      sub = 0
+      @quantity.each do |quantity|
+        @total_price = sub += quantity
+      end
+
+    Payjp.api_key = 'sk_test_f6fb174ceb7bc83bab497a79'
     charge = Payjp::Charge.create(
-        :amount => 3000,
+        :amount => @total_price,
         :card => @token,
         :currency => 'jpy',
       )
-
+      @order_products.delete_all
 
       flash[:notice] = "支払い完了"
   end
