@@ -1,0 +1,19 @@
+.sc-list-body.sc-java-remote-feature{"data-name" => "Active Items"}
+  %hr
+    .a-carousel-viewport{:style => "margin-top: 15px;"}
+      %ol.a-carousel
+      - @like.each do |like|
+        %li.a-carousel-card.acswidget-carousel__card{"aria-setsize" => "20", :style => "max-width:230px;"}
+          - like.product.bookimages.each do |image|
+            = link_to image_tag(image.image_url, style: " height: 140px; width: 110px;"),"/products/#{like.product.id}",:target => "_blank"
+          .a-box-group.a-spacing-top-micro.acs_product-title
+            = link_to "#{like.product.name}","/products/#{like.product.id}",:target => "_blank"
+            .a-row.a-color-secondary
+            = like.product.registrationinformation.determinetype
+            .a-box-group.a-size-small.a-spacing-none.acs_product-price
+              %span.a-size-base.a-color-price ¥
+              %span.a-size-base.a-color-price
+                = like.product.price
+              %i.a-icon.a-icon-jp.a-icon-prime-jp{"aria-label" => "Prime JP"}
+                %span.a-icon-alt Prime JP
+  %hr

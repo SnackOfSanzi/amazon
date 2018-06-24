@@ -27,42 +27,7 @@
                               %a{:href => ""} 詳細
                             %p
                               %span.a-color-secondary
-                    / EndOfMS3Content
-                / for box
-                .a-box.a-color-alternate-background
-                  .a-box-inner
-                    .sc-subtotal.a-spacing-mini
-                      %p.a-spacing-none.a-spacing-top-none
-                        %span.a-size-medium.a-text-bold
-                          %span{id: "total_count"}
-                            合計 (#{@total_count}点):
-                          %span.a-size-medium.a-color-price.sc-price.sc-white-space-nowrap.sc-price-sign{id: "total_price"} ￥ #{@total_price}
-                      / for paragraph
-                      %p.a-spacing-none.a-spacing-top-small
-                        %span.a-size-base
-                          この注文での獲得ポイント:
-                          %span.a-color-price
-                            29pt
-                      / for paragraph
-                    .sc-gift.a-spacing-base
-                      .a-checkbox{"data-a-input-name" => "isToBeGiftWrapped"}
-                        %label{:for => "sc-buy-box-gift-checkbox"}
-                          %input#sc-buy-box-gift-checkbox{:name => "isToBeGiftWrapped", :type => "checkbox", :value => "1"}/
-                          %i.a-icon.a-icon-checkbox
-                          %span.a-label.a-checkbox-label
-                            %b ギフトの設定（贈り主名の表示に必要です）
-                      %input{:name => "isToBeGiftWrappedBefore", :type => "hidden"}/
-                    .sc-proceed-to-checkout
-                      %span#sc-buy-box-ptc-button.a-button.a-button-span12.a-button-primary
-                        %span.a-button-inner
-                          %span#sc-buy-box-ptc-button-announce.a-button-text
-                            = link_to "レジに進む", " /tokens/new"
-                      .a-divider.a-divider-break.sc-one-click-divider
-                        %h5 または
-                      %span
-                        %a.a-link-normal{:href => ""}
-                          サインイン
-                        して1-ClickをONにする
+                    / EndOfMS3Cont
                 / for box
               / for box group
               %input{:name => "cartInitiateId", :type => "hidden", :value => "1526225265866"}/
@@ -236,17 +201,7 @@
           #sc-active-cart.a-section.a-spacing-top-base.sc-list.sc-java-remote-feature{"data-name" => "Active Cart"}
             %a{:href => "#", :name => "sc-anchor-active-cart"}
             .a-row.sc-cart-header
-              %h1 お客様のショッピングカート一覧
-              %p
-                ショッピングカートでは商品を自由に出し入れできます。また、カートに入れた商品を「あとで買う」に移動したり、ほしい物リストに登録したりすることも可能です。
-                %br/
-                ショッピングを続けるには
-                %a.a-link-normal{:href => "/gp/homepage.html/ref=ord_cart_empty"}> Amazon.co.jp トップ
-                へどうぞ。そのほか
-                %a.a-link-normal{:href => "/gp/goldbox/ref=ord_cart_empty"}> 本日のタイムセール
-                や
-                %a.a-link-normal{:href => "/gp/registry/wishlist/ref=ord_cart_empty"}> ほしい物リスト
-                もご確認いただけます。
+              %h1 お客様のお気に入り一覧
           #sc-checkout-prefetch.a-row.a-hidden{"data-assetsprefetchurl" => "/gp/buy/prefetch/pipeline-assets.html", "data-prefetchurl" => "/gp/cart/checkout-prefetch.html?ie=UTF8&checkAuthentication=1&checkDefaults=1", "data-prefetchurlforauthcheck" => "/gp/remotepagelet/signin/checkout-perf-initiate-and-store.html"}
           #sc-saved-cart.a-section.sc-list{"data-has-more-items" => "", "data-listfeature" => "desktop/saved-cart", "data-listid" => "saved-for-later", "data-listtype" => "saved-for-later", "data-page" => "1"}
             %a{:href => "#", :name => "sc-anchor-saved-cart"}
@@ -264,22 +219,8 @@
                     .a-row
                       .a-column.a-span8
                       .a-column.a-span2.a-text-left.a-spacing-top-micro
-                        %span.a-color-secondary 小計
-                      .a-column.a-span2.a-text-right.a-spacing-top-micro.a-span-last
-                        %span.a-color-secondary 数量
                     %hr
-                    - if @order_products
-                      = render 'order'
-                .sc-subtotal.a-text-right.a-float-right.sc-java-remote-feature{"data-name" => "Active Items Subtotals"}
-                  %p.a-spacing-none.a-spacing-top-mini
-                    %span#sc-subtotal-label-activecart.a-size-medium.a-text-bold
-                      合計 (#{@total_count}点):
-                    %span#sc-subtotal-amount-activecart.a-size-medium.a-text-bold.a-color-price.sc-price.sc-white-space-nowrap.sc-price-sign￥ #{@total_price}
-                  %p.a-spacing-none.a-spacing-top-medium.a-text-right
-                    %span#sc-subtotal-points-activecart.a-size-base
-                      この注文での獲得ポイント:
-                      %span.a-color-price
-                        22pt
+                      = render 'like_index', product: @product
         #sc-about.a-row.a-size-small
           #cart-about-cart-warning.a-row
             %p Amazon.co.jp での商品価格や在庫状況は変更される場合があります。カートに追加した時と在庫状況や価格が異なることがあります。カート内で表示されている価格は最新の価格となります。

@@ -1,0 +1,22 @@
+.like-boxs{id: "like-link-#{product.id}"}
+  - if user_signed_in?
+    - if product.like_user(current_user.id)
+      = button_to product_like_path(id: product.id, product_id: product.id), method: :delete, id: "like-button", remote: true do
+        .icon{id: "heart-#{product.id}"}
+          = image_tag("icon_red_heart.svg")
+          %span
+            = "LIKE"
+            = product.likes.count
+    - else
+      = button_to product_likes_path(product),method: :post,id: "like-button", remote: true do
+        .icon{id: "heart-#{product.id}"}
+          = image_tag("icon_heart.svg")
+          %span
+            = "LIKE"
+            = product.likes.count
+  - else
+    = button_to new_user_session_path, id: "like-button" do
+      .icon
+        = image_tag("github.svg")
+        %span
+          = "SIGN IN"
