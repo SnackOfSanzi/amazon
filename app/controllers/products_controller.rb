@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
     @registration = @product.registrationinformation
     @order = Order.new
     @user = current_user.id
+    @like = Like.new
   end
 
   def update

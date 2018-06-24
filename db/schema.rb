@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521082450) do
+ActiveRecord::Schema.define(version: 20180624074949) do
 
   create_table "bookimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20180521082450) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["product_id"], name: "index_bookimages_on_product_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "order_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180521082450) do
     t.integer  "stock"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "likes_count"
     t.index ["name"], name: "index_products_on_name", using: :btree
   end
 
@@ -87,6 +97,8 @@ ActiveRecord::Schema.define(version: 20180521082450) do
   end
 
   add_foreign_key "bookimages", "products"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users"

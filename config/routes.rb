@@ -7,8 +7,12 @@ Rails.application.routes.draw do
    resources :parent_categories, only: [:index]
    resources :book_genres, only: [:index, :show]
    resources :reviews, only: [:new]
+   resources :users, only: [:edit, :update] do
+    resources :likes, only: [:index]
+  end
    resources :products, only: [:index, :show, :update] do
      resources :orders, only: [:show]
+     resources :likes, only: [:create, :destroy]
 
       post '/add_product' => 'orders#add_product'
       patch '/update_product' => 'orders#update_product'

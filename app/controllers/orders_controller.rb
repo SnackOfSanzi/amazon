@@ -2,11 +2,12 @@ class OrdersController < ApplicationController
     before_action :setup_order_product, only: [:add_product, :update_product, :delete_product]
 
     def index
-
+      if current_user.orders.last != nil
       @current = current_user.orders.last
-       @order_products = @current.order_products
+      @order_products = @current.order_products
       @quantity = []
       @order = []
+
       num = 0
         @order_products.each do |order|
           @order << order
@@ -20,7 +21,7 @@ class OrdersController < ApplicationController
           @total_price = sub += quantity
         end
 
-
+      end
     end
 
   def show

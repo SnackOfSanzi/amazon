@@ -113,6 +113,8 @@
                 = link_to "ギフト券", "", class: "nav-b"
                 = link_to "Amazonで売る", "", class: "nav-b"
                 = link_to "ヘルプ", "", class: "nav-b"
+                -if user_signed_in?
+                  = link_to "お気に入り", user_likes_path(current_user.id),class: "nav-b"
               .nav-supra
                 = link_to "Amazonポイント", "", class: "nav-b"
                 %span.nav-span :
